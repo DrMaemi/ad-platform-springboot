@@ -10,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -33,6 +34,12 @@ public class ProductService {
         Optional<ProductEntity> productEntityWrapper = productRepository.findById(id);
         ProductEntity productEntity = productEntityWrapper.get();
         return productEntity.toDto();
+    }
+
+    @Transactional
+    public List<ProductDto> addProducts(List<ProductDto> productDtos) {
+        List<ProductEntity> resEntities = productRepository.saveAll(productDtos.stream().map(productDto -> productDto.toEntity()).collect(Collectors.toList()));
+        return resEntities.stream().map(resEntity -> resEntity.toDto()).collect(Collectors.toList());
     }
 
     @Transactional

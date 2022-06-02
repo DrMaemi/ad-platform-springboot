@@ -3,6 +3,8 @@ package com.ssg.backendpreassignment.dto;
 import com.ssg.backendpreassignment.entity.ProductEntity;
 import lombok.*;
 
+import java.time.LocalDateTime;
+
 @Getter
 @Setter
 @ToString
@@ -13,14 +15,18 @@ public class ProductDto {
     private String productName;
     private Long price;
     private Long stock;
+    private LocalDateTime createdDate;
+    private LocalDateTime lastModifiedDate;
 
     @Builder
-    public ProductDto(Long id, String companyName, String productName, Long price, Long stock) {
+    public ProductDto(Long id, String companyName, String productName, Long price, Long stock, LocalDateTime createdDate, LocalDateTime lastModifiedDate) {
         this.id = id;
         this.companyName = companyName;
         this.productName = productName;
         this.price = price;
         this.stock = stock;
+        this.createdDate = createdDate;
+        this.lastModifiedDate = lastModifiedDate;
     }
 
     public ProductEntity toEntity() {

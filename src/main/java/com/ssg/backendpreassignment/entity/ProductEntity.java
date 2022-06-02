@@ -10,7 +10,7 @@ import javax.persistence.*;
 @NoArgsConstructor(access= AccessLevel.PROTECTED)
 @Entity
 @Table(name="PRODUCT")
-public class ProductEntity {
+public class ProductEntity extends TimeEntity {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Long id;
@@ -43,6 +43,8 @@ public class ProductEntity {
                 .productName(this.getProductName())
                 .price(this.getPrice())
                 .stock(this.getStock())
+                .createdDate(this.getCreatedDate())
+                .lastModifiedDate(this.getLastModifiedDate())
                 .build();
     }
 }

@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
 @AllArgsConstructor
 public class ProductRestController {
@@ -18,6 +20,17 @@ public class ProductRestController {
     @GetMapping("/")
     public String index() {
         return "/index";
+    }
+
+    @PostMapping("/api/products")
+    public RestResponse<?> addProducts(@RequestBody List<ProductDto> productDtos) {
+        System.out.println(productDtos);
+        List<ProductDto> resDtos = productService.addProducts(productDtos);
+
+        return RestResponse.builder()
+                .status(HttpStatus.OK)
+                .result(resDtos)
+                .build();
     }
 
     @PostMapping("/api/product")

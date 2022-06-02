@@ -3,8 +3,7 @@ package com.ssg.backendpreassignment.dto;
 import com.ssg.backendpreassignment.entity.ProductEntity;
 import lombok.*;
 
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.*;
 import java.time.LocalDateTime;
 
 @Getter
@@ -21,9 +20,11 @@ public class ProductDto {
     private String productName;
 
     @NotNull(message="상품 가격이 비어있습니다.")
+    @PositiveOrZero(message="상품 가격은 0 이상의 값으로 입력해주세요.")
     private Long price;
 
     @NotNull(message="상품 수량이 비어있습니다.")
+    @PositiveOrZero(message="상품 수량은 0 이상의 값으로 입력해주세요.")
     private Long stock;
     private LocalDateTime createdDate;
     private LocalDateTime lastModifiedDate;

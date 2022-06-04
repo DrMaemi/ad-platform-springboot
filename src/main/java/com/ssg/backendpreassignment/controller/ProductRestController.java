@@ -1,11 +1,12 @@
 package com.ssg.backendpreassignment.controller;
 
 import com.ssg.backendpreassignment.config.response.RestResponse;
-import com.ssg.backendpreassignment.config.validator.CustomValidator;
+import com.ssg.backendpreassignment.config.validator.DtoListValidator;
+import com.ssg.backendpreassignment.dto.CompanyDto;
 import com.ssg.backendpreassignment.dto.ProductDto;
+import com.ssg.backendpreassignment.service.CompanyService;
 import com.ssg.backendpreassignment.service.ProductService;
 import lombok.RequiredArgsConstructor;
-import org.hibernate.TypeMismatchException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
@@ -22,16 +23,22 @@ import java.util.Map;
 @RequiredArgsConstructor
 public class ProductRestController {
     private final ProductService productService;
-    private final CustomValidator customValidator;
+    private final CompanyService companyService;
+    private final DtoListValidator dtoListValidator;
 
-    @GetMapping("/")
-    public String index() {
-        return "/index";
+    @GetMapping("/api/products")
+    public ResponseEntity<?> getProducts() {
+        return new ResponseEntity<RestResponse>(RestResponse.builder()
+                .status(HttpStatus.OK)
+                .code(HttpStatus.OK.value())
+                .result(productService.getProducts())
+                .build(), HttpStatus.OK);
     }
 
+    // 상품 정보 등록 (N개 레코드)
     @PostMapping("/api/products")
     public ResponseEntity<?> addProducts(@RequestBody List<ProductDto> productDtos, Errors errors) {
-        customValidator.validate(productDtos, errors);
+        dtoListValidator.validate(productDtos, errors);
 
         if (errors.hasErrors()) {
             Map<String, String> validatorResult = this.validateHandling(errors);
@@ -43,23 +50,22 @@ public class ProductRestController {
                     .build(), HttpStatus.BAD_REQUEST);
         }
 
-        List<ProductDto> resDtos = productService.addProducts(productDtos);
+        for (ProductDto productDto: productDtos) {
+            String companyName = productDto.getCompanyDto().getName();
+            CompanyDto companyDto = companyService.findOrCreateByCompanyName(companyName);
+            companyService.addProduct(companyDto.getId(), productDto);
+        }
 
         return new ResponseEntity<RestResponse>(RestResponse.builder()
                 .status(HttpStatus.OK)
                 .code(HttpStatus.OK.value())
-                .result(resDtos)
                 .build(), HttpStatus.OK);
 
     }
 
+    // 상품 정보 등록 (1개 레코드)
     @PostMapping("/api/product")
     public ResponseEntity<?> addProduct(@RequestBody @Valid ProductDto productDto, BindingResult bindingResult, Errors errors) {
-        System.out.println("in ProductRestController.addProduct(),");
-        System.out.println("productDto: "+productDto);
-        System.out.println("bindingResult: "+bindingResult);
-        System.out.println("errors: "+errors);
-
         if (errors.hasErrors()) {
             Map<String, String> validatorResult = this.validateHandling(errors);
 
@@ -70,12 +76,23 @@ public class ProductRestController {
                     .build(), HttpStatus.BAD_REQUEST);
         }
 
-        ProductDto resDto = productService.addProduct(productDto);
+        String companyName = productDto.getCompanyDto().getName();
+        CompanyDto companyDto = companyService.findOrCreateByCompanyName(companyName);
+        companyService.addProduct(companyDto.getId(), productDto);
 
         return new ResponseEntity<RestResponse>(RestResponse.builder()
-                .status(HttpStatus.OK)
                 .code(HttpStatus.OK.value())
-                .result(resDto)
+                .status(HttpStatus.OK)
+                .build(), HttpStatus.OK);
+    }
+
+    @DeleteMapping("/api/product/{id}")
+    public ResponseEntity<?> deleteProduct(@PathVariable Long id) {
+        productService.deleteProduct(id);
+
+        return new ResponseEntity<RestResponse>(RestResponse.builder()
+                .code(HttpStatus.OK.value())
+                .status(HttpStatus.OK)
                 .build(), HttpStatus.OK);
     }
 

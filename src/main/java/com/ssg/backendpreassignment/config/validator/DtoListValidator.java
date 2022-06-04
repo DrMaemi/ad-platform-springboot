@@ -11,12 +11,12 @@ import java.util.List;
 
 @Component
 @RequiredArgsConstructor
-public class CustomValidator implements Validator {
+public class DtoListValidator implements Validator {
     private final SpringValidatorAdapter validator;
 
     @Override
-    public boolean supports(Class<?> _class) {
-        return List.class.equals(_class);
+    public boolean supports(Class<?> clazz) {
+        return List.class.equals(clazz);
     }
 
     @Override

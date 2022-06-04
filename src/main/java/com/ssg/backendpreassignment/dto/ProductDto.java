@@ -12,9 +12,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 public class ProductDto {
     private Long id;
-
-    @NotBlank(message="업체명이 비어있습니다.")
-    private String companyName;
+    private CompanyDto companyDto;
 
     @NotBlank(message="상품명이 비어있습니다.")
     private String productName;
@@ -30,9 +28,9 @@ public class ProductDto {
     private LocalDateTime lastModifiedDate;
 
     @Builder
-    public ProductDto(Long id, String companyName, String productName, Long price, Long stock, LocalDateTime createdDate, LocalDateTime lastModifiedDate) {
+    public ProductDto(Long id, CompanyDto companyDto, String productName, Long price, Long stock, LocalDateTime createdDate, LocalDateTime lastModifiedDate) {
         this.id = id;
-        this.companyName = companyName;
+        this.companyDto = companyDto;
         this.productName = productName;
         this.price = price;
         this.stock = stock;
@@ -43,7 +41,7 @@ public class ProductDto {
     public ProductEntity toEntity() {
         return ProductEntity.builder()
                 .id(this.getId())
-                .companyName(this.getCompanyName())
+                .companyEntity(this.getCompanyDto().toEntity())
                 .productName(this.getProductName())
                 .price(this.getPrice())
                 .stock(this.getStock())

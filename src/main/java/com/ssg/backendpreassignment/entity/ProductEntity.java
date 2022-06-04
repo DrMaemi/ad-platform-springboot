@@ -16,7 +16,7 @@ public class ProductEntity extends TimeEntity {
     private Long id;
 
     @ManyToOne(cascade=CascadeType.ALL)
-    @JoinColumn(name="companyName", referencedColumnName="name")
+    @JoinColumn(name="company_name", referencedColumnName="name")
     private CompanyEntity companyEntity;
 
     @Column(nullable=false)

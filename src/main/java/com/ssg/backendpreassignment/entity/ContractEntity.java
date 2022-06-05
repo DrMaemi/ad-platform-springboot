@@ -4,6 +4,7 @@ import com.ssg.backendpreassignment.dto.ContractDto;
 import lombok.*;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.time.LocalDate;
 
 @Getter
@@ -11,7 +12,7 @@ import java.time.LocalDate;
 @NoArgsConstructor(access=AccessLevel.PROTECTED)
 @Entity
 @Table(name="CONTRACT")
-public class ContractEntity extends TimeEntity {
+public class ContractEntity extends TimeEntity implements Serializable {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Long id;

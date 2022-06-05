@@ -47,4 +47,13 @@ public class ProductDto {
                 .stock(this.getStock())
                 .build();
     }
+
+    public ProductEntity toEntityExceptCompany() {
+        return ProductEntity.builder()
+                .id(this.getId())
+                .productName(this.getProductName())
+                .price(this.getPrice())
+                .stock(this.getStock())
+                .build();
+    }
 }

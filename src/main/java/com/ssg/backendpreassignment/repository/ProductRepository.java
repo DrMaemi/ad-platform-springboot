@@ -9,5 +9,5 @@ import java.util.List;
 
 public interface ProductRepository extends JpaRepository<ProductEntity, Long> {
     @Query("SELECT e FROM ProductEntity e left join fetch e.companyEntity")
-    public List<ContractEntity> findAllJpqlFetch();
+    List<ContractEntity> findAllJpqlFetch();
 }

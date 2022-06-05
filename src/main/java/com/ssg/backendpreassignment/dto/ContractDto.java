@@ -36,4 +36,12 @@ public class ContractDto {
                 .endDate(this.getEndDate())
                 .build();
     }
+
+    public ContractEntity toEntityExceptCompany() {
+        return ContractEntity.builder()
+                .id(this.getId())
+                .startDate(this.getStartDate())
+                .endDate(this.getEndDate())
+                .build();
+    }
 }

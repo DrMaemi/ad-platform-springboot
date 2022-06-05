@@ -16,7 +16,7 @@ public class ContractEntity extends TimeEntity {
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne
+    @ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name="company_id")
     private CompanyEntity companyEntity;
 

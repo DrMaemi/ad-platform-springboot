@@ -31,7 +31,7 @@ public class CompanyEntity extends TimeEntity implements Serializable {
     @Column(length=50)
     private String address;
 
-    @OneToMany(mappedBy="companyEntity")
+    @OneToMany(mappedBy="companyEntity", fetch=FetchType.LAZY)
     private List<ProductEntity> productEntities;
 
     @Builder

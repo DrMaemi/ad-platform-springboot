@@ -21,7 +21,7 @@ public class ContractService {
 
     @Transactional(readOnly=true)
     public List<ContractDto> getContracts() {
-        List<ContractEntity> contractEntities = contractRepository.findAll();
+        List<ContractEntity> contractEntities = contractRepository.findAllJpqlFetch();
         return contractEntities.stream().map(contractEntity -> contractEntity.toDto()).collect(Collectors.toList());
     }
 

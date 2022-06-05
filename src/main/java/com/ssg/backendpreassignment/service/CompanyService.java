@@ -23,7 +23,7 @@ public class CompanyService {
 
     @Transactional
     public CompanyDto findOrCreateByCompanyName(String companyName) {
-        Optional<CompanyEntity> companyEntityWrapper = companyRepository.findByName(companyName);
+        Optional<CompanyEntity> companyEntityWrapper = companyRepository.findByNameExceptProducts(companyName);
         // 만약 과거에 등록한 상품 정보에 있던 업체 명이라면 해당 업체에 대한 정보 반환
         if (companyEntityWrapper.isPresent()) {
             return companyEntityWrapper.get().toDto();
@@ -46,7 +46,7 @@ public class CompanyService {
 
     @Transactional(readOnly=true)
     public List<CompanyDto> getCompanies() {
-        List<CompanyEntity> companyEntities = companyRepository.findAll();
+        List<CompanyEntity> companyEntities = companyRepository.findAllJpqlFetch();
         return companyEntities.stream().map(companyEntity -> companyEntity.toDto()).collect(Collectors.toList());
     }
 }

@@ -8,16 +8,16 @@ import java.time.LocalDateTime;
 @Setter
 @ToString
 @NoArgsConstructor
-public class AdvertisementChargeDto {
+public class AdChargeDto {
     private Long id;
-    private AdvertisementBidDto advertisementBidDto;
+    private AdBidDto adBidDto;
     private Long bidPrice;
     private LocalDateTime clickedDate;
 
     @Builder
-    public AdvertisementChargeDto(Long id, AdvertisementBidDto advertisementBidDto, Long bidPrice, LocalDateTime clickedDate) {
+    public AdChargeDto(Long id, AdBidDto adBidDto, Long bidPrice, LocalDateTime clickedDate) {
         this.id = id;
-        this.advertisementBidDto = advertisementBidDto;
+        this.adBidDto = adBidDto;
         this.bidPrice = bidPrice;
         this.clickedDate = clickedDate;
     }

@@ -1,6 +1,6 @@
 package com.ssg.backendpreassignment.entity;
 
-import com.ssg.backendpreassignment.dto.AdvertisementDisplayDto;
+import com.ssg.backendpreassignment.dto.AdDisplayDto;
 import lombok.*;
 import org.hibernate.annotations.Immutable;
 
@@ -12,15 +12,15 @@ import java.io.Serializable;
 @Immutable
 @Entity
 @Table(name="ADVERTISEMENT_DISPLAY")
-public class AdvertisementDisplayEntity implements Serializable {
+public class AdDisplayEntity implements Serializable {
     @Id
     private Long bidId;
     private Long companyId;
     private Long productId;
     private Long bidPrice;
 
-    public AdvertisementDisplayDto toDto() {
-        return AdvertisementDisplayDto.builder()
+    public AdDisplayDto toDto() {
+        return AdDisplayDto.builder()
                 .bidId(this.getBidId())
                 .companyId(this.getCompanyId())
                 .productId(this.getProductId())

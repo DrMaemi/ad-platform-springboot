@@ -1,6 +1,6 @@
 package com.ssg.backendpreassignment.dto;
 
-import com.ssg.backendpreassignment.entity.AdvertisementBidEntity;
+import com.ssg.backendpreassignment.entity.AdBidEntity;
 import lombok.*;
 
 import java.time.LocalDateTime;
@@ -9,7 +9,7 @@ import java.time.LocalDateTime;
 @Setter
 @ToString
 @NoArgsConstructor
-public class AdvertisementBidDto {
+public class AdBidDto {
     private Long id;
     private ContractDto contractDto;
     private ProductDto productDto;
@@ -18,7 +18,7 @@ public class AdvertisementBidDto {
     private LocalDateTime lastModifiedDate;
 
     @Builder
-    public AdvertisementBidDto(Long id, ContractDto contractDto, ProductDto productDto, Long bidPrice, LocalDateTime createdDate, LocalDateTime lastModifiedDate) {
+    public AdBidDto(Long id, ContractDto contractDto, ProductDto productDto, Long bidPrice, LocalDateTime createdDate, LocalDateTime lastModifiedDate) {
         this.id = id;
         this.contractDto = contractDto;
         this.productDto = productDto;
@@ -27,8 +27,8 @@ public class AdvertisementBidDto {
         this.lastModifiedDate = lastModifiedDate;
     }
 
-    public AdvertisementBidEntity toEntity() {
-        return AdvertisementBidEntity.builder()
+    public AdBidEntity toEntity() {
+        return AdBidEntity.builder()
                 .id(this.getId())
                 .contractEntity(this.getContractDto().toEntityExceptCompany())
                 .productEntity(this.getProductDto().toEntityExceptCompany())

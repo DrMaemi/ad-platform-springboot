@@ -1,6 +1,6 @@
 package com.ssg.backendpreassignment.entity;
 
-import com.ssg.backendpreassignment.dto.AdvertisementChargeDto;
+import com.ssg.backendpreassignment.dto.AdChargeDto;
 import lombok.*;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
@@ -14,14 +14,14 @@ import java.time.LocalDateTime;
 @EntityListeners(AuditingEntityListener.class)
 @Entity
 @Table(name="ADVERTISEMENT_CHARGE")
-public class AdvertisementChargeEntity {
+public class AdChargeEntity {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Long id;
 
     @ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name="bid_id")
-    private AdvertisementBidEntity advertisementBidEntity;
+    private AdBidEntity adBidEntity;
 
     @Column
     private Long bidPrice;
@@ -31,16 +31,16 @@ public class AdvertisementChargeEntity {
     private LocalDateTime clickedDate;
 
     @Builder
-    public AdvertisementChargeEntity(Long id, AdvertisementBidEntity advertisementBidEntity, Long bidPrice) {
+    public AdChargeEntity(Long id, AdBidEntity adBidEntity, Long bidPrice) {
         this.id = id;
-        this.advertisementBidEntity = advertisementBidEntity;
+        this.adBidEntity = adBidEntity;
         this.bidPrice = bidPrice;
     }
 
-    public AdvertisementChargeDto toDto() {
-        return AdvertisementChargeDto.builder()
+    public AdChargeDto toDto() {
+        return AdChargeDto.builder()
                 .id(this.getId())
-                .advertisementBidDto(this.getAdvertisementBidEntity().toDto())
+                .adBidDto(this.getAdBidEntity().toDto())
                 .bidPrice(this.getBidPrice())
                 .build();
     }

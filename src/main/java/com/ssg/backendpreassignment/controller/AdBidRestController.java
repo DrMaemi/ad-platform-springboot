@@ -1,8 +1,8 @@
 package com.ssg.backendpreassignment.controller;
 
 import com.ssg.backendpreassignment.config.response.RestResponse;
-import com.ssg.backendpreassignment.dto.AdvertisementBidDto;
-import com.ssg.backendpreassignment.service.AdvertisementBidService;
+import com.ssg.backendpreassignment.dto.AdBidDto;
+import com.ssg.backendpreassignment.service.AdBidService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,23 +15,23 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
-public class AdvertisementBidRestController {
-    private final AdvertisementBidService advertisementBidService;
+public class AdBidRestController {
+    private final AdBidService adBidService;
 
-    @GetMapping("/api/advertisement_bids")
+    @GetMapping("/api/adbids")
     public ResponseEntity<?> getBids() {
-        List<AdvertisementBidDto> advertisementBidDtos = advertisementBidService.getBids();
+        List<AdBidDto> adBidDtos = adBidService.getBids();
 
         return new ResponseEntity<RestResponse>(RestResponse.builder()
                 .code(HttpStatus.OK.value())
                 .status(HttpStatus.OK)
-                .result(advertisementBidDtos)
+                .result(adBidDtos)
                 .build(), HttpStatus.OK);
     }
 
-    @PostMapping("/api/advertisement_bid")
-    public ResponseEntity<?> registerBid(@RequestBody AdvertisementBidDto advertisementBidDto) {
-        advertisementBidService.registerBid(advertisementBidDto);
+    @PostMapping("/api/adbid")
+    public ResponseEntity<?> registerBid(@RequestBody AdBidDto adBidDto) {
+        adBidService.registerBid(adBidDto);
 
         return new ResponseEntity<RestResponse>(RestResponse.builder()
                 .code(HttpStatus.OK.value())

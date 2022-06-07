@@ -15,7 +15,6 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 public class ProductService {
     private final ProductRepository productRepository;
-    private final CompanyService companyService;
 
     @Transactional(readOnly=true)
     public List<ProductDto> getProducts() {

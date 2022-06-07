@@ -1,6 +1,6 @@
 package com.ssg.backendpreassignment.entity;
 
-import com.ssg.backendpreassignment.dto.AdvertisementBidDto;
+import com.ssg.backendpreassignment.dto.AdBidDto;
 import lombok.*;
 
 import javax.persistence.*;
@@ -10,7 +10,7 @@ import javax.persistence.*;
 @NoArgsConstructor(access=AccessLevel.PROTECTED)
 @Entity
 @Table(name="ADVERTISEMENT_BID")
-public class AdvertisementBidEntity extends TimeEntity {
+public class AdBidEntity extends TimeEntity {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Long id;
@@ -27,15 +27,15 @@ public class AdvertisementBidEntity extends TimeEntity {
     private Long bidPrice;
 
     @Builder
-    public AdvertisementBidEntity(Long id, ContractEntity contractEntity, ProductEntity productEntity, Long bidPrice) {
+    public AdBidEntity(Long id, ContractEntity contractEntity, ProductEntity productEntity, Long bidPrice) {
         this.id = id;
         this.contractEntity = contractEntity;
         this.productEntity = productEntity;
         this.bidPrice = bidPrice;
     }
 
-    public AdvertisementBidDto toDto() {
-        return AdvertisementBidDto.builder()
+    public AdBidDto toDto() {
+        return AdBidDto.builder()
                 .id(this.getId())
                 .contractDto(this.getContractEntity().toDto())
                 .productDto(this.getProductEntity().toDtoExceptCompany())

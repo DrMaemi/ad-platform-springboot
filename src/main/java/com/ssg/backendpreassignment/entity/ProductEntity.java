@@ -15,7 +15,7 @@ public class ProductEntity extends TimeEntity {
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne(cascade=CascadeType.ALL, fetch=FetchType.LAZY)
+    @ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name="company_name", referencedColumnName="name")
     private CompanyEntity companyEntity;
 

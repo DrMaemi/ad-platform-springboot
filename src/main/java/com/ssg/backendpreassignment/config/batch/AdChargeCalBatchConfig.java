@@ -23,12 +23,8 @@ import java.util.*;
 public class AdChargeCalBatchConfig {
     private final JobBuilderFactory jobBuilderFactory;
     private final StepBuilderFactory stepBuilderFactory;
+    private final ResourcelessTransactionManager resourcelessTransactionManager;
     private final AdChargeCalRepository adChargeCalRepository;
-
-    @Bean
-    public ResourcelessTransactionManager resourcelessTransactionManager() {
-        return new ResourcelessTransactionManager();
-    }
 
     @Bean
     @StepScope
@@ -62,7 +58,7 @@ public class AdChargeCalBatchConfig {
     @Bean
     public Step step() {
         return stepBuilderFactory.get("step")
-                .transactionManager(resourcelessTransactionManager())
+                .transactionManager(resourcelessTransactionManager)
                 .<AdChargeCalEntity, AdChargeCalEntity> chunk(100)
                 .reader(listItemReader())
                 .writer(itemWriter())

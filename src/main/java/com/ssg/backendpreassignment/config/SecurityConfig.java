@@ -17,7 +17,7 @@ public class SecurityConfig {
                 .headers().frameOptions().disable()
                 .and()
                 .authorizeRequests()
-                .mvcMatchers("/ads").permitAll()
+                .mvcMatchers("/ads", "/docs/**").permitAll()
                 .antMatchers("/**").permitAll()
                 .antMatchers("/api/**").permitAll()
                 .anyRequest().authenticated();

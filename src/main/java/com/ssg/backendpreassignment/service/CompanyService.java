@@ -1,6 +1,7 @@
 package com.ssg.backendpreassignment.service;
 
 import com.ssg.backendpreassignment.dto.CompanyDto;
+import com.ssg.backendpreassignment.dto.CompanyRegReqDto;
 import com.ssg.backendpreassignment.dto.ProductDto;
 import com.ssg.backendpreassignment.entity.CompanyEntity;
 import com.ssg.backendpreassignment.entity.ProductEntity;
@@ -21,6 +22,17 @@ public class CompanyService {
     private final ProductRepository productRepository;
     private final CompanyRepository companyRepository;
 
+    @Transactional(readOnly=true)
+    public CompanyDto findByNameExceptProducts(String companyName) {
+        Optional<CompanyEntity> companyEntity = companyRepository.findByName(companyName);
+
+        if (companyEntity.isPresent()) {
+            return companyEntity.get().toDtoExceptProducts();
+        }
+
+        return null;
+    }
+
     @Transactional
     public CompanyDto findOrCreateByCompanyName(String companyName) {
         Optional<CompanyEntity> companyEntityWrapper = companyRepository.findByNameExceptProducts(companyName);
@@ -39,7 +51,7 @@ public class CompanyService {
     public void addProduct(Long id, ProductDto productDto) {
         Optional<CompanyEntity> companyEntityWrapper = companyRepository.findById(id);
         CompanyEntity companyEntity = companyEntityWrapper.get();
-        ProductEntity productEntity = productDto.toEntity();
+        ProductEntity productEntity = productDto.toEntityExceptCompany();
         productEntity.setCompanyEntity(companyEntity);
         productRepository.save(productEntity);
     }
@@ -48,5 +60,20 @@ public class CompanyService {
     public List<CompanyDto> getCompanies() {
         List<CompanyEntity> companyEntities = companyRepository.findAllJpqlFetch();
         return companyEntities.stream().map(companyEntity -> companyEntity.toDto()).collect(Collectors.toList());
+    }
+
+    @Transactional
+    public CompanyDto updateCompany(CompanyRegReqDto companyRegReqDto) {
+        CompanyEntity companyEntity = companyRepository.findByNameExceptProducts(companyRegReqDto.getCompanyName()).get();
+
+        String businessRegNum = companyRegReqDto.getBusinessRegistrationNumber();
+        String phoneNum = companyRegReqDto.getPhoneNumber();
+        String addr = companyRegReqDto.getAddress();
+
+        if (businessRegNum != null) companyEntity.setBusinessRegistrationNumber(businessRegNum);
+        if (phoneNum != null) companyEntity.setPhoneNumber(phoneNum);
+        if (addr != null) companyEntity.setAddress(addr);
+
+        return companyEntity.toDtoExceptProducts();
     }
 }

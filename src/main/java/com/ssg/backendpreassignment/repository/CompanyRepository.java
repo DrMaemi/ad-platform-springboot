@@ -9,6 +9,10 @@ import java.util.List;
 import java.util.Optional;
 
 public interface CompanyRepository extends JpaRepository<CompanyEntity, Long> {
+    boolean existsByName(String name);
+    boolean existsByBusinessRegistrationNumber(String businessRegistrationNumber);
+    Optional<CompanyEntity> findByName(String name);
+
     @Query("SELECT DISTINCT e FROM CompanyEntity e WHERE e.name=:name")
     Optional<CompanyEntity> findByNameExceptProducts(@Param("name") String name);
 

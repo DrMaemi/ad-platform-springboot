@@ -1,0 +1,34 @@
+= Spring REST Docs (사전과제 2번 - 광고플랫폼 구축)
+이상현(6045)
+:doctype: book
+:icons: font
+:source-highlighter: highlightjs // 문서에 표기되는 코드들의 하이라이팅을 highlightjs를 사용
+:toc: left // TOC(Table Of Contents)를 문서의 좌측에 위치
+:toclevels: 2
+:sectlinks:
+
+[[Product-API]]
+== 상품(Product) 도메인
+
+[[상품-정보-리스트-등록]]
+=== 상품 정보 리스트 등록
+operation::POST_api-products[snippets='http-request,request-fields,http-response,response-fields']
+
+[[상품-정보-리스트-등록-실패]]
+=== 상품 정보 리스트 등록 실패
+operation::POST_api-products-validation[snippets='http-request,request-fields,http-response,response-fields']
+
+[[Company-API]]
+== 업체(Company) 도메인
+
+[[업체-등록]]
+=== 업체 등록
+operation::POST_api-company-register[snippets='http-request,request-fields,http-response,response-fields']
+
+[[업체-등록-실패]]
+=== 업체 등록 실패
+operation::POST_api-company-validation[snippets='http-request,request-fields,http-response,response-fields']
+
+[[업체-정보-리스트-조회]]
+=== 업체 정보 리스트 조회
+operation::GET_api-companies[snippets='http-request,http-response,response-fields']

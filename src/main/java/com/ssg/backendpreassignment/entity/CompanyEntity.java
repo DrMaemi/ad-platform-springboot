@@ -19,7 +19,7 @@ public class CompanyEntity extends TimeEntity implements Serializable {
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long id;
 
-    @Column(length=30, nullable=false, unique=true)
+    @Column(length=30, unique=true, nullable=false, updatable=false)
     private String name;
 
     @Column(length=10)

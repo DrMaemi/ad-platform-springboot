@@ -25,7 +25,7 @@ public class ProductEntity extends TimeEntity {
     @Column(nullable=false)
     private Long price;
 
-    @Column
+    @Column(nullable=false)
     private Long stock;
 
     @Builder

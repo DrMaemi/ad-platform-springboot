@@ -1,7 +1,7 @@
 package com.ssg.backendpreassignment.service;
 
 import com.ssg.backendpreassignment.dto.ContractDto;
-import com.ssg.backendpreassignment.dto.ContractRegReqDto;
+import com.ssg.backendpreassignment.dto.ContractReqDto;
 import com.ssg.backendpreassignment.entity.CompanyEntity;
 import com.ssg.backendpreassignment.entity.ContractEntity;
 import com.ssg.backendpreassignment.repository.CompanyRepository;
@@ -39,8 +39,8 @@ public class ContractService {
     }
 
     @Transactional
-    public ContractDto createContract(ContractRegReqDto contractRegReqDto) {
-        Long companyId = contractRegReqDto.getCompanyId();
+    public ContractDto createContract(ContractReqDto contractReqDto) {
+        Long companyId = contractReqDto.getCompanyId();
         CompanyEntity companyEntity = companyRepository.findById(companyId).get();
         ContractEntity contractEntity = ContractEntity.builder()
                 .companyEntity(companyEntity)

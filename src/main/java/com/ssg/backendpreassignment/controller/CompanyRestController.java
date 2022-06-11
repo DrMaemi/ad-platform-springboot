@@ -3,7 +3,7 @@ package com.ssg.backendpreassignment.controller;
 import com.ssg.backendpreassignment.config.response.RestResponse;
 import com.ssg.backendpreassignment.config.validator.group.CompanyRegister;
 import com.ssg.backendpreassignment.dto.CompanyDto;
-import com.ssg.backendpreassignment.dto.CompanyRegReqDto;
+import com.ssg.backendpreassignment.dto.CompanyReqDto;
 import com.ssg.backendpreassignment.service.CompanyService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -32,8 +32,8 @@ public class CompanyRestController {
 
     @Validated(CompanyRegister.class)
     @PostMapping("/api/company")
-    public ResponseEntity<?> registerCompany(@RequestBody @Valid CompanyRegReqDto companyRegReqDto) {
-        CompanyDto resDto = companyService.updateCompany(companyRegReqDto);
+    public ResponseEntity<?> registerCompany(@RequestBody @Valid CompanyReqDto companyReqDto) {
+        CompanyDto resDto = companyService.updateCompany(companyReqDto);
         Map<String, Object> resMap = new HashMap<>();
 
         resMap.put("id", resDto.getId());
@@ -50,8 +50,8 @@ public class CompanyRestController {
     }
 
     @PatchMapping("/api/company")
-    public ResponseEntity<?> updateCompany(@RequestBody @Valid CompanyRegReqDto companyRegReqDto) {
-        CompanyDto resDto = companyService.updateCompany(companyRegReqDto);
+    public ResponseEntity<?> updateCompany(@RequestBody @Valid CompanyReqDto companyReqDto) {
+        CompanyDto resDto = companyService.updateCompany(companyReqDto);
         Map<String, Object> resMap = new HashMap<>();
 
         resMap.put("id", resDto.getId());

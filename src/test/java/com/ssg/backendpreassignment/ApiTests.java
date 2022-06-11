@@ -2,9 +2,9 @@ package com.ssg.backendpreassignment;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.ssg.backendpreassignment.config.RestDocsConfig;
-import com.ssg.backendpreassignment.dto.CompanyRegReqDto;
-import com.ssg.backendpreassignment.dto.ContractRegReqDto;
-import com.ssg.backendpreassignment.dto.ProductAddReqDto;
+import com.ssg.backendpreassignment.dto.CompanyReqDto;
+import com.ssg.backendpreassignment.dto.ContractReqDto;
+import com.ssg.backendpreassignment.dto.ProductReqDto;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Test;
@@ -40,93 +40,93 @@ public class ApiTests {
     @Test
     @DisplayName("01. 상품 정보 리스트 생성")
     void addProducts() throws Exception {
-        List<ProductAddReqDto> productAddReqDtos = new ArrayList<>();
+        List<ProductReqDto> productReqDtos = new ArrayList<>();
 
-        productAddReqDtos.add(ProductAddReqDto.builder()
+        productReqDtos.add(ProductReqDto.builder()
                 .companyName("이마트")
                 .productName("허쉬 초코멜로쿠키 45g")
                 .price(600L)
                 .stock(10L)
                 .build());
-        productAddReqDtos.add(ProductAddReqDto.builder()
+        productReqDtos.add(ProductReqDto.builder()
                 .companyName("신세계백화점")
                 .productName("크리스피롤 12 곡 180g")
                 .price(2000L)
                 .stock(5L)
                 .build());
-        productAddReqDtos.add(ProductAddReqDto.builder()
+        productReqDtos.add(ProductReqDto.builder()
                 .companyName("삼성전자")
                 .productName("갤럭시 22 자급제모델")
                 .price(1200000L)
                 .stock(0L)
                 .build());
-        productAddReqDtos.add(ProductAddReqDto.builder()
+        productReqDtos.add(ProductReqDto.builder()
                 .companyName("이마트")
                 .productName("말랑카우 핸드워시 250ml")
                 .price(2600L)
                 .stock(6L)
                 .build());
-        productAddReqDtos.add(ProductAddReqDto.builder()
+        productReqDtos.add(ProductReqDto.builder()
                 .companyName("신세계백화점")
                 .productName("삼립 미니꿀호떡 322g")
                 .price(1200L)
                 .stock(4L)
                 .build());
-        productAddReqDtos.add(ProductAddReqDto.builder()
+        productReqDtos.add(ProductReqDto.builder()
                 .companyName("이마트")
                 .productName("피코크 어랑손만두 어랑만두 700g")
                 .price(6400L)
                 .stock(2L)
                 .build());
-        productAddReqDtos.add(ProductAddReqDto.builder()
+        productReqDtos.add(ProductReqDto.builder()
                 .companyName("신세계백화점")
                 .productName("빼빼로바 아몬드아이스크림 4입")
                 .price(2800L)
                 .stock(1L)
                 .build());
-        productAddReqDtos.add(ProductAddReqDto.builder()
+        productReqDtos.add(ProductReqDto.builder()
                 .companyName("이마트")
                 .productName("피코크 에이 클래스 우유 900ml")
                 .price(2500L)
                 .stock(3L)
                 .build());
-        productAddReqDtos.add(ProductAddReqDto.builder()
+        productReqDtos.add(ProductReqDto.builder()
                 .companyName("이마트")
                 .productName("아삭달콤 방울토마토 500g")
                 .price(4500L)
                 .stock(0L)
                 .build());
-        productAddReqDtos.add(ProductAddReqDto.builder()
+        productReqDtos.add(ProductReqDto.builder()
                 .companyName("이마트")
                 .productName("[롯데삼강] 돼지바 (70ml*6 입)")
                 .price(3000L)
                 .stock(1L)
                 .build());
-        productAddReqDtos.add(ProductAddReqDto.builder()
+        productReqDtos.add(ProductReqDto.builder()
                 .companyName("나이키")
                 .productName("나이키 덩크로우 흰검")
                 .price(129000L)
                 .stock(4L)
                 .build());
-        productAddReqDtos.add(ProductAddReqDto.builder()
+        productReqDtos.add(ProductReqDto.builder()
                 .companyName("스타벅스")
                 .productName("이달의 원두 500g")
                 .price(18500L)
                 .stock(4L)
                 .build());
-        productAddReqDtos.add(ProductAddReqDto.builder()
+        productReqDtos.add(ProductReqDto.builder()
                 .companyName("스타벅스")
                 .productName("아쿠아머그")
                 .price(23000L)
                 .stock(7L)
                 .build());
-        productAddReqDtos.add(ProductAddReqDto.builder()
+        productReqDtos.add(ProductReqDto.builder()
                 .companyName("삼성전자")
                 .productName("삼성전자 43 인치 스마트모니터")
                 .price(480000L)
                 .stock(2L)
                 .build());
-        productAddReqDtos.add(ProductAddReqDto.builder()
+        productReqDtos.add(ProductReqDto.builder()
                 .companyName("나이키")
                 .productName("나이키 헤리티지 스우시 캡")
                 .price(25000L)
@@ -136,7 +136,7 @@ public class ApiTests {
         this.mockMvc.perform(
                         post("/api/products")
                                 .contentType(MediaType.APPLICATION_JSON)
-                                .content(objectMapper.writeValueAsString(productAddReqDtos))
+                                .content(objectMapper.writeValueAsString(productReqDtos))
                 )
                 .andExpect(status().isCreated())
                 .andDo(
@@ -161,14 +161,14 @@ public class ApiTests {
     @Test
     @DisplayName("02. 상품 정보 리스트 생성 시 유효성 검사")
     void addProductsValidation() throws Exception {
-        List<ProductAddReqDto> productAddReqDtos = new ArrayList<>();
+        List<ProductReqDto> productReqDtos = new ArrayList<>();
 
-        productAddReqDtos.add(ProductAddReqDto.builder()
+        productReqDtos.add(ProductReqDto.builder()
                 .productName("허쉬 초코멜로쿠키 45g")
                 .price(600L)
                 .stock(-10L)
                 .build());
-        productAddReqDtos.add(ProductAddReqDto.builder()
+        productReqDtos.add(ProductReqDto.builder()
                 .companyName("신세계백화점")
                 .price(-2000L)
                 .stock(5L)
@@ -177,7 +177,7 @@ public class ApiTests {
         this.mockMvc.perform(
                         post("/api/products")
                                 .contentType(MediaType.APPLICATION_JSON)
-                                .content(objectMapper.writeValueAsString(productAddReqDtos))
+                                .content(objectMapper.writeValueAsString(productReqDtos))
                 )
                 .andExpect(status().isBadRequest())
                 .andDo(
@@ -232,7 +232,7 @@ public class ApiTests {
     @Test
     @DisplayName("04. 업체 등록")
     void registerCompany() throws Exception {
-        CompanyRegReqDto companyRegReqDto = CompanyRegReqDto.builder()
+        CompanyReqDto companyReqDto = CompanyReqDto.builder()
                 .companyName("이마트")
                 .businessRegistrationNumber("123-45-67890")
                 .phoneNumber("010-123-4567")
@@ -242,7 +242,7 @@ public class ApiTests {
         this.mockMvc.perform(
                         post("/api/company")
                                 .contentType(MediaType.APPLICATION_JSON)
-                                .content(objectMapper.writeValueAsString(companyRegReqDto))
+                                .content(objectMapper.writeValueAsString(companyReqDto))
                 )
                 .andExpect(status().isOk())
                 .andDo(
@@ -271,7 +271,7 @@ public class ApiTests {
     @Test
     @DisplayName("05. 업체 등록 시 유효성 검사")
     void registerCompanyValidation() throws Exception {
-        CompanyRegReqDto companyRegReqDto = CompanyRegReqDto.builder()
+        CompanyReqDto companyReqDto = CompanyReqDto.builder()
                 .companyName("등록되지 않은 업체 이름")
                 .businessRegistrationNumber("123456-78901")
                 .phoneNumber("010-1234567")
@@ -280,7 +280,7 @@ public class ApiTests {
         this.mockMvc.perform(
                         post("/api/company")
                                 .contentType(MediaType.APPLICATION_JSON)
-                                .content(objectMapper.writeValueAsString(companyRegReqDto))
+                                .content(objectMapper.writeValueAsString(companyReqDto))
                 )
                 .andExpect(status().isBadRequest())
                 .andDo(
@@ -343,7 +343,7 @@ public class ApiTests {
     @Test
     @DisplayName("07. 업체정보 중 업체명을 제외한 채 수정")
     void updateCompanyExceptName() throws Exception {
-        CompanyRegReqDto companyRegReqDto = CompanyRegReqDto.builder()
+        CompanyReqDto companyReqDto = CompanyReqDto.builder()
                 .companyName("이마트")
                 .phoneNumber("010-2345-6789")
                 .address("수정된 주소")
@@ -352,7 +352,7 @@ public class ApiTests {
         this.mockMvc.perform(
                         patch("/api/company")
                                 .contentType(MediaType.APPLICATION_JSON)
-                                .content(objectMapper.writeValueAsString(companyRegReqDto))
+                                .content(objectMapper.writeValueAsString(companyReqDto))
                 )
                 .andExpect(status().isOk())
                 .andDo(
@@ -381,14 +381,14 @@ public class ApiTests {
     @Test
     @DisplayName("08. 계약 생성")
     void createContract() throws Exception {
-        ContractRegReqDto contractRegReqDto = ContractRegReqDto.builder()
+        ContractReqDto contractReqDto = ContractReqDto.builder()
                 .companyId(1000000001L)
                 .build();
 
         this.mockMvc.perform(
                 post("/api/contract")
                         .contentType(MediaType.APPLICATION_JSON)
-                        .content(objectMapper.writeValueAsString(contractRegReqDto))
+                        .content(objectMapper.writeValueAsString(contractReqDto))
         )
                 .andExpect(status().isCreated())
                 .andDo(
@@ -413,14 +413,14 @@ public class ApiTests {
     @Test
     @DisplayName("09. 계약 생성 시 유효성 검사")
     void createOverlappedContract() throws Exception {
-        ContractRegReqDto contractRegReqDto = ContractRegReqDto.builder()
+        ContractReqDto contractReqDto = ContractReqDto.builder()
                 .companyId(1000000001L)
                 .build();
 
         this.mockMvc.perform(
                         post("/api/contract")
                                 .contentType(MediaType.APPLICATION_JSON)
-                                .content(objectMapper.writeValueAsString(contractRegReqDto))
+                                .content(objectMapper.writeValueAsString(contractReqDto))
                 )
                 .andExpect(status().isBadRequest())
                 .andDo(

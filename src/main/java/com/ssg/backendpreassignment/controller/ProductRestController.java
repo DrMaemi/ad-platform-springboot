@@ -2,7 +2,7 @@ package com.ssg.backendpreassignment.controller;
 
 import com.ssg.backendpreassignment.config.response.RestResponse;
 import com.ssg.backendpreassignment.dto.CompanyDto;
-import com.ssg.backendpreassignment.dto.ProductAddReqDto;
+import com.ssg.backendpreassignment.dto.ProductReqDto;
 import com.ssg.backendpreassignment.dto.ProductDto;
 import com.ssg.backendpreassignment.service.CompanyService;
 import com.ssg.backendpreassignment.service.ProductService;
@@ -54,24 +54,24 @@ public class ProductRestController {
 
     // 상품 정보 등록 (N개 레코드)
     @PostMapping("/api/products")
-    public ResponseEntity<?> addProducts(@RequestBody List<@Valid ProductAddReqDto> productAddReqDtos, Errors errors) {
-        for (ProductAddReqDto productAddReqDto: productAddReqDtos) {
-            CompanyDto companyDto = companyService.findOrCreateByCompanyName(productAddReqDto.getCompanyName());
-            companyService.addProduct(companyDto.getId(), productAddReqDto.toProductDto());
+    public ResponseEntity<?> addProducts(@RequestBody List<@Valid ProductReqDto> productReqDtos, Errors errors) {
+        for (ProductReqDto productReqDto : productReqDtos) {
+            CompanyDto companyDto = companyService.findOrCreateByCompanyName(productReqDto.getCompanyName());
+            companyService.addProduct(companyDto.getId(), productReqDto.toProductDto());
         }
 
         return new ResponseEntity<RestResponse>(RestResponse.builder()
                 .status(HttpStatus.CREATED)
                 .code(HttpStatus.CREATED.value())
-                .result(String.format("%d record(s) created", productAddReqDtos.size()))
+                .result(String.format("%d record(s) created", productReqDtos.size()))
                 .build(), HttpStatus.CREATED);
     }
 
     // 상품 정보 등록 (1개 레코드)
     @PostMapping("/api/product")
-    public ResponseEntity<?> addProduct(@RequestBody @Valid ProductAddReqDto productAddReqDto, BindingResult bindingResult, Errors errors) {
-        CompanyDto companyDto = companyService.findOrCreateByCompanyName(productAddReqDto.getCompanyName());
-        companyService.addProduct(companyDto.getId(), productAddReqDto.toProductDto());
+    public ResponseEntity<?> addProduct(@RequestBody @Valid ProductReqDto productReqDto, BindingResult bindingResult, Errors errors) {
+        CompanyDto companyDto = companyService.findOrCreateByCompanyName(productReqDto.getCompanyName());
+        companyService.addProduct(companyDto.getId(), productReqDto.toProductDto());
 
         return new ResponseEntity<RestResponse>(RestResponse.builder()
                 .code(HttpStatus.CREATED.value())

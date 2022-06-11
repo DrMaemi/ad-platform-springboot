@@ -1,9 +1,8 @@
 package com.ssg.backendpreassignment.controller;
 
 import com.ssg.backendpreassignment.config.response.RestResponse;
-import com.ssg.backendpreassignment.dto.CompanyDto;
 import com.ssg.backendpreassignment.dto.ContractDto;
-import com.ssg.backendpreassignment.dto.ContractRegReqDto;
+import com.ssg.backendpreassignment.dto.ContractReqDto;
 import com.ssg.backendpreassignment.service.ContractService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -46,9 +45,9 @@ public class ContractRestController {
     }
 
     @PostMapping("/api/contract")
-    public ResponseEntity<?> createContract(@RequestBody @Valid ContractRegReqDto contractRegReqDto) {
+    public ResponseEntity<?> createContract(@RequestBody @Valid ContractReqDto contractReqDto) {
 
-        ContractDto resDto = contractService.createContract(contractRegReqDto);
+        ContractDto resDto = contractService.createContract(contractReqDto);
         Map<String, Object> resMap = new HashMap<>();
 
         resMap.put("id", resDto.getId());

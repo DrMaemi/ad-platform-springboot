@@ -1,7 +1,7 @@
 package com.ssg.backendpreassignment.service;
 
 import com.ssg.backendpreassignment.dto.CompanyDto;
-import com.ssg.backendpreassignment.dto.CompanyRegReqDto;
+import com.ssg.backendpreassignment.dto.CompanyReqDto;
 import com.ssg.backendpreassignment.dto.ProductDto;
 import com.ssg.backendpreassignment.entity.CompanyEntity;
 import com.ssg.backendpreassignment.entity.ProductEntity;
@@ -63,12 +63,12 @@ public class CompanyService {
     }
 
     @Transactional
-    public CompanyDto updateCompany(CompanyRegReqDto companyRegReqDto) {
-        CompanyEntity companyEntity = companyRepository.findByNameExceptProducts(companyRegReqDto.getCompanyName()).get();
+    public CompanyDto updateCompany(CompanyReqDto companyReqDto) {
+        CompanyEntity companyEntity = companyRepository.findByNameExceptProducts(companyReqDto.getCompanyName()).get();
 
-        String businessRegNum = companyRegReqDto.getBusinessRegistrationNumber();
-        String phoneNum = companyRegReqDto.getPhoneNumber();
-        String addr = companyRegReqDto.getAddress();
+        String businessRegNum = companyReqDto.getBusinessRegistrationNumber();
+        String phoneNum = companyReqDto.getPhoneNumber();
+        String addr = companyReqDto.getAddress();
 
         if (businessRegNum != null) companyEntity.setBusinessRegistrationNumber(businessRegNum);
         if (phoneNum != null) companyEntity.setPhoneNumber(phoneNum);

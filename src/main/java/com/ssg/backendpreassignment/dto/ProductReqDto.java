@@ -10,7 +10,7 @@ import javax.validation.constraints.PositiveOrZero;
 @Setter
 @ToString
 @NoArgsConstructor
-public class ProductAddReqDto {
+public class ProductReqDto {
     @NotBlank(message="업체명을 입력해주세요.")
     private String companyName;
 
@@ -26,7 +26,7 @@ public class ProductAddReqDto {
     private Long stock;
 
     @Builder
-    public ProductAddReqDto(String companyName, String productName, Long price, Long stock) {
+    public ProductReqDto(String companyName, String productName, Long price, Long stock) {
         this.companyName = companyName;
         this.productName = productName;
         this.price = price;

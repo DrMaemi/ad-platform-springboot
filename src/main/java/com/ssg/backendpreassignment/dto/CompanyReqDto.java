@@ -10,7 +10,7 @@ import javax.validation.constraints.NotBlank;
 @Setter
 @ToString
 @NoArgsConstructor
-public class CompanyRegReqDto {
+public class CompanyReqDto {
     @NotBlank(message="업체명을 입력해주세요.")
     @CompanyNameExistInRepo
     private String companyName;
@@ -29,7 +29,7 @@ public class CompanyRegReqDto {
     private String address;
 
     @Builder
-    public CompanyRegReqDto(String companyName, String businessRegistrationNumber, String phoneNumber, String address) {
+    public CompanyReqDto(String companyName, String businessRegistrationNumber, String phoneNumber, String address) {
         this.companyName = companyName;
         this.businessRegistrationNumber = businessRegistrationNumber;
         this.phoneNumber = phoneNumber;

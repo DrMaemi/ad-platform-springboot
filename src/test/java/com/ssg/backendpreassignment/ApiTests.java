@@ -3,8 +3,12 @@ package com.ssg.backendpreassignment;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.ssg.backendpreassignment.config.RestDocsConfig;
 import com.ssg.backendpreassignment.dto.CompanyRegReqDto;
+import com.ssg.backendpreassignment.dto.ContractRegReqDto;
 import com.ssg.backendpreassignment.dto.ProductAddReqDto;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestMethodOrder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.restdocs.AutoConfigureRestDocs;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -23,6 +27,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @SpringBootTest
+@TestMethodOrder(MethodOrderer.DisplayName.class)
 @AutoConfigureMockMvc
 @AutoConfigureRestDocs
 @Import(RestDocsConfig.class)
@@ -33,6 +38,7 @@ public class ApiTests {
     private ObjectMapper objectMapper = new ObjectMapper();
 
     @Test
+    @DisplayName("01. 상품 정보 리스트 생성")
     void addProducts() throws Exception {
         List<ProductAddReqDto> productAddReqDtos = new ArrayList<>();
 
@@ -153,6 +159,7 @@ public class ApiTests {
     }
 
     @Test
+    @DisplayName("02. 상품 정보 리스트 생성 시 유효성 검사")
     void addProductsValidation() throws Exception {
         List<ProductAddReqDto> productAddReqDtos = new ArrayList<>();
 
@@ -196,6 +203,34 @@ public class ApiTests {
     }
 
     @Test
+    @DisplayName("03. 상품 정보 리스트 조회")
+    void getProducts() throws Exception {
+        this.mockMvc.perform(
+                        get("/api/products")
+                                .contentType(MediaType.APPLICATION_JSON)
+                )
+                .andExpect(status().isOk())
+                .andDo(
+                        document("GET_api-products",
+                                responseFields(
+                                        fieldWithPath("timestamp").description("API requested time"),
+                                        fieldWithPath("code").description("HTTP status code"),
+                                        fieldWithPath("status").description("HTTP status"),
+                                        fieldWithPath("result").description("An array of products"),
+                                        fieldWithPath("result.[].id").description("Product's ID"),
+                                        fieldWithPath("result.[].companyName").description("Company ID who produces the product"),
+                                        fieldWithPath("result.[].productName").description("Product name"),
+                                        fieldWithPath("result.[].price").description("Product price"),
+                                        fieldWithPath("result.[].stock").description("Product stock remained"),
+                                        fieldWithPath("result.[].createdDate").description("Date when the record created"),
+                                        fieldWithPath("result.[].lastModifiedDate").description("Last date when the record modified")
+                                )
+                        )
+                );
+    }
+
+    @Test
+    @DisplayName("04. 업체 등록")
     void registerCompany() throws Exception {
         CompanyRegReqDto companyRegReqDto = CompanyRegReqDto.builder()
                 .companyName("이마트")
@@ -234,6 +269,7 @@ public class ApiTests {
     }
 
     @Test
+    @DisplayName("05. 업체 등록 시 유효성 검사")
     void registerCompanyValidation() throws Exception {
         CompanyRegReqDto companyRegReqDto = CompanyRegReqDto.builder()
                 .companyName("등록되지 않은 업체 이름")
@@ -269,6 +305,7 @@ public class ApiTests {
     }
 
     @Test
+    @DisplayName("06. 업체 Master 정보 리스트 조회")
     void getCompanies() throws Exception {
         this.mockMvc.perform(
                         get("/api/companies")
@@ -284,9 +321,9 @@ public class ApiTests {
                                         fieldWithPath("result").description("HTTP result - An array of companies"),
                                         fieldWithPath("result.[].id").description("Company's ID"),
                                         fieldWithPath("result.[].name").description("Company's name"),
-                                        fieldWithPath("result.[].businessRegistrationNumber").description("Company's business registration number"),
-                                        fieldWithPath("result.[].phoneNumber").description("Company's phone number"),
-                                        fieldWithPath("result.[].address").description("Company's address"),
+                                        fieldWithPath("result.[].businessRegistrationNumber").optional().description("Company's business registration number"),
+                                        fieldWithPath("result.[].phoneNumber").optional().description("Company's phone number"),
+                                        fieldWithPath("result.[].address").optional().description("Company's address"),
                                         fieldWithPath("result.[].createdDate").description("Date when the record created"),
                                         fieldWithPath("result.[].lastModifiedDate").description("Last date when the record modified"),
                                         fieldWithPath("result.[].address").description("Last date when the record modified"),
@@ -304,6 +341,7 @@ public class ApiTests {
     }
 
     @Test
+    @DisplayName("07. 업체정보 중 업체명을 제외한 채 수정")
     void updateCompanyExceptName() throws Exception {
         CompanyRegReqDto companyRegReqDto = CompanyRegReqDto.builder()
                 .companyName("이마트")
@@ -335,6 +373,95 @@ public class ApiTests {
                                         fieldWithPath("result.businessRegistrationNumber").description("Updated company's business registration number"),
                                         fieldWithPath("result.phoneNumber").description("Updated company's phone number"),
                                         fieldWithPath("result.address").description("Updated company's address")
+                                )
+                        )
+                );
+    }
+
+    @Test
+    @DisplayName("08. 계약 생성")
+    void createContract() throws Exception {
+        ContractRegReqDto contractRegReqDto = ContractRegReqDto.builder()
+                .companyId(1000000001L)
+                .build();
+
+        this.mockMvc.perform(
+                post("/api/contract")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(objectMapper.writeValueAsString(contractRegReqDto))
+        )
+                .andExpect(status().isCreated())
+                .andDo(
+                        document("POST_api-contract-create",
+                                requestFields(
+                                        fieldWithPath("companyId").description("Company's ID to create contract")
+                                ),
+                                responseFields(
+                                        fieldWithPath("timestamp").description("API requested time"),
+                                        fieldWithPath("code").description("HTTP status code"),
+                                        fieldWithPath("status").description("HTTP status"),
+                                        fieldWithPath("result").description("Updated company info"),
+                                        fieldWithPath("result.id").description("Created contract ID"),
+                                        fieldWithPath("result.companyId").description("Company ID who created the contract"),
+                                        fieldWithPath("result.startDate").description("Date when the contract created"),
+                                        fieldWithPath("result.endDate").description("Date when the contract would be expired")
+                                )
+                        )
+                );
+    }
+
+    @Test
+    @DisplayName("09. 계약 생성 시 유효성 검사")
+    void createOverlappedContract() throws Exception {
+        ContractRegReqDto contractRegReqDto = ContractRegReqDto.builder()
+                .companyId(1000000001L)
+                .build();
+
+        this.mockMvc.perform(
+                        post("/api/contract")
+                                .contentType(MediaType.APPLICATION_JSON)
+                                .content(objectMapper.writeValueAsString(contractRegReqDto))
+                )
+                .andExpect(status().isBadRequest())
+                .andDo(
+                        document("POST_api-contract-validation",
+                                requestFields(
+                                        fieldWithPath("companyId").description("Company's ID to create contract")
+                                ),
+                                responseFields(
+                                        fieldWithPath("timestamp").description("API requested time"),
+                                        fieldWithPath("code").description("HTTP status code"),
+                                        fieldWithPath("status").description("HTTP status"),
+                                        fieldWithPath("result").description("Updated company info"),
+                                        fieldWithPath("result.[].field").description("The field which is invalid"),
+                                        fieldWithPath("result.[].message").description("Description message"),
+                                        fieldWithPath("result.[].rejectedValue").description("The value rejected").optional()
+                                )
+                        )
+                );
+    }
+
+    @Test
+    @DisplayName("10. 계약 리스트 조회")
+    void getContracts() throws Exception {
+        this.mockMvc.perform(
+                        get("/api/contracts")
+                                .contentType(MediaType.APPLICATION_JSON)
+                )
+                .andExpect(status().isOk())
+                .andDo(
+                        document("GET_api-contracts",
+                                responseFields(
+                                        fieldWithPath("timestamp").description("API requested time"),
+                                        fieldWithPath("code").description("HTTP status code"),
+                                        fieldWithPath("status").description("HTTP status"),
+                                        fieldWithPath("result").description("An array of created contracts"),
+                                        fieldWithPath("result.[].id").description("Contract ID"),
+                                        fieldWithPath("result.[].companyId").description("Company ID which created the contract"),
+                                        fieldWithPath("result.[].startDate").description("Date when the contract"),
+                                        fieldWithPath("result.[].endDate").description("Date when the contract would be expired"),
+                                        fieldWithPath("result.[].createdDate").description("Date when the record created"),
+                                        fieldWithPath("result.[].lastModifiedDate").description("Last date when the record modified")
                                 )
                         )
                 );

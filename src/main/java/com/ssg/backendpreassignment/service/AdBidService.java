@@ -37,7 +37,7 @@ public class AdBidService {
 
     @Transactional
     public void registerBid(AdBidDto adBidDto) {
-        ContractEntity contractEntity = contractRepository.findByCompanyId(adBidDto.getContractDto().getCompanyDto().getId()).get();
+        ContractEntity contractEntity = contractRepository.findByCompanyIdJpqlFetch(adBidDto.getContractDto().getCompanyDto().getId()).get();
         ProductEntity productEntity = productRepository.findById(adBidDto.getProductDto().getId()).get();
         AdBidEntity adBidEntity = adBidDto.toEntity();
         adBidEntity.setContractEntity(contractEntity);

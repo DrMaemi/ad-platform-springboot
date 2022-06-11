@@ -3,6 +3,7 @@ package com.ssg.backendpreassignment.controller;
 import com.ssg.backendpreassignment.config.response.RestResponse;
 import com.ssg.backendpreassignment.dto.CompanyDto;
 import com.ssg.backendpreassignment.dto.ProductAddReqDto;
+import com.ssg.backendpreassignment.dto.ProductDto;
 import com.ssg.backendpreassignment.service.CompanyService;
 import com.ssg.backendpreassignment.service.ProductService;
 import lombok.RequiredArgsConstructor;
@@ -14,7 +15,10 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Validated
 @RestController
@@ -25,10 +29,26 @@ public class ProductRestController {
 
     @GetMapping("/api/products")
     public ResponseEntity<?> getProducts() {
+        List<Map<String, Object>> resList = new ArrayList<>();
+
+        for (ProductDto productDto: productService.getProducts()) {
+            Map<String, Object> eachResMap = new HashMap<>();
+
+            eachResMap.put("id", productDto.getId());
+            eachResMap.put("companyName", productDto.getCompanyDto().getName());
+            eachResMap.put("productName", productDto.getProductName());
+            eachResMap.put("price", productDto.getPrice());
+            eachResMap.put("stock", productDto.getStock());
+            eachResMap.put("createdDate", productDto.getCreatedDate());
+            eachResMap.put("lastModifiedDate", productDto.getLastModifiedDate());
+
+            resList.add(eachResMap);
+        }
+
         return new ResponseEntity<RestResponse>(RestResponse.builder()
                 .status(HttpStatus.OK)
                 .code(HttpStatus.OK.value())
-                .result(productService.getProducts())
+                .result(resList)
                 .build(), HttpStatus.OK);
     }
 

@@ -13,5 +13,5 @@ public interface ContractRepository extends JpaRepository<ContractEntity, Long> 
     List<ContractEntity> findAllJpqlFetch();
 
     @Query("SELECT e FROM ContractEntity e JOIN FETCH e.companyEntity WHERE e.companyEntity.id=:companyId")
-    Optional<ContractEntity> findByCompanyId(@Param("companyId") Long companyId);
+    Optional<ContractEntity> findByCompanyIdJpqlFetch(@Param("companyId") Long companyId);
 }

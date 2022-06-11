@@ -1,6 +1,7 @@
 package com.ssg.backendpreassignment.service;
 
 import com.ssg.backendpreassignment.dto.ContractDto;
+import com.ssg.backendpreassignment.dto.ContractRegReqDto;
 import com.ssg.backendpreassignment.entity.CompanyEntity;
 import com.ssg.backendpreassignment.entity.ContractEntity;
 import com.ssg.backendpreassignment.repository.CompanyRepository;
@@ -9,6 +10,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -25,13 +27,27 @@ public class ContractService {
         return contractEntities.stream().map(contractEntity -> contractEntity.toDto()).collect(Collectors.toList());
     }
 
+    @Transactional(readOnly=true)
+    public ContractDto findByCompanyId(Long companyId) {
+        Optional<ContractEntity> contractEntityWrapper = contractRepository.findByCompanyIdJpqlFetch(companyId);
+
+        if (contractEntityWrapper.isPresent()) {
+            return contractEntityWrapper.get().toDto();
+        }
+
+        return null;
+    }
+
     @Transactional
-    public void doContract(ContractDto contractDto) {
-        Long companyId = contractDto.getCompanyDto().getId();
-        Optional<CompanyEntity> companyEntityWrapper = companyRepository.findById(companyId);
-        CompanyEntity companyEntity = companyEntityWrapper.get();
-        ContractEntity contractEntity = contractDto.toEntity();
-        contractEntity.setCompanyEntity(companyEntity);
-        contractRepository.save(contractEntity);
+    public ContractDto createContract(ContractRegReqDto contractRegReqDto) {
+        Long companyId = contractRegReqDto.getCompanyId();
+        CompanyEntity companyEntity = companyRepository.findById(companyId).get();
+        ContractEntity contractEntity = ContractEntity.builder()
+                .companyEntity(companyEntity)
+                .startDate(LocalDate.now())
+                .endDate(LocalDate.now().plusYears(1))
+                .build();
+        ContractEntity resEnt = contractRepository.save(contractEntity);
+        return resEnt.toDto();
     }
 }

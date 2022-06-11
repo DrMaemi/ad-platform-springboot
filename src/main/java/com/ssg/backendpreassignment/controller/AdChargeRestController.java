@@ -1,26 +1,40 @@
 package com.ssg.backendpreassignment.controller;
 
 import com.ssg.backendpreassignment.config.response.RestResponse;
+import com.ssg.backendpreassignment.dto.AdChargeDto;
+import com.ssg.backendpreassignment.dto.AdChargeReqDto;
 import com.ssg.backendpreassignment.service.AdChargeService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+
+import javax.validation.Valid;
+import java.util.HashMap;
+import java.util.Map;
 
 @RestController
 @RequiredArgsConstructor
 public class AdChargeRestController {
     private final AdChargeService adChargeService;
 
-    @PatchMapping("/api/click/ad/{bidId}")
-    public ResponseEntity<?> clickAd(@PathVariable Long bidId) {
-        adChargeService.createChargeByBidId(bidId);
+    @PostMapping("/api/adcharge")
+    public ResponseEntity<?> createAdCharge(@RequestBody @Valid AdChargeReqDto adChargeReqDto) {
+        AdChargeDto resDto = adChargeService.createAdCharge(adChargeReqDto.getBidId());
+        Map<String, Object> resMap = new HashMap<>();
+
+        resMap.put("id", resDto.getId());
+        resMap.put("bidId", resDto.getAdBidDto().getId());
+        resMap.put("clickedDate", resDto.getClickedDate());
+        resMap.put("bidPrice", resDto.getBidPrice());
 
         return new ResponseEntity<RestResponse>(RestResponse.builder()
-                .code(HttpStatus.OK.value())
-                .status(HttpStatus.OK)
-                .build(), HttpStatus.OK);
+                .code(HttpStatus.CREATED.value())
+                .status(HttpStatus.CREATED)
+                .result(resMap)
+                .build(), HttpStatus.CREATED);
     }
 }

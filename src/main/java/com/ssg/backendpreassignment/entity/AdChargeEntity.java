@@ -40,7 +40,7 @@ public class AdChargeEntity {
     public AdChargeDto toDto() {
         return AdChargeDto.builder()
                 .id(this.getId())
-                .adBidDto(this.getAdBidEntity().toDto())
+                .adBidDto(this.getAdBidEntity().toDtoExceptAll())
                 .bidPrice(this.getBidPrice())
                 .build();
     }

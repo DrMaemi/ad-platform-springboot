@@ -2,10 +2,7 @@ package com.ssg.backendpreassignment;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.ssg.backendpreassignment.config.RestDocsConfig;
-import com.ssg.backendpreassignment.dto.AdBidReqDto;
-import com.ssg.backendpreassignment.dto.CompanyReqDto;
-import com.ssg.backendpreassignment.dto.ContractReqDto;
-import com.ssg.backendpreassignment.dto.ProductReqDto;
+import com.ssg.backendpreassignment.dto.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Test;
@@ -16,6 +13,7 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.annotation.Import;
 import org.springframework.http.MediaType;
+import org.springframework.restdocs.payload.JsonFieldType;
 import org.springframework.test.web.servlet.MockMvc;
 
 import java.util.ArrayList;
@@ -197,7 +195,7 @@ public class ApiTests {
                                         fieldWithPath("result").description("An array of validation result"),
                                         fieldWithPath("result.[].field").description("The field which is invalid"),
                                         fieldWithPath("result.[].message").description("Description message"),
-                                        fieldWithPath("result.[].rejectedValue").description("The value rejected").optional()
+                                        fieldWithPath("result.[].rejectedValue").description("The value rejected").optional() // 'rejectedValue': null일 수 있음
                                 )
                         )
                 );
@@ -360,9 +358,9 @@ public class ApiTests {
                         document("POST_api-company-update",
                                 requestFields(
                                         fieldWithPath("companyName").description("Company name which is registered in the repo"),
-                                        fieldWithPath("businessRegistrationNumber").description("Company's business registration number to update"),
-                                        fieldWithPath("phoneNumber").description("Company's phone number to update"),
-                                        fieldWithPath("address").description("Company's address to update")
+                                        fieldWithPath("businessRegistrationNumber").description("Company's business registration number to update. It would not be updated if the value is null."),
+                                        fieldWithPath("phoneNumber").description("Company's phone number to update. It would not be updated if the value is null"),
+                                        fieldWithPath("address").description("Company's address to update. It would not be updated if the value is null")
                                 ),
                                 responseFields(
                                         fieldWithPath("timestamp").description("API requested time"),
@@ -436,7 +434,7 @@ public class ApiTests {
                                         fieldWithPath("result").description("An array of validation result"),
                                         fieldWithPath("result.[].field").description("The field which is invalid"),
                                         fieldWithPath("result.[].message").description("Description message"),
-                                        fieldWithPath("result.[].rejectedValue").description("The value rejected").optional()
+                                        fieldWithPath("result.[].rejectedValue").description("The value rejected")
                                 )
                         )
                 );
@@ -469,12 +467,12 @@ public class ApiTests {
     }
 
     @Test
-    @DisplayName("11. 광고 입찰 생성")
-    void createAdBid() throws Exception {
+    @DisplayName("11. 광고입찰 생성 1")
+    void createAdBid1() throws Exception {
         AdBidReqDto adBidReqDto = AdBidReqDto.builder()
                 .companyId(1000000001L)
                 .productId(1000000001L)
-                .bidPrice(10L)
+                .bidPrice(100L)
                 .build();
 
         this.mockMvc.perform(
@@ -484,7 +482,7 @@ public class ApiTests {
                 )
                 .andExpect(status().isCreated())
                 .andDo(
-                        document("POST_api-adbid-create",
+                        document("POST_api-adbid-create1",
                                 requestFields(
                                         fieldWithPath("companyId").description("Company ID to create AD bid"),
                                         fieldWithPath("productId").description("Product ID to create AD bid"),
@@ -507,7 +505,83 @@ public class ApiTests {
     }
 
     @Test
-    @DisplayName("12. 광고 입찰 생성 유효성 검사")
+    @DisplayName("12. 광고입찰 생성 2")
+    void createAdBid2() throws Exception {
+        AdBidReqDto adBidReqDto = AdBidReqDto.builder()
+                .companyId(1000000001L)
+                .productId(1000000004L)
+                .bidPrice(250L)
+                .build();
+
+        this.mockMvc.perform(
+                        post("/api/adbid")
+                                .contentType(MediaType.APPLICATION_JSON)
+                                .content(objectMapper.writeValueAsString(adBidReqDto))
+                )
+                .andExpect(status().isCreated())
+                .andDo(
+                        document("POST_api-adbid-create2",
+                                requestFields(
+                                        fieldWithPath("companyId").description("Company ID to create AD bid"),
+                                        fieldWithPath("productId").description("Product ID to create AD bid"),
+                                        fieldWithPath("bidPrice").description("Bid price the company offered")
+                                ),
+                                responseFields(
+                                        fieldWithPath("timestamp").description("API requested time"),
+                                        fieldWithPath("code").description("HTTP status code"),
+                                        fieldWithPath("status").description("HTTP status"),
+                                        fieldWithPath("result").description("Created AD Bid info"),
+                                        fieldWithPath("result.id").description("AD Bid ID"),
+                                        fieldWithPath("result.companyId").description("Company ID which created the bid"),
+                                        fieldWithPath("result.productId").description("ID of the product which would be displayed when the company won the bid"),
+                                        fieldWithPath("result.bidPrice").description("Registered bid price when the bid created"),
+                                        fieldWithPath("result.createdDate").description("Date when the record created"),
+                                        fieldWithPath("result.lastModifiedDate").description("Last date when the record modified")
+                                )
+                        )
+                );
+    }
+
+    @Test
+    @DisplayName("13. 광고입찰 생성 3")
+    void createAdBid3() throws Exception {
+        AdBidReqDto adBidReqDto = AdBidReqDto.builder()
+                .companyId(1000000001L)
+                .productId(1000000009L)
+                .bidPrice(350L)
+                .build();
+
+        this.mockMvc.perform(
+                        post("/api/adbid")
+                                .contentType(MediaType.APPLICATION_JSON)
+                                .content(objectMapper.writeValueAsString(adBidReqDto))
+                )
+                .andExpect(status().isCreated())
+                .andDo(
+                        document("POST_api-adbid-create3",
+                                requestFields(
+                                        fieldWithPath("companyId").description("Company ID to create AD bid"),
+                                        fieldWithPath("productId").description("Product ID to create AD bid"),
+                                        fieldWithPath("bidPrice").description("Bid price the company offered")
+                                ),
+                                responseFields(
+                                        fieldWithPath("timestamp").description("API requested time"),
+                                        fieldWithPath("code").description("HTTP status code"),
+                                        fieldWithPath("status").description("HTTP status"),
+                                        fieldWithPath("result").description("Created AD Bid info"),
+                                        fieldWithPath("result.id").description("AD Bid ID"),
+                                        fieldWithPath("result.companyId").description("Company ID which created the bid"),
+                                        fieldWithPath("result.productId").description("ID of the product which would be displayed when the company won the bid"),
+                                        fieldWithPath("result.bidPrice").description("Registered bid price when the bid created"),
+                                        fieldWithPath("result.createdDate").description("Date when the record created"),
+                                        fieldWithPath("result.lastModifiedDate").description("Last date when the record modified")
+                                )
+                        )
+                );
+    }
+
+    @Test
+    @DisplayName("14. 광고입찰 생성 유효성 검사")
     void createAdBidValidation() throws Exception {
         AdBidReqDto adBidReqDto = AdBidReqDto.builder()
                 .companyId(1000000002L)
@@ -535,7 +609,190 @@ public class ApiTests {
                                         fieldWithPath("result").description("An array of validation result"),
                                         fieldWithPath("result.[].field").description("The field which is invalid"),
                                         fieldWithPath("result.[].message").description("Description message"),
-                                        fieldWithPath("result.[].rejectedValue").description("The value rejected").optional()
+                                        fieldWithPath("result.[].rejectedValue").description("The value rejected")
+                                )
+                        )
+                );
+    }
+
+    @Test
+    @DisplayName("15. 광고전시 리스트 조회")
+    void getAds() throws Exception {
+        this.mockMvc.perform(
+                        get("/api/ads")
+                                .contentType(MediaType.APPLICATION_JSON)
+                )
+                .andExpect(status().isOk())
+                .andDo(
+                        document("GET_api-ads",
+                                responseFields(
+                                        fieldWithPath("timestamp").description("API requested time"),
+                                        fieldWithPath("code").description("HTTP status code"),
+                                        fieldWithPath("status").description("HTTP status"),
+                                        fieldWithPath("result").description("An array of AD bids that bid price of each bid is TOP 3"),
+                                        fieldWithPath("result.[].bidId").description("AD Bid ID").optional(),
+                                        fieldWithPath("result.[].companyId").description("Company ID which created the bid").optional(),
+                                        fieldWithPath("result.[].productId").description("Product ID of the AD Bid").optional().optional(),
+                                        fieldWithPath("result.[].bidPrice").description("Registered bid price").optional()
+                                )
+                        )
+                );
+    }
+
+    @Test
+    @DisplayName("16. 광고과금 생성 1")
+    void createAdCharge1() throws Exception {
+        AdChargeReqDto adChargeReqDto = AdChargeReqDto.builder()
+                .bidId(1000000001L)
+                .build();
+
+        this.mockMvc.perform(
+                        post("/api/adcharge")
+                                .contentType(MediaType.APPLICATION_JSON)
+                                .content(objectMapper.writeValueAsString(adChargeReqDto))
+                )
+                .andExpect(status().isCreated())
+                .andDo(
+                        document("POST_api-adcharge-create1",
+                                requestFields(
+                                        fieldWithPath("bidId").description("AD Bid ID to create charge")
+                                ),
+                                responseFields(
+                                        fieldWithPath("timestamp").description("API requested time"),
+                                        fieldWithPath("code").description("HTTP status code"),
+                                        fieldWithPath("status").description("HTTP status"),
+                                        fieldWithPath("result").description("Created AD charge info"),
+                                        fieldWithPath("result.id").description("AD charge ID").optional(),
+                                        fieldWithPath("result.bidId").description("AD Bid ID").optional(),
+                                        fieldWithPath("result.clickedDate").description("Date when the AD charge created which can be understood as the time user clicked the AD").optional().optional(),
+                                        fieldWithPath("result.bidPrice").description("Registered bid price according to the AD").optional()
+                                )
+                        )
+                );
+    }
+
+    @Test
+    @DisplayName("17. 광고과금 생성 2")
+    void createAdCharge2() throws Exception {
+        AdChargeReqDto adChargeReqDto = AdChargeReqDto.builder()
+                .bidId(1000000002L)
+                .build();
+
+        this.mockMvc.perform(
+                        post("/api/adcharge")
+                                .contentType(MediaType.APPLICATION_JSON)
+                                .content(objectMapper.writeValueAsString(adChargeReqDto))
+                )
+                .andExpect(status().isCreated())
+                .andDo(
+                        document("POST_api-adcharge-create2",
+                                requestFields(
+                                        fieldWithPath("bidId").description("AD Bid ID to create charge")
+                                ),
+                                responseFields(
+                                        fieldWithPath("timestamp").description("API requested time"),
+                                        fieldWithPath("code").description("HTTP status code"),
+                                        fieldWithPath("status").description("HTTP status"),
+                                        fieldWithPath("result").description("Created AD charge info"),
+                                        fieldWithPath("result.id").description("AD charge ID").optional(),
+                                        fieldWithPath("result.bidId").description("AD Bid ID").optional(),
+                                        fieldWithPath("result.clickedDate").description("Date when the AD charge created which can be understood as the time user clicked the AD").optional().optional(),
+                                        fieldWithPath("result.bidPrice").description("Registered bid price according to the AD").optional()
+                                )
+                        )
+                );
+    }
+
+    @Test
+    @DisplayName("18. 광고과금 생성 3")
+    void createAdCharge3() throws Exception {
+        AdChargeReqDto adChargeReqDto = AdChargeReqDto.builder()
+                .bidId(1000000001L)
+                .build();
+
+        this.mockMvc.perform(
+                        post("/api/adcharge")
+                                .contentType(MediaType.APPLICATION_JSON)
+                                .content(objectMapper.writeValueAsString(adChargeReqDto))
+                )
+                .andExpect(status().isCreated())
+                .andDo(
+                        document("POST_api-adcharge-create3",
+                                requestFields(
+                                        fieldWithPath("bidId").description("AD Bid ID to create charge")
+                                ),
+                                responseFields(
+                                        fieldWithPath("timestamp").description("API requested time"),
+                                        fieldWithPath("code").description("HTTP status code"),
+                                        fieldWithPath("status").description("HTTP status"),
+                                        fieldWithPath("result").description("Created AD charge info"),
+                                        fieldWithPath("result.id").description("AD charge ID").optional(),
+                                        fieldWithPath("result.bidId").description("AD Bid ID").optional(),
+                                        fieldWithPath("result.clickedDate").description("Date when the AD charge created which can be understood as the time user clicked the AD").optional().optional(),
+                                        fieldWithPath("result.bidPrice").description("Registered bid price according to the AD").optional()
+                                )
+                        )
+                );
+    }
+
+    @Test
+    @DisplayName("19. 광고과금 생성 4")
+    void createAdCharge4() throws Exception {
+        AdChargeReqDto adChargeReqDto = AdChargeReqDto.builder()
+                .bidId(1000000002L)
+                .build();
+
+        this.mockMvc.perform(
+                        post("/api/adcharge")
+                                .contentType(MediaType.APPLICATION_JSON)
+                                .content(objectMapper.writeValueAsString(adChargeReqDto))
+                )
+                .andExpect(status().isCreated())
+                .andDo(
+                        document("POST_api-adcharge-create4",
+                                requestFields(
+                                        fieldWithPath("bidId").description("AD Bid ID to create charge")
+                                ),
+                                responseFields(
+                                        fieldWithPath("timestamp").description("API requested time"),
+                                        fieldWithPath("code").description("HTTP status code"),
+                                        fieldWithPath("status").description("HTTP status"),
+                                        fieldWithPath("result").description("Created AD charge info"),
+                                        fieldWithPath("result.id").description("AD charge ID").optional(),
+                                        fieldWithPath("result.bidId").description("AD Bid ID").optional(),
+                                        fieldWithPath("result.clickedDate").description("Date when the AD charge created which can be understood as the time user clicked the AD").optional().optional(),
+                                        fieldWithPath("result.bidPrice").description("Registered bid price according to the AD").optional()
+                                )
+                        )
+                );
+    }
+
+    @Test
+    @DisplayName("20. 광고과금 유효성 검사")
+    void createAdChargeValidation() throws Exception {
+        AdChargeReqDto adChargeReqDto = AdChargeReqDto.builder()
+                .bidId(10000000010L)
+                .build();
+
+        this.mockMvc.perform(
+                        post("/api/adcharge")
+                                .contentType(MediaType.APPLICATION_JSON)
+                                .content(objectMapper.writeValueAsString(adChargeReqDto))
+                )
+                .andExpect(status().isBadRequest())
+                .andDo(
+                        document("POST_api-adcharge-validation",
+                                requestFields(
+                                        fieldWithPath("bidId").description("AD Bid ID to create charge")
+                                ),
+                                responseFields(
+                                        fieldWithPath("timestamp").description("API requested time"),
+                                        fieldWithPath("code").description("HTTP status code"),
+                                        fieldWithPath("status").description("HTTP status"),
+                                        fieldWithPath("result").description("An array of validation result"),
+                                        fieldWithPath("result.[].field").description("The field which is invalid"),
+                                        fieldWithPath("result.[].message").description("Description message"),
+                                        fieldWithPath("result.[].rejectedValue").description("The value rejected")
                                 )
                         )
                 );

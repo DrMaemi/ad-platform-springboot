@@ -450,16 +450,17 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <ul class="sectlevel1">
 <li><a href="#Product-API">상품(Product) 도메인</a>
 <ul class="sectlevel2">
-<li><a href="#상품-정보-리스트-등록">상품 정보 리스트 등록</a></li>
-<li><a href="#상품-정보-리스트-등록-유효성-검사">상품 정보 리스트 등록 유효성 검사</a></li>
-<li><a href="#상품-정보-리스트-조회">상품 정보 리스트 조회</a></li>
+<li><a href="#상품정보-리스트-생성">상품 정보 리스트 생성</a></li>
+<li><a href="#상품정보-리스트-생성-시-유효성-검사">상품 정보 리스트 등록 유효성 검사</a></li>
+<li><a href="#상품정보-리스트-조회">상품 정보 리스트 조회</a></li>
 </ul>
 </li>
 <li><a href="#Company-API">업체(Company) 도메인</a>
 <ul class="sectlevel2">
 <li><a href="#업체-등록">업체 등록</a></li>
-<li><a href="#업체-등록-유효성-검사">업체 등록 유효성 검사</a></li>
-<li><a href="#업체-정보-리스트-조회">업체 정보 리스트 조회</a></li>
+<li><a href="#업체-등록-시-유효성-검사">업체 등록 시 유효성 검사</a></li>
+<li><a href="#업체정보-리스트-조회">업체정보 리스트 조회</a></li>
+<li><a href="#업체정보-중-업체명을-제외한-채-수정">업체정보 중 업체명을 제외한 채 수정</a></li>
 </ul>
 </li>
 <li><a href="#Contract-API">계약(Contract) 도메인</a>
@@ -471,8 +472,24 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </li>
 <li><a href="#AdBid-API">광고입찰(AD Bid) 도메인</a>
 <ul class="sectlevel2">
-<li><a href="#광고입찰-생성">광고입찰 생성</a></li>
-<li><a href="#광고입찰-유효성-검사">광고입찰 유효성 검사</a></li>
+<li><a href="#광고입찰-생성-1">광고입찰 생성 1</a></li>
+<li><a href="#광고입찰-생성-2">광고입찰 생성 2</a></li>
+<li><a href="#광고입찰-생성-3">광고입찰 생성 3</a></li>
+<li><a href="#광고입찰-생성-시-유효성-검사">광고입찰 생성 시 유효성 검사</a></li>
+</ul>
+</li>
+<li><a href="#AdDisplay-API">광고전시(AD Display) 도메인</a>
+<ul class="sectlevel2">
+<li><a href="#광고전시-리스트-조회">광고전시 리스트 조회</a></li>
+</ul>
+</li>
+<li><a href="#AdCharge-API">광고과금(AD Charge) 도메인</a>
+<ul class="sectlevel2">
+<li><a href="#광고과금-생성-1">광고과금 생성 1</a></li>
+<li><a href="#광고과금-생성-2">광고과금 생성 2</a></li>
+<li><a href="#광고과금-생성-3">광고과금 생성 3</a></li>
+<li><a href="#광고과금-생성-4">광고과금 생성 4</a></li>
+<li><a href="#광고과금-유효성-검사">광고과금 유효성 검사</a></li>
 </ul>
 </li>
 </ul>
@@ -483,9 +500,9 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h2 id="Product-API"><a class="link" href="#Product-API">상품(Product) 도메인</a></h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="상품-정보-리스트-등록"><a class="link" href="#상품-정보-리스트-등록">상품 정보 리스트 등록</a></h3>
+<h3 id="상품정보-리스트-생성"><a class="link" href="#상품정보-리스트-생성">상품 정보 리스트 생성</a></h3>
 <div class="sect3">
-<h4 id="상품-정보-리스트-등록_http_request"><a class="link" href="#상품-정보-리스트-등록_http_request">HTTP request</a></h4>
+<h4 id="상품정보-리스트-생성_http_request"><a class="link" href="#상품정보-리스트-생성_http_request">HTTP request</a></h4>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">POST /api/products HTTP/1.1
@@ -573,7 +590,7 @@ Host: localhost:8080
 </div>
 </div>
 <div class="sect3">
-<h4 id="상품-정보-리스트-등록_request_fields"><a class="link" href="#상품-정보-리스트-등록_request_fields">Request fields</a></h4>
+<h4 id="상품정보-리스트-생성_request_fields"><a class="link" href="#상품정보-리스트-생성_request_fields">Request fields</a></h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 33.3333%;">
@@ -617,7 +634,7 @@ Host: localhost:8080
 </table>
 </div>
 <div class="sect3">
-<h4 id="상품-정보-리스트-등록_http_response"><a class="link" href="#상품-정보-리스트-등록_http_response">HTTP response</a></h4>
+<h4 id="상품정보-리스트-생성_http_response"><a class="link" href="#상품정보-리스트-생성_http_response">HTTP response</a></h4>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 201 Created
@@ -630,7 +647,7 @@ Expires: 0
 Content-Length: 131
 
 {
-  "timestamp" : "2022-06-11T18:50:05.7007487",
+  "timestamp" : "2022-06-11T23:07:48.0287307",
   "code" : 201,
   "status" : "CREATED",
   "result" : "15 record(s) created"
@@ -639,7 +656,7 @@ Content-Length: 131
 </div>
 </div>
 <div class="sect3">
-<h4 id="상품-정보-리스트-등록_response_fields"><a class="link" href="#상품-정보-리스트-등록_response_fields">Response fields</a></h4>
+<h4 id="상품정보-리스트-생성_response_fields"><a class="link" href="#상품정보-리스트-생성_response_fields">Response fields</a></h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 33.3333%;">
@@ -679,9 +696,9 @@ Content-Length: 131
 </div>
 </div>
 <div class="sect2">
-<h3 id="상품-정보-리스트-등록-유효성-검사"><a class="link" href="#상품-정보-리스트-등록-유효성-검사">상품 정보 리스트 등록 유효성 검사</a></h3>
+<h3 id="상품정보-리스트-생성-시-유효성-검사"><a class="link" href="#상품정보-리스트-생성-시-유효성-검사">상품 정보 리스트 등록 유효성 검사</a></h3>
 <div class="sect3">
-<h4 id="상품-정보-리스트-등록-유효성-검사_http_request"><a class="link" href="#상품-정보-리스트-등록-유효성-검사_http_request">HTTP request</a></h4>
+<h4 id="상품정보-리스트-생성-시-유효성-검사_http_request"><a class="link" href="#상품정보-리스트-생성-시-유효성-검사_http_request">HTTP request</a></h4>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">POST /api/products HTTP/1.1
@@ -704,7 +721,7 @@ Host: localhost:8080
 </div>
 </div>
 <div class="sect3">
-<h4 id="상품-정보-리스트-등록-유효성-검사_request_fields"><a class="link" href="#상품-정보-리스트-등록-유효성-검사_request_fields">Request fields</a></h4>
+<h4 id="상품정보-리스트-생성-시-유효성-검사_request_fields"><a class="link" href="#상품정보-리스트-생성-시-유효성-검사_request_fields">Request fields</a></h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 33.3333%;">
@@ -748,7 +765,7 @@ Host: localhost:8080
 </table>
 </div>
 <div class="sect3">
-<h4 id="상품-정보-리스트-등록-유효성-검사_http_response"><a class="link" href="#상품-정보-리스트-등록-유효성-검사_http_response">HTTP response</a></h4>
+<h4 id="상품정보-리스트-생성-시-유효성-검사_http_response"><a class="link" href="#상품정보-리스트-생성-시-유효성-검사_http_response">HTTP response</a></h4>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 400 Bad Request
@@ -761,10 +778,14 @@ Expires: 0
 Content-Length: 751
 
 {
-  "timestamp" : "2022-06-11T18:50:05.7774665",
+  "timestamp" : "2022-06-11T23:07:48.1039477",
   "code" : 400,
   "status" : "BAD_REQUEST",
   "result" : [ {
+    "field" : "addProducts.productReqDtos[0].companyName",
+    "message" : "업체명을 입력해주세요.",
+    "rejectedValue" : null
+  }, {
     "field" : "addProducts.productReqDtos[1].price",
     "message" : "상품 가격은 0 이상의 값으로 입력해주세요.",
     "rejectedValue" : -2000
@@ -776,17 +797,13 @@ Content-Length: 751
     "field" : "addProducts.productReqDtos[0].stock",
     "message" : "상품 수량은 0 이상의 값으로 입력해주세요.",
     "rejectedValue" : -10
-  }, {
-    "field" : "addProducts.productReqDtos[0].companyName",
-    "message" : "업체명을 입력해주세요.",
-    "rejectedValue" : null
   } ]
 }</code></pre>
 </div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="상품-정보-리스트-등록-유효성-검사_response_fields"><a class="link" href="#상품-정보-리스트-등록-유효성-검사_response_fields">Response fields</a></h4>
+<h4 id="상품정보-리스트-생성-시-유효성-검사_response_fields"><a class="link" href="#상품정보-리스트-생성-시-유효성-검사_response_fields">Response fields</a></h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 33.3333%;">
@@ -841,9 +858,9 @@ Content-Length: 751
 </div>
 </div>
 <div class="sect2">
-<h3 id="상품-정보-리스트-조회"><a class="link" href="#상품-정보-리스트-조회">상품 정보 리스트 조회</a></h3>
+<h3 id="상품정보-리스트-조회"><a class="link" href="#상품정보-리스트-조회">상품 정보 리스트 조회</a></h3>
 <div class="sect3">
-<h4 id="상품-정보-리스트-조회_http_request"><a class="link" href="#상품-정보-리스트-조회_http_request">HTTP request</a></h4>
+<h4 id="상품정보-리스트-조회_http_request"><a class="link" href="#상품정보-리스트-조회_http_request">HTTP request</a></h4>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">GET /api/products HTTP/1.1
@@ -853,7 +870,7 @@ Host: localhost:8080</code></pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="상품-정보-리스트-조회_http_response"><a class="link" href="#상품-정보-리스트-조회_http_response">HTTP response</a></h4>
+<h4 id="상품정보-리스트-조회_http_response"><a class="link" href="#상품정보-리스트-조회_http_response">HTTP response</a></h4>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
@@ -866,124 +883,124 @@ Expires: 0
 Content-Length: 4169
 
 {
-  "timestamp" : "2022-06-11T18:50:05.8328851",
+  "timestamp" : "2022-06-11T23:07:48.1609808",
   "code" : 200,
   "status" : "OK",
   "result" : [ {
-    "createdDate" : "2022-06-11T18:50:05.632244",
-    "lastModifiedDate" : "2022-06-11T18:50:05.632244",
+    "createdDate" : "2022-06-11T23:07:47.961721",
+    "lastModifiedDate" : "2022-06-11T23:07:47.961721",
     "price" : 600,
     "companyName" : "이마트",
     "id" : 1000000001,
     "stock" : 10,
     "productName" : "허쉬 초코멜로쿠키 45g"
   }, {
-    "createdDate" : "2022-06-11T18:50:05.640066",
-    "lastModifiedDate" : "2022-06-11T18:50:05.640066",
+    "createdDate" : "2022-06-11T23:07:47.969476",
+    "lastModifiedDate" : "2022-06-11T23:07:47.969476",
     "price" : 2000,
     "companyName" : "신세계백화점",
     "id" : 1000000002,
     "stock" : 5,
     "productName" : "크리스피롤 12 곡 180g"
   }, {
-    "createdDate" : "2022-06-11T18:50:05.644732",
-    "lastModifiedDate" : "2022-06-11T18:50:05.644732",
+    "createdDate" : "2022-06-11T23:07:47.973911",
+    "lastModifiedDate" : "2022-06-11T23:07:47.973911",
     "price" : 1200000,
     "companyName" : "삼성전자",
     "id" : 1000000003,
     "stock" : 0,
     "productName" : "갤럭시 22 자급제모델"
   }, {
-    "createdDate" : "2022-06-11T18:50:05.649466",
-    "lastModifiedDate" : "2022-06-11T18:50:05.649466",
+    "createdDate" : "2022-06-11T23:07:47.978282",
+    "lastModifiedDate" : "2022-06-11T23:07:47.978282",
     "price" : 2600,
     "companyName" : "이마트",
     "id" : 1000000004,
     "stock" : 6,
     "productName" : "말랑카우 핸드워시 250ml"
   }, {
-    "createdDate" : "2022-06-11T18:50:05.652999",
-    "lastModifiedDate" : "2022-06-11T18:50:05.652999",
+    "createdDate" : "2022-06-11T23:07:47.98197",
+    "lastModifiedDate" : "2022-06-11T23:07:47.98197",
     "price" : 1200,
     "companyName" : "신세계백화점",
     "id" : 1000000005,
     "stock" : 4,
     "productName" : "삼립 미니꿀호떡 322g"
   }, {
-    "createdDate" : "2022-06-11T18:50:05.65673",
-    "lastModifiedDate" : "2022-06-11T18:50:05.65673",
+    "createdDate" : "2022-06-11T23:07:47.986011",
+    "lastModifiedDate" : "2022-06-11T23:07:47.986011",
     "price" : 6400,
     "companyName" : "이마트",
     "id" : 1000000006,
     "stock" : 2,
     "productName" : "피코크 어랑손만두 어랑만두 700g"
   }, {
-    "createdDate" : "2022-06-11T18:50:05.661185",
-    "lastModifiedDate" : "2022-06-11T18:50:05.661185",
+    "createdDate" : "2022-06-11T23:07:47.990384",
+    "lastModifiedDate" : "2022-06-11T23:07:47.990384",
     "price" : 2800,
     "companyName" : "신세계백화점",
     "id" : 1000000007,
     "stock" : 1,
     "productName" : "빼빼로바 아몬드아이스크림 4입"
   }, {
-    "createdDate" : "2022-06-11T18:50:05.665687",
-    "lastModifiedDate" : "2022-06-11T18:50:05.665687",
+    "createdDate" : "2022-06-11T23:07:47.994132",
+    "lastModifiedDate" : "2022-06-11T23:07:47.994132",
     "price" : 2500,
     "companyName" : "이마트",
     "id" : 1000000008,
     "stock" : 3,
     "productName" : "피코크 에이 클래스 우유 900ml"
   }, {
-    "createdDate" : "2022-06-11T18:50:05.669987",
-    "lastModifiedDate" : "2022-06-11T18:50:05.669987",
+    "createdDate" : "2022-06-11T23:07:47.998827",
+    "lastModifiedDate" : "2022-06-11T23:07:47.998827",
     "price" : 4500,
     "companyName" : "이마트",
     "id" : 1000000009,
     "stock" : 0,
     "productName" : "아삭달콤 방울토마토 500g"
   }, {
-    "createdDate" : "2022-06-11T18:50:05.672919",
-    "lastModifiedDate" : "2022-06-11T18:50:05.672919",
+    "createdDate" : "2022-06-11T23:07:48.001893",
+    "lastModifiedDate" : "2022-06-11T23:07:48.001893",
     "price" : 3000,
     "companyName" : "이마트",
     "id" : 1000000010,
     "stock" : 1,
     "productName" : "[롯데삼강] 돼지바 (70ml*6 입)"
   }, {
-    "createdDate" : "2022-06-11T18:50:05.67834",
-    "lastModifiedDate" : "2022-06-11T18:50:05.67834",
+    "createdDate" : "2022-06-11T23:07:48.007683",
+    "lastModifiedDate" : "2022-06-11T23:07:48.007683",
     "price" : 129000,
     "companyName" : "나이키",
     "id" : 1000000011,
     "stock" : 4,
     "productName" : "나이키 덩크로우 흰검"
   }, {
-    "createdDate" : "2022-06-11T18:50:05.683898",
-    "lastModifiedDate" : "2022-06-11T18:50:05.683898",
+    "createdDate" : "2022-06-11T23:07:48.013495",
+    "lastModifiedDate" : "2022-06-11T23:07:48.013495",
     "price" : 18500,
     "companyName" : "스타벅스",
     "id" : 1000000012,
     "stock" : 4,
     "productName" : "이달의 원두 500g"
   }, {
-    "createdDate" : "2022-06-11T18:50:05.687578",
-    "lastModifiedDate" : "2022-06-11T18:50:05.687578",
+    "createdDate" : "2022-06-11T23:07:48.01738",
+    "lastModifiedDate" : "2022-06-11T23:07:48.01738",
     "price" : 23000,
     "companyName" : "스타벅스",
     "id" : 1000000013,
     "stock" : 7,
     "productName" : "아쿠아머그"
   }, {
-    "createdDate" : "2022-06-11T18:50:05.693162",
-    "lastModifiedDate" : "2022-06-11T18:50:05.693162",
+    "createdDate" : "2022-06-11T23:07:48.022156",
+    "lastModifiedDate" : "2022-06-11T23:07:48.022156",
     "price" : 480000,
     "companyName" : "삼성전자",
     "id" : 1000000014,
     "stock" : 2,
     "productName" : "삼성전자 43 인치 스마트모니터"
   }, {
-    "createdDate" : "2022-06-11T18:50:05.697715",
-    "lastModifiedDate" : "2022-06-11T18:50:05.697715",
+    "createdDate" : "2022-06-11T23:07:48.026198",
+    "lastModifiedDate" : "2022-06-11T23:07:48.026198",
     "price" : 25000,
     "companyName" : "나이키",
     "id" : 1000000015,
@@ -995,7 +1012,7 @@ Content-Length: 4169
 </div>
 </div>
 <div class="sect3">
-<h4 id="상품-정보-리스트-조회_response_fields"><a class="link" href="#상품-정보-리스트-조회_response_fields">Response fields</a></h4>
+<h4 id="상품정보-리스트-조회_response_fields"><a class="link" href="#상품정보-리스트-조회_response_fields">Response fields</a></h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 33.3333%;">
@@ -1144,10 +1161,10 @@ X-XSS-Protection: 1; mode=block
 Cache-Control: no-cache, no-store, max-age=0, must-revalidate
 Pragma: no-cache
 Expires: 0
-Content-Length: 282
+Content-Length: 283
 
 {
-  "timestamp" : "2022-06-11T18:50:05.902097",
+  "timestamp" : "2022-06-11T23:07:48.2333928",
   "code" : 200,
   "status" : "OK",
   "result" : {
@@ -1227,9 +1244,9 @@ Content-Length: 282
 </div>
 </div>
 <div class="sect2">
-<h3 id="업체-등록-유효성-검사"><a class="link" href="#업체-등록-유효성-검사">업체 등록 유효성 검사</a></h3>
+<h3 id="업체-등록-시-유효성-검사"><a class="link" href="#업체-등록-시-유효성-검사">업체 등록 시 유효성 검사</a></h3>
 <div class="sect3">
-<h4 id="업체-등록-유효성-검사_http_request"><a class="link" href="#업체-등록-유효성-검사_http_request">HTTP request</a></h4>
+<h4 id="업체-등록-시-유효성-검사_http_request"><a class="link" href="#업체-등록-시-유효성-검사_http_request">HTTP request</a></h4>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">POST /api/company HTTP/1.1
@@ -1247,7 +1264,7 @@ Host: localhost:8080
 </div>
 </div>
 <div class="sect3">
-<h4 id="업체-등록-유효성-검사_request_fields"><a class="link" href="#업체-등록-유효성-검사_request_fields">Request fields</a></h4>
+<h4 id="업체-등록-시-유효성-검사_request_fields"><a class="link" href="#업체-등록-시-유효성-검사_request_fields">Request fields</a></h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 33.3333%;">
@@ -1286,7 +1303,7 @@ Host: localhost:8080
 </table>
 </div>
 <div class="sect3">
-<h4 id="업체-등록-유효성-검사_http_response"><a class="link" href="#업체-등록-유효성-검사_http_response">HTTP response</a></h4>
+<h4 id="업체-등록-시-유효성-검사_http_response"><a class="link" href="#업체-등록-시-유효성-검사_http_response">HTTP response</a></h4>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 400 Bad Request
@@ -1299,32 +1316,32 @@ Expires: 0
 Content-Length: 838
 
 {
-  "timestamp" : "2022-06-11T18:50:05.9268451",
+  "timestamp" : "2022-06-11T23:07:48.2575818",
   "code" : 400,
   "status" : "BAD_REQUEST",
   "result" : [ {
-    "field" : "address",
-    "message" : "주소지를 입력해주세요.",
-    "rejectedValue" : null
+    "field" : "companyName",
+    "message" : "상품 리스트에 존재하는 업체명이 아닙니다. 다시 한 번 확인해주세요.",
+    "rejectedValue" : "등록되지 않은 업체 이름"
   }, {
     "field" : "businessRegistrationNumber",
     "message" : "사업자번호는 XXX-XX-XXXXX 형태로 총 10개의 숫자를 입력해주세요.",
     "rejectedValue" : "123456-78901"
   }, {
+    "field" : "address",
+    "message" : "주소지를 입력해주세요.",
+    "rejectedValue" : null
+  }, {
     "field" : "phoneNumber",
     "message" : "업체전화번호는 XXX-XXX-XXXX와 같이 '-'를 이용해 구분하여 숫자를 입력해주세요.",
     "rejectedValue" : "010-1234567"
-  }, {
-    "field" : "companyName",
-    "message" : "상품 리스트에 존재하는 업체명이 아닙니다. 다시 한 번 확인해주세요.",
-    "rejectedValue" : "등록되지 않은 업체 이름"
   } ]
 }</code></pre>
 </div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="업체-등록-유효성-검사_response_fields"><a class="link" href="#업체-등록-유효성-검사_response_fields">Response fields</a></h4>
+<h4 id="업체-등록-시-유효성-검사_response_fields"><a class="link" href="#업체-등록-시-유효성-검사_response_fields">Response fields</a></h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 33.3333%;">
@@ -1379,9 +1396,9 @@ Content-Length: 838
 </div>
 </div>
 <div class="sect2">
-<h3 id="업체-정보-리스트-조회"><a class="link" href="#업체-정보-리스트-조회">업체 정보 리스트 조회</a></h3>
+<h3 id="업체정보-리스트-조회"><a class="link" href="#업체정보-리스트-조회">업체정보 리스트 조회</a></h3>
 <div class="sect3">
-<h4 id="업체-정보-리스트-조회_http_request"><a class="link" href="#업체-정보-리스트-조회_http_request">HTTP request</a></h4>
+<h4 id="업체정보-리스트-조회_http_request"><a class="link" href="#업체정보-리스트-조회_http_request">HTTP request</a></h4>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">GET /api/companies HTTP/1.1
@@ -1391,7 +1408,7 @@ Host: localhost:8080</code></pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="업체-정보-리스트-조회_http_response"><a class="link" href="#업체-정보-리스트-조회_http_response">HTTP response</a></h4>
+<h4 id="업체정보-리스트-조회_http_response"><a class="link" href="#업체정보-리스트-조회_http_response">HTTP response</a></h4>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
@@ -1404,7 +1421,7 @@ Expires: 0
 Content-Length: 5699
 
 {
-  "timestamp" : "2022-06-11T18:50:05.9551164",
+  "timestamp" : "2022-06-11T23:07:48.2888744",
   "code" : 200,
   "status" : "OK",
   "result" : [ {
@@ -1419,51 +1436,51 @@ Content-Length: 5699
       "productName" : "허쉬 초코멜로쿠키 45g",
       "price" : 600,
       "stock" : 10,
-      "createdDate" : "2022-06-11T18:50:05.632244",
-      "lastModifiedDate" : "2022-06-11T18:50:05.632244"
+      "createdDate" : "2022-06-11T23:07:47.961721",
+      "lastModifiedDate" : "2022-06-11T23:07:47.961721"
     }, {
       "id" : 1000000004,
       "companyDto" : null,
       "productName" : "말랑카우 핸드워시 250ml",
       "price" : 2600,
       "stock" : 6,
-      "createdDate" : "2022-06-11T18:50:05.649466",
-      "lastModifiedDate" : "2022-06-11T18:50:05.649466"
+      "createdDate" : "2022-06-11T23:07:47.978282",
+      "lastModifiedDate" : "2022-06-11T23:07:47.978282"
     }, {
       "id" : 1000000006,
       "companyDto" : null,
       "productName" : "피코크 어랑손만두 어랑만두 700g",
       "price" : 6400,
       "stock" : 2,
-      "createdDate" : "2022-06-11T18:50:05.65673",
-      "lastModifiedDate" : "2022-06-11T18:50:05.65673"
+      "createdDate" : "2022-06-11T23:07:47.986011",
+      "lastModifiedDate" : "2022-06-11T23:07:47.986011"
     }, {
       "id" : 1000000008,
       "companyDto" : null,
       "productName" : "피코크 에이 클래스 우유 900ml",
       "price" : 2500,
       "stock" : 3,
-      "createdDate" : "2022-06-11T18:50:05.665687",
-      "lastModifiedDate" : "2022-06-11T18:50:05.665687"
+      "createdDate" : "2022-06-11T23:07:47.994132",
+      "lastModifiedDate" : "2022-06-11T23:07:47.994132"
     }, {
       "id" : 1000000009,
       "companyDto" : null,
       "productName" : "아삭달콤 방울토마토 500g",
       "price" : 4500,
       "stock" : 0,
-      "createdDate" : "2022-06-11T18:50:05.669987",
-      "lastModifiedDate" : "2022-06-11T18:50:05.669987"
+      "createdDate" : "2022-06-11T23:07:47.998827",
+      "lastModifiedDate" : "2022-06-11T23:07:47.998827"
     }, {
       "id" : 1000000010,
       "companyDto" : null,
       "productName" : "[롯데삼강] 돼지바 (70ml*6 입)",
       "price" : 3000,
       "stock" : 1,
-      "createdDate" : "2022-06-11T18:50:05.672919",
-      "lastModifiedDate" : "2022-06-11T18:50:05.672919"
+      "createdDate" : "2022-06-11T23:07:48.001893",
+      "lastModifiedDate" : "2022-06-11T23:07:48.001893"
     } ],
-    "createdDate" : "2022-06-11T18:50:05.590429",
-    "lastModifiedDate" : "2022-06-11T18:50:05.893012"
+    "createdDate" : "2022-06-11T23:07:47.919697",
+    "lastModifiedDate" : "2022-06-11T23:07:48.226233"
   }, {
     "id" : 1000000002,
     "name" : "신세계백화점",
@@ -1476,27 +1493,27 @@ Content-Length: 5699
       "productName" : "크리스피롤 12 곡 180g",
       "price" : 2000,
       "stock" : 5,
-      "createdDate" : "2022-06-11T18:50:05.640066",
-      "lastModifiedDate" : "2022-06-11T18:50:05.640066"
+      "createdDate" : "2022-06-11T23:07:47.969476",
+      "lastModifiedDate" : "2022-06-11T23:07:47.969476"
     }, {
       "id" : 1000000005,
       "companyDto" : null,
       "productName" : "삼립 미니꿀호떡 322g",
       "price" : 1200,
       "stock" : 4,
-      "createdDate" : "2022-06-11T18:50:05.652999",
-      "lastModifiedDate" : "2022-06-11T18:50:05.652999"
+      "createdDate" : "2022-06-11T23:07:47.98197",
+      "lastModifiedDate" : "2022-06-11T23:07:47.98197"
     }, {
       "id" : 1000000007,
       "companyDto" : null,
       "productName" : "빼빼로바 아몬드아이스크림 4입",
       "price" : 2800,
       "stock" : 1,
-      "createdDate" : "2022-06-11T18:50:05.661185",
-      "lastModifiedDate" : "2022-06-11T18:50:05.661185"
+      "createdDate" : "2022-06-11T23:07:47.990384",
+      "lastModifiedDate" : "2022-06-11T23:07:47.990384"
     } ],
-    "createdDate" : "2022-06-11T18:50:05.638555",
-    "lastModifiedDate" : "2022-06-11T18:50:05.638555"
+    "createdDate" : "2022-06-11T23:07:47.966908",
+    "lastModifiedDate" : "2022-06-11T23:07:47.966908"
   }, {
     "id" : 1000000003,
     "name" : "삼성전자",
@@ -1509,19 +1526,19 @@ Content-Length: 5699
       "productName" : "갤럭시 22 자급제모델",
       "price" : 1200000,
       "stock" : 0,
-      "createdDate" : "2022-06-11T18:50:05.644732",
-      "lastModifiedDate" : "2022-06-11T18:50:05.644732"
+      "createdDate" : "2022-06-11T23:07:47.973911",
+      "lastModifiedDate" : "2022-06-11T23:07:47.973911"
     }, {
       "id" : 1000000014,
       "companyDto" : null,
       "productName" : "삼성전자 43 인치 스마트모니터",
       "price" : 480000,
       "stock" : 2,
-      "createdDate" : "2022-06-11T18:50:05.693162",
-      "lastModifiedDate" : "2022-06-11T18:50:05.693162"
+      "createdDate" : "2022-06-11T23:07:48.022156",
+      "lastModifiedDate" : "2022-06-11T23:07:48.022156"
     } ],
-    "createdDate" : "2022-06-11T18:50:05.642725",
-    "lastModifiedDate" : "2022-06-11T18:50:05.642725"
+    "createdDate" : "2022-06-11T23:07:47.971903",
+    "lastModifiedDate" : "2022-06-11T23:07:47.971903"
   }, {
     "id" : 1000000004,
     "name" : "나이키",
@@ -1534,19 +1551,19 @@ Content-Length: 5699
       "productName" : "나이키 덩크로우 흰검",
       "price" : 129000,
       "stock" : 4,
-      "createdDate" : "2022-06-11T18:50:05.67834",
-      "lastModifiedDate" : "2022-06-11T18:50:05.67834"
+      "createdDate" : "2022-06-11T23:07:48.007683",
+      "lastModifiedDate" : "2022-06-11T23:07:48.007683"
     }, {
       "id" : 1000000015,
       "companyDto" : null,
       "productName" : "나이키 헤리티지 스우시 캡",
       "price" : 25000,
       "stock" : 5,
-      "createdDate" : "2022-06-11T18:50:05.697715",
-      "lastModifiedDate" : "2022-06-11T18:50:05.697715"
+      "createdDate" : "2022-06-11T23:07:48.026198",
+      "lastModifiedDate" : "2022-06-11T23:07:48.026198"
     } ],
-    "createdDate" : "2022-06-11T18:50:05.675109",
-    "lastModifiedDate" : "2022-06-11T18:50:05.675109"
+    "createdDate" : "2022-06-11T23:07:48.005682",
+    "lastModifiedDate" : "2022-06-11T23:07:48.005682"
   }, {
     "id" : 1000000005,
     "name" : "스타벅스",
@@ -1559,26 +1576,26 @@ Content-Length: 5699
       "productName" : "이달의 원두 500g",
       "price" : 18500,
       "stock" : 4,
-      "createdDate" : "2022-06-11T18:50:05.683898",
-      "lastModifiedDate" : "2022-06-11T18:50:05.683898"
+      "createdDate" : "2022-06-11T23:07:48.013495",
+      "lastModifiedDate" : "2022-06-11T23:07:48.013495"
     }, {
       "id" : 1000000013,
       "companyDto" : null,
       "productName" : "아쿠아머그",
       "price" : 23000,
       "stock" : 7,
-      "createdDate" : "2022-06-11T18:50:05.687578",
-      "lastModifiedDate" : "2022-06-11T18:50:05.687578"
+      "createdDate" : "2022-06-11T23:07:48.01738",
+      "lastModifiedDate" : "2022-06-11T23:07:48.01738"
     } ],
-    "createdDate" : "2022-06-11T18:50:05.681881",
-    "lastModifiedDate" : "2022-06-11T18:50:05.681881"
+    "createdDate" : "2022-06-11T23:07:48.011484",
+    "lastModifiedDate" : "2022-06-11T23:07:48.011484"
   } ]
 }</code></pre>
 </div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="업체-정보-리스트-조회_response_fields"><a class="link" href="#업체-정보-리스트-조회_response_fields">Response fields</a></h4>
+<h4 id="업체정보-리스트-조회_response_fields"><a class="link" href="#업체정보-리스트-조회_response_fields">Response fields</a></h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 33.3333%;">
@@ -1697,6 +1714,158 @@ Content-Length: 5699
 </table>
 </div>
 </div>
+<div class="sect2">
+<h3 id="업체정보-중-업체명을-제외한-채-수정"><a class="link" href="#업체정보-중-업체명을-제외한-채-수정">업체정보 중 업체명을 제외한 채 수정</a></h3>
+<div class="sect3">
+<h4 id="업체정보-중-업체명을-제외한-채-수정_http_request"><a class="link" href="#업체정보-중-업체명을-제외한-채-수정_http_request">HTTP request</a></h4>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code class="language-http" data-lang="http">PATCH /api/company HTTP/1.1
+Content-Type: application/json;charset=UTF-8
+Content-Length: 146
+Host: localhost:8080
+
+{
+  "companyName" : "이마트",
+  "businessRegistrationNumber" : null,
+  "phoneNumber" : "010-2345-6789",
+  "address" : "수정된 주소"
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="업체정보-중-업체명을-제외한-채-수정_request_fields"><a class="link" href="#업체정보-중-업체명을-제외한-채-수정_request_fields">Request fields</a></h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Path</th>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>companyName</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Company name which is registered in the repo</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>businessRegistrationNumber</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Null</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Company&#8217;s business registration number to update. It would not be updated if the value is null.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>phoneNumber</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Company&#8217;s phone number to update. It would not be updated if the value is null</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>address</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Company&#8217;s address to update. It would not be updated if the value is null</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="업체정보-중-업체명을-제외한-채-수정_http_response"><a class="link" href="#업체정보-중-업체명을-제외한-채-수정_http_response">HTTP response</a></h4>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
+Content-Type: application/json
+X-Content-Type-Options: nosniff
+X-XSS-Protection: 1; mode=block
+Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+Pragma: no-cache
+Expires: 0
+Content-Length: 294
+
+{
+  "timestamp" : "2022-06-11T23:07:48.3231287",
+  "code" : 200,
+  "status" : "OK",
+  "result" : {
+    "phoneNumber" : "010-2345-6789",
+    "address" : "수정된 주소",
+    "businessRegistrationNumber" : "123-45-67890",
+    "companyName" : "이마트",
+    "id" : 1000000001
+  }
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="업체정보-중-업체명을-제외한-채-수정_response_fields"><a class="link" href="#업체정보-중-업체명을-제외한-채-수정_response_fields">Response fields</a></h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Path</th>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>timestamp</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">API requested time</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>code</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">HTTP status code</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>status</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">HTTP status</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>result</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Object</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Updated company info</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>result.id</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Updated company&#8217;s ID</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>result.companyName</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Updated company&#8217;s name</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>result.businessRegistrationNumber</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Updated company&#8217;s business registration number</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>result.phoneNumber</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Updated company&#8217;s phone number</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>result.address</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Updated company&#8217;s address</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -1757,7 +1926,7 @@ Expires: 0
 Content-Length: 224
 
 {
-  "timestamp" : "2022-06-11T18:50:06.0519218",
+  "timestamp" : "2022-06-11T23:07:48.3772021",
   "code" : 201,
   "status" : "CREATED",
   "result" : {
@@ -1885,7 +2054,7 @@ Expires: 0
 Content-Length: 252
 
 {
-  "timestamp" : "2022-06-11T18:50:06.0746567",
+  "timestamp" : "2022-06-11T23:07:48.4050728",
   "code" : 400,
   "status" : "BAD_REQUEST",
   "result" : [ {
@@ -1978,14 +2147,14 @@ Expires: 0
 Content-Length: 330
 
 {
-  "timestamp" : "2022-06-11T18:50:06.0963778",
+  "timestamp" : "2022-06-11T23:07:48.4284996",
   "code" : 200,
   "status" : "OK",
   "result" : [ {
     "companyId" : 1000000001,
-    "createdDate" : "2022-06-11T18:50:06.047374",
+    "createdDate" : "2022-06-11T23:07:48.371131",
     "endDate" : "2023-06-11",
-    "lastModifiedDate" : "2022-06-11T18:50:06.047374",
+    "lastModifiedDate" : "2022-06-11T23:07:48.371131",
     "id" : 1,
     "startDate" : "2022-06-11"
   } ]
@@ -2069,26 +2238,26 @@ Content-Length: 330
 <h2 id="AdBid-API"><a class="link" href="#AdBid-API">광고입찰(AD Bid) 도메인</a></h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="광고입찰-생성"><a class="link" href="#광고입찰-생성">광고입찰 생성</a></h3>
+<h3 id="광고입찰-생성-1"><a class="link" href="#광고입찰-생성-1">광고입찰 생성 1</a></h3>
 <div class="sect3">
-<h4 id="광고입찰-생성_http_request"><a class="link" href="#광고입찰-생성_http_request">HTTP request</a></h4>
+<h4 id="광고입찰-생성-1_http_request"><a class="link" href="#광고입찰-생성-1_http_request">HTTP request</a></h4>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">POST /api/adbid HTTP/1.1
 Content-Type: application/json;charset=UTF-8
-Content-Length: 81
+Content-Length: 82
 Host: localhost:8080
 
 {
   "companyId" : 1000000001,
   "productId" : 1000000001,
-  "bidPrice" : 10
+  "bidPrice" : 100
 }</code></pre>
 </div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="광고입찰-생성_request_fields"><a class="link" href="#광고입찰-생성_request_fields">Request fields</a></h4>
+<h4 id="광고입찰-생성-1_request_fields"><a class="link" href="#광고입찰-생성-1_request_fields">Request fields</a></h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 33.3333%;">
@@ -2122,7 +2291,7 @@ Host: localhost:8080
 </table>
 </div>
 <div class="sect3">
-<h4 id="광고입찰-생성_http_response"><a class="link" href="#광고입찰-생성_http_response">HTTP response</a></h4>
+<h4 id="광고입찰-생성-1_http_response"><a class="link" href="#광고입찰-생성-1_http_response">HTTP response</a></h4>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 201 Created
@@ -2132,26 +2301,26 @@ X-XSS-Protection: 1; mode=block
 Cache-Control: no-cache, no-store, max-age=0, must-revalidate
 Pragma: no-cache
 Expires: 0
-Content-Length: 331
+Content-Length: 332
 
 {
-  "timestamp" : "2022-06-11T18:50:06.1458636",
+  "timestamp" : "2022-06-11T23:07:48.4750056",
   "code" : 201,
   "status" : "CREATED",
   "result" : {
     "companyId" : 1000000001,
-    "createdDate" : "2022-06-11T18:50:06.1418281",
+    "createdDate" : "2022-06-11T23:07:48.4699516",
     "productId" : 1000000001,
-    "lastModifiedDate" : "2022-06-11T18:50:06.1418281",
+    "lastModifiedDate" : "2022-06-11T23:07:48.4699516",
     "id" : 1000000001,
-    "bidPrice" : 10
+    "bidPrice" : 100
   }
 }</code></pre>
 </div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="광고입찰-생성_response_fields"><a class="link" href="#광고입찰-생성_response_fields">Response fields</a></h4>
+<h4 id="광고입찰-생성-1_response_fields"><a class="link" href="#광고입찰-생성-1_response_fields">Response fields</a></h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 33.3333%;">
@@ -2221,26 +2390,26 @@ Content-Length: 331
 </div>
 </div>
 <div class="sect2">
-<h3 id="광고입찰-유효성-검사"><a class="link" href="#광고입찰-유효성-검사">광고입찰 유효성 검사</a></h3>
+<h3 id="광고입찰-생성-2"><a class="link" href="#광고입찰-생성-2">광고입찰 생성 2</a></h3>
 <div class="sect3">
-<h4 id="광고입찰-유효성-검사_http_request"><a class="link" href="#광고입찰-유효성-검사_http_request">HTTP request</a></h4>
+<h4 id="광고입찰-생성-2_http_request"><a class="link" href="#광고입찰-생성-2_http_request">HTTP request</a></h4>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">POST /api/adbid HTTP/1.1
 Content-Type: application/json;charset=UTF-8
-Content-Length: 81
+Content-Length: 82
 Host: localhost:8080
 
 {
-  "companyId" : 1000000002,
-  "productId" : 1000000001,
-  "bidPrice" : 10
+  "companyId" : 1000000001,
+  "productId" : 1000000004,
+  "bidPrice" : 250
 }</code></pre>
 </div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="광고입찰-유효성-검사_request_fields"><a class="link" href="#광고입찰-유효성-검사_request_fields">Request fields</a></h4>
+<h4 id="광고입찰-생성-2_request_fields"><a class="link" href="#광고입찰-생성-2_request_fields">Request fields</a></h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 33.3333%;">
@@ -2274,7 +2443,311 @@ Host: localhost:8080
 </table>
 </div>
 <div class="sect3">
-<h4 id="광고입찰-유효성-검사_http_response"><a class="link" href="#광고입찰-유효성-검사_http_response">HTTP response</a></h4>
+<h4 id="광고입찰-생성-2_http_response"><a class="link" href="#광고입찰-생성-2_http_response">HTTP response</a></h4>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 201 Created
+Content-Type: application/json
+X-Content-Type-Options: nosniff
+X-XSS-Protection: 1; mode=block
+Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+Pragma: no-cache
+Expires: 0
+Content-Length: 332
+
+{
+  "timestamp" : "2022-06-11T23:07:48.5002796",
+  "code" : 201,
+  "status" : "CREATED",
+  "result" : {
+    "companyId" : 1000000001,
+    "createdDate" : "2022-06-11T23:07:48.4987606",
+    "productId" : 1000000004,
+    "lastModifiedDate" : "2022-06-11T23:07:48.4987606",
+    "id" : 1000000002,
+    "bidPrice" : 250
+  }
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="광고입찰-생성-2_response_fields"><a class="link" href="#광고입찰-생성-2_response_fields">Response fields</a></h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Path</th>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>timestamp</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">API requested time</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>code</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">HTTP status code</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>status</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">HTTP status</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>result</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Object</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Created AD Bid info</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>result.id</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">AD Bid ID</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>result.companyId</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Company ID which created the bid</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>result.productId</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ID of the product which would be displayed when the company won the bid</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>result.bidPrice</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Registered bid price when the bid created</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>result.createdDate</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Date when the record created</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>result.lastModifiedDate</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Last date when the record modified</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="광고입찰-생성-3"><a class="link" href="#광고입찰-생성-3">광고입찰 생성 3</a></h3>
+<div class="sect3">
+<h4 id="광고입찰-생성-3_http_request"><a class="link" href="#광고입찰-생성-3_http_request">HTTP request</a></h4>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code class="language-http" data-lang="http">POST /api/adbid HTTP/1.1
+Content-Type: application/json;charset=UTF-8
+Content-Length: 82
+Host: localhost:8080
+
+{
+  "companyId" : 1000000001,
+  "productId" : 1000000009,
+  "bidPrice" : 350
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="광고입찰-생성-3_request_fields"><a class="link" href="#광고입찰-생성-3_request_fields">Request fields</a></h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Path</th>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>companyId</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Company ID to create AD bid</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>productId</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Product ID to create AD bid</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>bidPrice</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Bid price the company offered</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="광고입찰-생성-3_http_response"><a class="link" href="#광고입찰-생성-3_http_response">HTTP response</a></h4>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 201 Created
+Content-Type: application/json
+X-Content-Type-Options: nosniff
+X-XSS-Protection: 1; mode=block
+Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+Pragma: no-cache
+Expires: 0
+Content-Length: 332
+
+{
+  "timestamp" : "2022-06-11T23:07:48.5241719",
+  "code" : 201,
+  "status" : "CREATED",
+  "result" : {
+    "companyId" : 1000000001,
+    "createdDate" : "2022-06-11T23:07:48.5231583",
+    "productId" : 1000000009,
+    "lastModifiedDate" : "2022-06-11T23:07:48.5231583",
+    "id" : 1000000003,
+    "bidPrice" : 350
+  }
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="광고입찰-생성-3_response_fields"><a class="link" href="#광고입찰-생성-3_response_fields">Response fields</a></h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Path</th>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>timestamp</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">API requested time</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>code</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">HTTP status code</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>status</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">HTTP status</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>result</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Object</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Created AD Bid info</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>result.id</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">AD Bid ID</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>result.companyId</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Company ID which created the bid</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>result.productId</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ID of the product which would be displayed when the company won the bid</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>result.bidPrice</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Registered bid price when the bid created</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>result.createdDate</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Date when the record created</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>result.lastModifiedDate</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Last date when the record modified</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="광고입찰-생성-시-유효성-검사"><a class="link" href="#광고입찰-생성-시-유효성-검사">광고입찰 생성 시 유효성 검사</a></h3>
+<div class="sect3">
+<h4 id="광고입찰-생성-시-유효성-검사_http_request"><a class="link" href="#광고입찰-생성-시-유효성-검사_http_request">HTTP request</a></h4>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code class="language-http" data-lang="http">POST /api/adbid HTTP/1.1
+Content-Type: application/json;charset=UTF-8
+Content-Length: 81
+Host: localhost:8080
+
+{
+  "companyId" : 1000000002,
+  "productId" : 1000000001,
+  "bidPrice" : 10
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="광고입찰-생성-시-유효성-검사_request_fields"><a class="link" href="#광고입찰-생성-시-유효성-검사_request_fields">Request fields</a></h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Path</th>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>companyId</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Company ID to create AD bid</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>productId</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Product ID to create AD bid</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>bidPrice</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Bid price the company offered</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="광고입찰-생성-시-유효성-검사_http_response"><a class="link" href="#광고입찰-생성-시-유효성-검사_http_response">HTTP response</a></h4>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 400 Bad Request
@@ -2287,7 +2760,7 @@ Expires: 0
 Content-Length: 494
 
 {
-  "timestamp" : "2022-06-11T18:50:06.1706257",
+  "timestamp" : "2022-06-11T23:07:48.5509661",
   "code" : 400,
   "status" : "BAD_REQUEST",
   "result" : [ {
@@ -2304,7 +2777,755 @@ Content-Length: 494
 </div>
 </div>
 <div class="sect3">
-<h4 id="광고입찰-유효성-검사_response_fields"><a class="link" href="#광고입찰-유효성-검사_response_fields">Response fields</a></h4>
+<h4 id="광고입찰-생성-시-유효성-검사_response_fields"><a class="link" href="#광고입찰-생성-시-유효성-검사_response_fields">Response fields</a></h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Path</th>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>timestamp</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">API requested time</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>code</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">HTTP status code</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>status</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">HTTP status</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>result</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Array</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">An array of validation result</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>result.[].field</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The field which is invalid</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>result.[].message</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description message</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>result.[].rejectedValue</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The value rejected</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="AdDisplay-API"><a class="link" href="#AdDisplay-API">광고전시(AD Display) 도메인</a></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="광고전시-리스트-조회"><a class="link" href="#광고전시-리스트-조회">광고전시 리스트 조회</a></h3>
+<div class="sect3">
+<h4 id="광고전시-리스트-조회_http_request"><a class="link" href="#광고전시-리스트-조회_http_request">HTTP request</a></h4>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code class="language-http" data-lang="http">GET /api/ads HTTP/1.1
+Content-Type: application/json;charset=UTF-8
+Host: localhost:8080</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="광고전시-리스트-조회_http_response"><a class="link" href="#광고전시-리스트-조회_http_response">HTTP response</a></h4>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
+Content-Type: application/json
+X-Content-Type-Options: nosniff
+X-XSS-Protection: 1; mode=block
+Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+Pragma: no-cache
+Expires: 0
+Content-Length: 344
+
+{
+  "timestamp" : "2022-06-11T23:07:48.5752194",
+  "code" : 200,
+  "status" : "OK",
+  "result" : [ {
+    "bidId" : 1000000002,
+    "companyId" : 1000000001,
+    "productId" : 1000000004,
+    "bidPrice" : 250
+  }, {
+    "bidId" : 1000000001,
+    "companyId" : 1000000001,
+    "productId" : 1000000001,
+    "bidPrice" : 100
+  } ]
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="광고전시-리스트-조회_response_fields"><a class="link" href="#광고전시-리스트-조회_response_fields">Response fields</a></h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Path</th>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>timestamp</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">API requested time</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>code</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">HTTP status code</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>status</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">HTTP status</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>result</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Array</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">An array of AD bids that bid price of each bid is TOP 3</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>result.[].bidId</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">AD Bid ID</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>result.[].companyId</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Company ID which created the bid</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>result.[].productId</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Product ID of the AD Bid</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>result.[].bidPrice</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Registered bid price</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="AdCharge-API"><a class="link" href="#AdCharge-API">광고과금(AD Charge) 도메인</a></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="광고과금-생성-1"><a class="link" href="#광고과금-생성-1">광고과금 생성 1</a></h3>
+<div class="sect3">
+<h4 id="광고과금-생성-1_http_request"><a class="link" href="#광고과금-생성-1_http_request">HTTP request</a></h4>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code class="language-http" data-lang="http">POST /api/adcharge HTTP/1.1
+Content-Type: application/json;charset=UTF-8
+Content-Length: 28
+Host: localhost:8080
+
+{
+  "bidId" : 1000000001
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="광고과금-생성-1_request_fields"><a class="link" href="#광고과금-생성-1_request_fields">Request fields</a></h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Path</th>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>bidId</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">AD Bid ID to create charge</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="광고과금-생성-1_http_response"><a class="link" href="#광고과금-생성-1_http_response">HTTP response</a></h4>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 201 Created
+Content-Type: application/json
+X-Content-Type-Options: nosniff
+X-XSS-Protection: 1; mode=block
+Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+Pragma: no-cache
+Expires: 0
+Content-Length: 215
+
+{
+  "timestamp" : "2022-06-11T23:07:48.6127632",
+  "code" : 201,
+  "status" : "CREATED",
+  "result" : {
+    "id" : 1000000001,
+    "clickedDate" : null,
+    "bidId" : 1000000001,
+    "bidPrice" : 100
+  }
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="광고과금-생성-1_response_fields"><a class="link" href="#광고과금-생성-1_response_fields">Response fields</a></h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Path</th>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>timestamp</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">API requested time</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>code</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">HTTP status code</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>status</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">HTTP status</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>result</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Object</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Created AD charge info</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>result.id</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">AD charge ID</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>result.bidId</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">AD Bid ID</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>result.clickedDate</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Null</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Date when the AD charge created which can be understood as the time user clicked the AD</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>result.bidPrice</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Registered bid price according to the AD</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="광고과금-생성-2"><a class="link" href="#광고과금-생성-2">광고과금 생성 2</a></h3>
+<div class="sect3">
+<h4 id="광고과금-생성-2_http_request"><a class="link" href="#광고과금-생성-2_http_request">HTTP request</a></h4>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code class="language-http" data-lang="http">POST /api/adcharge HTTP/1.1
+Content-Type: application/json;charset=UTF-8
+Content-Length: 28
+Host: localhost:8080
+
+{
+  "bidId" : 1000000002
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="광고과금-생성-2_request_fields"><a class="link" href="#광고과금-생성-2_request_fields">Request fields</a></h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Path</th>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>bidId</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">AD Bid ID to create charge</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="광고과금-생성-2_http_response"><a class="link" href="#광고과금-생성-2_http_response">HTTP response</a></h4>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 201 Created
+Content-Type: application/json
+X-Content-Type-Options: nosniff
+X-XSS-Protection: 1; mode=block
+Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+Pragma: no-cache
+Expires: 0
+Content-Length: 215
+
+{
+  "timestamp" : "2022-06-11T23:07:48.6347384",
+  "code" : 201,
+  "status" : "CREATED",
+  "result" : {
+    "id" : 1000000002,
+    "clickedDate" : null,
+    "bidId" : 1000000002,
+    "bidPrice" : 250
+  }
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="광고과금-생성-2_response_fields"><a class="link" href="#광고과금-생성-2_response_fields">Response fields</a></h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Path</th>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>timestamp</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">API requested time</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>code</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">HTTP status code</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>status</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">HTTP status</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>result</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Object</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Created AD charge info</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>result.id</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">AD charge ID</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>result.bidId</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">AD Bid ID</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>result.clickedDate</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Null</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Date when the AD charge created which can be understood as the time user clicked the AD</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>result.bidPrice</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Registered bid price according to the AD</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="광고과금-생성-3"><a class="link" href="#광고과금-생성-3">광고과금 생성 3</a></h3>
+<div class="sect3">
+<h4 id="광고과금-생성-3_http_request"><a class="link" href="#광고과금-생성-3_http_request">HTTP request</a></h4>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code class="language-http" data-lang="http">POST /api/adcharge HTTP/1.1
+Content-Type: application/json;charset=UTF-8
+Content-Length: 28
+Host: localhost:8080
+
+{
+  "bidId" : 1000000001
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="광고과금-생성-3_request_fields"><a class="link" href="#광고과금-생성-3_request_fields">Request fields</a></h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Path</th>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>bidId</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">AD Bid ID to create charge</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="광고과금-생성-3_http_response"><a class="link" href="#광고과금-생성-3_http_response">HTTP response</a></h4>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 201 Created
+Content-Type: application/json
+X-Content-Type-Options: nosniff
+X-XSS-Protection: 1; mode=block
+Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+Pragma: no-cache
+Expires: 0
+Content-Length: 215
+
+{
+  "timestamp" : "2022-06-11T23:07:48.6539157",
+  "code" : 201,
+  "status" : "CREATED",
+  "result" : {
+    "id" : 1000000003,
+    "clickedDate" : null,
+    "bidId" : 1000000001,
+    "bidPrice" : 100
+  }
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="광고과금-생성-3_response_fields"><a class="link" href="#광고과금-생성-3_response_fields">Response fields</a></h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Path</th>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>timestamp</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">API requested time</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>code</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">HTTP status code</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>status</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">HTTP status</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>result</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Object</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Created AD charge info</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>result.id</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">AD charge ID</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>result.bidId</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">AD Bid ID</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>result.clickedDate</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Null</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Date when the AD charge created which can be understood as the time user clicked the AD</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>result.bidPrice</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Registered bid price according to the AD</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="광고과금-생성-4"><a class="link" href="#광고과금-생성-4">광고과금 생성 4</a></h3>
+<div class="sect3">
+<h4 id="광고과금-생성-4_http_request"><a class="link" href="#광고과금-생성-4_http_request">HTTP request</a></h4>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code class="language-http" data-lang="http">POST /api/adcharge HTTP/1.1
+Content-Type: application/json;charset=UTF-8
+Content-Length: 28
+Host: localhost:8080
+
+{
+  "bidId" : 1000000002
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="광고과금-생성-4_request_fields"><a class="link" href="#광고과금-생성-4_request_fields">Request fields</a></h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Path</th>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>bidId</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">AD Bid ID to create charge</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="광고과금-생성-4_http_response"><a class="link" href="#광고과금-생성-4_http_response">HTTP response</a></h4>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 201 Created
+Content-Type: application/json
+X-Content-Type-Options: nosniff
+X-XSS-Protection: 1; mode=block
+Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+Pragma: no-cache
+Expires: 0
+Content-Length: 215
+
+{
+  "timestamp" : "2022-06-11T23:07:48.6736154",
+  "code" : 201,
+  "status" : "CREATED",
+  "result" : {
+    "id" : 1000000004,
+    "clickedDate" : null,
+    "bidId" : 1000000002,
+    "bidPrice" : 250
+  }
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="광고과금-생성-4_response_fields"><a class="link" href="#광고과금-생성-4_response_fields">Response fields</a></h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Path</th>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>timestamp</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">API requested time</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>code</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">HTTP status code</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>status</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">HTTP status</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>result</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Object</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Created AD charge info</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>result.id</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">AD charge ID</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>result.bidId</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">AD Bid ID</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>result.clickedDate</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Null</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Date when the AD charge created which can be understood as the time user clicked the AD</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>result.bidPrice</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Registered bid price according to the AD</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="광고과금-유효성-검사"><a class="link" href="#광고과금-유효성-검사">광고과금 유효성 검사</a></h3>
+<div class="sect3">
+<h4 id="광고과금-유효성-검사_http_request"><a class="link" href="#광고과금-유효성-검사_http_request">HTTP request</a></h4>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code class="language-http" data-lang="http">POST /api/adcharge HTTP/1.1
+Content-Type: application/json;charset=UTF-8
+Content-Length: 29
+Host: localhost:8080
+
+{
+  "bidId" : 10000000010
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="광고과금-유효성-검사_request_fields"><a class="link" href="#광고과금-유효성-검사_request_fields">Request fields</a></h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Path</th>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>bidId</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">AD Bid ID to create charge</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="광고과금-유효성-검사_http_response"><a class="link" href="#광고과금-유효성-검사_http_response">HTTP response</a></h4>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 400 Bad Request
+Content-Type: application/json
+X-Content-Type-Options: nosniff
+X-XSS-Protection: 1; mode=block
+Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+Pragma: no-cache
+Expires: 0
+Content-Length: 282
+
+{
+  "timestamp" : "2022-06-11T23:07:48.690796",
+  "code" : 400,
+  "status" : "BAD_REQUEST",
+  "result" : [ {
+    "field" : "bidId",
+    "message" : "등록되지 않은 광고입찰 ID입니다. 다시 한 번 확인해주세요.",
+    "rejectedValue" : 10000000010
+  } ]
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="광고과금-유효성-검사_response_fields"><a class="link" href="#광고과금-유효성-검사_response_fields">Response fields</a></h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 33.3333%;">
@@ -2364,7 +3585,7 @@ Content-Length: 494
 <div id="footer">
 <div id="footer-text">
 Version 0.0.1-SNAPSHOT<br>
-Last updated 2022-06-11 18:48:38 +0900
+Last updated 2022-06-11 23:07:14 +0900
 </div>
 </div>
 </body>

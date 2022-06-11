@@ -44,4 +44,13 @@ public class AdBidEntity extends TimeEntity {
                 .lastModifiedDate(this.getLastModifiedDate())
                 .build();
     }
+
+    public AdBidDto toDtoExceptAll() {
+        return AdBidDto.builder()
+                .id(this.getId())
+                .bidPrice(this.getBidPrice())
+                .createdDate(this.getCreatedDate())
+                .lastModifiedDate(this.getLastModifiedDate())
+                .build();
+    }
 }

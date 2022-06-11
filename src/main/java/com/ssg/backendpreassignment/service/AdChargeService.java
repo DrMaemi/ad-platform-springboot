@@ -1,5 +1,6 @@
 package com.ssg.backendpreassignment.service;
 
+import com.ssg.backendpreassignment.dto.AdChargeDto;
 import com.ssg.backendpreassignment.entity.AdBidEntity;
 import com.ssg.backendpreassignment.entity.AdChargeEntity;
 import com.ssg.backendpreassignment.repository.AdBidRepository;
@@ -15,12 +16,12 @@ public class AdChargeService {
     private final AdBidRepository adBidRepository;
 
     @Transactional
-    public void createChargeByBidId(Long bidId) {
+    public AdChargeDto createAdCharge(Long bidId) {
         AdBidEntity adBidEntity = adBidRepository.findById(bidId).get();
         AdChargeEntity adChargeEntity = AdChargeEntity.builder()
                 .adBidEntity(adBidEntity)
                 .bidPrice(adBidEntity.getBidPrice())
                 .build();
-        adChargeRepository.save(adChargeEntity);
+        return adChargeRepository.save(adChargeEntity).toDto();
     }
 }

@@ -10,15 +10,15 @@
 [[Product-API]]
 == 상품(Product) 도메인
 
-[[상품-정보-리스트-등록]]
-=== 상품 정보 리스트 등록
+[[상품정보-리스트-생성]]
+=== 상품 정보 리스트 생성
 operation::POST_api-products[snippets='http-request,request-fields,http-response,response-fields']
 
-[[상품-정보-리스트-등록-유효성-검사]]
+[[상품정보-리스트-생성-시-유효성-검사]]
 === 상품 정보 리스트 등록 유효성 검사
 operation::POST_api-products-validation[snippets='http-request,request-fields,http-response,response-fields']
 
-[[상품-정보-리스트-조회]]
+[[상품정보-리스트-조회]]
 === 상품 정보 리스트 조회
 operation::GET_api-products[snippets='http-request,http-response,response-fields']
 
@@ -29,13 +29,17 @@ operation::GET_api-products[snippets='http-request,http-response,response-fields
 === 업체 등록
 operation::POST_api-company-register[snippets='http-request,request-fields,http-response,response-fields']
 
-[[업체-등록-유효성-검사]]
-=== 업체 등록 유효성 검사
+[[업체-등록-시-유효성-검사]]
+=== 업체 등록 시 유효성 검사
 operation::POST_api-company-validation[snippets='http-request,request-fields,http-response,response-fields']
 
-[[업체-정보-리스트-조회]]
-=== 업체 정보 리스트 조회
+[[업체정보-리스트-조회]]
+=== 업체정보 리스트 조회
 operation::GET_api-companies[snippets='http-request,http-response,response-fields']
+
+[[업체정보-중-업체명을-제외한-채-수정]]
+=== 업체정보 중 업체명을 제외한 채 수정
+operation::POST_api-company-update[snippets='http-request,request-fields,http-response,response-fields']
 
 [[Contract-API]]
 == 계약(Contract) 도메인
@@ -55,10 +59,48 @@ operation::GET_api-contracts[snippets='http-request,http-response,response-field
 [[AdBid-API]]
 == 광고입찰(AD Bid) 도메인
 
-[[광고입찰-생성]]
-=== 광고입찰 생성
-operation::POST_api-adbid-create[snippets='http-request,request-fields,http-response,response-fields']
+[[광고입찰-생성-1]]
+=== 광고입찰 생성 1
+operation::POST_api-adbid-create1[snippets='http-request,request-fields,http-response,response-fields']
 
-[[광고입찰-유효성-검사]]
-=== 광고입찰 유효성 검사
+[[광고입찰-생성-2]]
+=== 광고입찰 생성 2
+operation::POST_api-adbid-create2[snippets='http-request,request-fields,http-response,response-fields']
+
+[[광고입찰-생성-3]]
+=== 광고입찰 생성 3
+operation::POST_api-adbid-create3[snippets='http-request,request-fields,http-response,response-fields']
+
+[[광고입찰-생성-시-유효성-검사]]
+=== 광고입찰 생성 시 유효성 검사
 operation::POST_api-adbid-validation[snippets='http-request,request-fields,http-response,response-fields']
+
+[[AdDisplay-API]]
+== 광고전시(AD Display) 도메인
+
+[[광고전시-리스트-조회]]
+=== 광고전시 리스트 조회
+operation::GET_api-ads[snippets='http-request,http-response,response-fields']
+
+[[AdCharge-API]]
+== 광고과금(AD Charge) 도메인
+
+[[광고과금-생성-1]]
+=== 광고과금 생성 1
+operation::POST_api-adcharge-create1[snippets='http-request,request-fields,http-response,response-fields']
+
+[[광고과금-생성-2]]
+=== 광고과금 생성 2
+operation::POST_api-adcharge-create2[snippets='http-request,request-fields,http-response,response-fields']
+
+[[광고과금-생성-3]]
+=== 광고과금 생성 3
+operation::POST_api-adcharge-create3[snippets='http-request,request-fields,http-response,response-fields']
+
+[[광고과금-생성-4]]
+=== 광고과금 생성 4
+operation::POST_api-adcharge-create4[snippets='http-request,request-fields,http-response,response-fields']
+
+[[광고과금-유효성-검사]]
+=== 광고과금 유효성 검사
+operation::POST_api-adcharge-validation[snippets='http-request,request-fields,http-response,response-fields']

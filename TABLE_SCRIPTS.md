@@ -51,6 +51,8 @@ CREATE TABLE ADVERTISEMENT_BID(
     company_id BIGINT NOT NULL,
     product_id BIGINT NOT NULL,
     bid_price BIGINT NOT NULL,
+    created_date TIMESTAMP NOT NULL,
+    last_modified_date TIMESTAMP,
     PRIMARY KEY (id),
     FOREIGN KEY (company_id) REFERENCES CONTRACT(company_id),
     FOREIGN KEY (product_id) REFERENCES PRODUCT,

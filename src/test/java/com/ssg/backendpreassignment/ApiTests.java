@@ -2,6 +2,7 @@ package com.ssg.backendpreassignment;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.ssg.backendpreassignment.config.RestDocsConfig;
+import com.ssg.backendpreassignment.dto.AdBidReqDto;
 import com.ssg.backendpreassignment.dto.CompanyReqDto;
 import com.ssg.backendpreassignment.dto.ContractReqDto;
 import com.ssg.backendpreassignment.dto.ProductReqDto;
@@ -295,7 +296,7 @@ public class ApiTests {
                                         fieldWithPath("timestamp").description("API requested time"),
                                         fieldWithPath("code").description("HTTP status code"),
                                         fieldWithPath("status").description("HTTP status"),
-                                        fieldWithPath("result").description("Validation result"),
+                                        fieldWithPath("result").description("An array of validation result"),
                                         fieldWithPath("result.[].field").description("The field which is invalid"),
                                         fieldWithPath("result.[].message").description("Description message"),
                                         fieldWithPath("result.[].rejectedValue").description("The value rejected").optional()
@@ -318,7 +319,7 @@ public class ApiTests {
                                         fieldWithPath("timestamp").description("API requested time"),
                                         fieldWithPath("code").description("HTTP status code"),
                                         fieldWithPath("status").description("HTTP stats"),
-                                        fieldWithPath("result").description("HTTP result - An array of companies"),
+                                        fieldWithPath("result").description("An array of companies' info"),
                                         fieldWithPath("result.[].id").description("Company's ID"),
                                         fieldWithPath("result.[].name").description("Company's name"),
                                         fieldWithPath("result.[].businessRegistrationNumber").optional().description("Company's business registration number"),
@@ -400,7 +401,7 @@ public class ApiTests {
                                         fieldWithPath("timestamp").description("API requested time"),
                                         fieldWithPath("code").description("HTTP status code"),
                                         fieldWithPath("status").description("HTTP status"),
-                                        fieldWithPath("result").description("Updated company info"),
+                                        fieldWithPath("result").description("Contracted company's info"),
                                         fieldWithPath("result.id").description("Created contract ID"),
                                         fieldWithPath("result.companyId").description("Company ID who created the contract"),
                                         fieldWithPath("result.startDate").description("Date when the contract created"),
@@ -412,7 +413,7 @@ public class ApiTests {
 
     @Test
     @DisplayName("09. 계약 생성 시 유효성 검사")
-    void createOverlappedContract() throws Exception {
+    void createContractValidation() throws Exception {
         ContractReqDto contractReqDto = ContractReqDto.builder()
                 .companyId(1000000001L)
                 .build();
@@ -432,7 +433,7 @@ public class ApiTests {
                                         fieldWithPath("timestamp").description("API requested time"),
                                         fieldWithPath("code").description("HTTP status code"),
                                         fieldWithPath("status").description("HTTP status"),
-                                        fieldWithPath("result").description("Updated company info"),
+                                        fieldWithPath("result").description("An array of validation result"),
                                         fieldWithPath("result.[].field").description("The field which is invalid"),
                                         fieldWithPath("result.[].message").description("Description message"),
                                         fieldWithPath("result.[].rejectedValue").description("The value rejected").optional()
@@ -455,13 +456,86 @@ public class ApiTests {
                                         fieldWithPath("timestamp").description("API requested time"),
                                         fieldWithPath("code").description("HTTP status code"),
                                         fieldWithPath("status").description("HTTP status"),
-                                        fieldWithPath("result").description("An array of created contracts"),
+                                        fieldWithPath("result").description("An array of contract list"),
                                         fieldWithPath("result.[].id").description("Contract ID"),
                                         fieldWithPath("result.[].companyId").description("Company ID which created the contract"),
                                         fieldWithPath("result.[].startDate").description("Date when the contract"),
                                         fieldWithPath("result.[].endDate").description("Date when the contract would be expired"),
                                         fieldWithPath("result.[].createdDate").description("Date when the record created"),
                                         fieldWithPath("result.[].lastModifiedDate").description("Last date when the record modified")
+                                )
+                        )
+                );
+    }
+
+    @Test
+    @DisplayName("11. 광고 입찰 생성")
+    void createAdBid() throws Exception {
+        AdBidReqDto adBidReqDto = AdBidReqDto.builder()
+                .companyId(1000000001L)
+                .productId(1000000001L)
+                .bidPrice(10L)
+                .build();
+
+        this.mockMvc.perform(
+                        post("/api/adbid")
+                                .contentType(MediaType.APPLICATION_JSON)
+                                .content(objectMapper.writeValueAsString(adBidReqDto))
+                )
+                .andExpect(status().isCreated())
+                .andDo(
+                        document("POST_api-adbid-create",
+                                requestFields(
+                                        fieldWithPath("companyId").description("Company ID to create AD bid"),
+                                        fieldWithPath("productId").description("Product ID to create AD bid"),
+                                        fieldWithPath("bidPrice").description("Bid price the company offered")
+                                ),
+                                responseFields(
+                                        fieldWithPath("timestamp").description("API requested time"),
+                                        fieldWithPath("code").description("HTTP status code"),
+                                        fieldWithPath("status").description("HTTP status"),
+                                        fieldWithPath("result").description("Created AD Bid info"),
+                                        fieldWithPath("result.id").description("AD Bid ID"),
+                                        fieldWithPath("result.companyId").description("Company ID which created the bid"),
+                                        fieldWithPath("result.productId").description("ID of the product which would be displayed when the company won the bid"),
+                                        fieldWithPath("result.bidPrice").description("Registered bid price when the bid created"),
+                                        fieldWithPath("result.createdDate").description("Date when the record created"),
+                                        fieldWithPath("result.lastModifiedDate").description("Last date when the record modified")
+                                )
+                        )
+                );
+    }
+
+    @Test
+    @DisplayName("12. 광고 입찰 생성 유효성 검사")
+    void createAdBidValidation() throws Exception {
+        AdBidReqDto adBidReqDto = AdBidReqDto.builder()
+                .companyId(1000000002L)
+                .productId(1000000001L)
+                .bidPrice(10L)
+                .build();
+
+        this.mockMvc.perform(
+                        post("/api/adbid")
+                                .contentType(MediaType.APPLICATION_JSON)
+                                .content(objectMapper.writeValueAsString(adBidReqDto))
+                )
+                .andExpect(status().isBadRequest())
+                .andDo(
+                        document("POST_api-adbid-validation",
+                                requestFields(
+                                        fieldWithPath("companyId").description("Company ID to create AD bid"),
+                                        fieldWithPath("productId").description("Product ID to create AD bid"),
+                                        fieldWithPath("bidPrice").description("Bid price the company offered")
+                                ),
+                                responseFields(
+                                        fieldWithPath("timestamp").description("API requested time"),
+                                        fieldWithPath("code").description("HTTP status code"),
+                                        fieldWithPath("status").description("HTTP status"),
+                                        fieldWithPath("result").description("An array of validation result"),
+                                        fieldWithPath("result.[].field").description("The field which is invalid"),
+                                        fieldWithPath("result.[].message").description("Description message"),
+                                        fieldWithPath("result.[].rejectedValue").description("The value rejected").optional()
                                 )
                         )
                 );

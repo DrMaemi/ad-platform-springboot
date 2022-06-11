@@ -4,7 +4,6 @@ import com.ssg.backendpreassignment.config.response.RestResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;
-import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
@@ -42,11 +41,10 @@ public class RestAdvice {
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<?> methodArgumentNotValidException(MethodArgumentNotValidException e, HttpServletRequest request) {
-        List<ObjectError> objectErrors = e.getAllErrors();
+        List<FieldError> fieldErrors = e.getBindingResult().getFieldErrors();
         List<Map<String, Object>> validateRes = new ArrayList<>();
 
-        for (ObjectError objectError: objectErrors) {
-            FieldError fieldError = (FieldError)objectError;
+        for (FieldError fieldError: fieldErrors) {
             Map<String, Object> eachRes = new HashMap<>();
             eachRes.put("field", fieldError.getField());
             eachRes.put("rejectedValue", fieldError.getRejectedValue());

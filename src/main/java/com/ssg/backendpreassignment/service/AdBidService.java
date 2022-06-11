@@ -1,6 +1,7 @@
 package com.ssg.backendpreassignment.service;
 
 import com.ssg.backendpreassignment.dto.AdBidDto;
+import com.ssg.backendpreassignment.dto.AdBidReqDto;
 import com.ssg.backendpreassignment.entity.AdBidEntity;
 import com.ssg.backendpreassignment.entity.ContractEntity;
 import com.ssg.backendpreassignment.entity.ProductEntity;
@@ -23,25 +24,27 @@ public class AdBidService {
     private final ProductRepository productRepository;
 
     @Transactional(readOnly=true)
-    public AdBidDto getBid(Long id) {
+    public AdBidDto getAdBid(Long id) {
         Optional<AdBidEntity> advertisementBidEntityWrapper = adBidRepository.findByIdJpqlFetch(id);
         AdBidEntity adBidEntity = advertisementBidEntityWrapper.get();
         return adBidEntity.toDto();
     }
 
     @Transactional(readOnly=true)
-    public List<AdBidDto> getBids() {
+    public List<AdBidDto> getAdBids() {
         List<AdBidEntity> advertisementBidEntities = adBidRepository.findAllJpqlFetch();
         return advertisementBidEntities.stream().map(ent -> ent.toDto()).collect(Collectors.toList());
     }
 
     @Transactional
-    public void registerBid(AdBidDto adBidDto) {
-        ContractEntity contractEntity = contractRepository.findByCompanyIdJpqlFetch(adBidDto.getContractDto().getCompanyDto().getId()).get();
-        ProductEntity productEntity = productRepository.findById(adBidDto.getProductDto().getId()).get();
-        AdBidEntity adBidEntity = adBidDto.toEntity();
-        adBidEntity.setContractEntity(contractEntity);
-        adBidEntity.setProductEntity(productEntity);
-        adBidRepository.save(adBidEntity);
+    public AdBidDto createAdBid(AdBidReqDto adBidReqDto) {
+        ContractEntity contractEntity = contractRepository.findByCompanyIdJpqlFetch(adBidReqDto.getCompanyId()).get();
+        ProductEntity productEntity = productRepository.findById(adBidReqDto.getProductId()).get();
+        AdBidEntity adBidEntity = AdBidEntity.builder()
+                .contractEntity(contractEntity)
+                .productEntity(productEntity)
+                .bidPrice(adBidReqDto.getBidPrice())
+                .build();
+        return adBidRepository.save(adBidEntity).toDto();
     }
 }

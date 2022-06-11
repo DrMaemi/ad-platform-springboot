@@ -20,7 +20,7 @@ operation::POST_api-products-validation[snippets='http-request,request-fields,ht
 
 [[상품-정보-리스트-조회]]
 === 상품 정보 리스트 조회
-operation::GET_api-products[snippets='http-request,request-fields,http-response,response-fields']
+operation::GET_api-products[snippets='http-request,http-response,response-fields']
 
 [[Company-API]]
 == 업체(Company) 도메인
@@ -50,4 +50,15 @@ operation::POST_api-contract-validation[snippets='http-request,request-fields,ht
 
 [[계약-리스트-조회]]
 === 계약 리스트 조회
-operation::GET_api-contracts[snippets='http-request,request-fields,http-response,response-fields']
+operation::GET_api-contracts[snippets='http-request,http-response,response-fields']
+
+[[AdBid-API]]
+== 광고입찰(AD Bid) 도메인
+
+[[광고입찰-생성]]
+=== 광고입찰 생성
+operation::POST_api-adbid-create[snippets='http-request,request-fields,http-response,response-fields']
+
+[[광고입찰-유효성-검사]]
+=== 광고입찰 유효성 검사
+operation::POST_api-adbid-validation[snippets='http-request,request-fields,http-response,response-fields']

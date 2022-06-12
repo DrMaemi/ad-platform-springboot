@@ -9,6 +9,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/**
+ * DB 테이블 'COMPANY'에 매핑되는 엔티티 클래스
+ * ProductEntity와 일대다 양방향 연관 관계
+ */
 @Getter
 @Setter
 @NoArgsConstructor(access= AccessLevel.PROTECTED)

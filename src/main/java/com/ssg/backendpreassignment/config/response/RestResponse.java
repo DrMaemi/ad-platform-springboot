@@ -8,6 +8,12 @@ import org.springframework.http.HttpStatus;
 
 import java.time.LocalDateTime;
 
+/**
+ * RESTful API의 Response 객체 구조를 정의하는 클래스
+ * timestamp, code, status, result 필드를 가짐
+ * timestamp는 LocalDateTime 타입의 객체가 생성된 시간
+ * @param <T>
+ */
 @Getter
 @Setter
 @NoArgsConstructor

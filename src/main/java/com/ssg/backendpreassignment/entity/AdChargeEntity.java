@@ -8,6 +8,10 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
+/**
+ * DB 테이블 'ADVERTISEMENT_CHARGE'에 매핑되는 엔티티 클래스
+ * AdBidEntity와 다대일 단방향 연관 관계
+ */
 @Getter
 @Setter
 @NoArgsConstructor(access=AccessLevel.PRIVATE)

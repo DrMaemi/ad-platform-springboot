@@ -15,11 +15,19 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * 계약 도메인 관련 HTTP request 매핑 및 처리를 위한 컨트롤러 클래스
+ */
 @RestController
 @RequiredArgsConstructor
 public class ContractRestController {
     private final ContractService contractService;
 
+    /**
+     * 생성된 계약 정보 리스트 조회 요청 API
+     * 생성된 계약 정보 리스트 반환
+     * @return ResponseEntity
+     */
     @GetMapping("/api/contracts")
     public ResponseEntity<?> getContracts() {
         List<Map<String, Object>> resList = new ArrayList<>();
@@ -44,6 +52,12 @@ public class ContractRestController {
                 .build(), HttpStatus.OK);
     }
 
+    /**
+     * 계약 생성 요청 API
+     * 요청 데이터를 받아 DB에 생성, 생성된 데이터 반환
+     * @param contractReqDto
+     * @return ResponseEntity
+     */
     @PostMapping("/api/contract")
     public ResponseEntity<?> createContract(@RequestBody @Valid ContractReqDto contractReqDto) {
 

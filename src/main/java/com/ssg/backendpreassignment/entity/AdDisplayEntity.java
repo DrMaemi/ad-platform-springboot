@@ -7,6 +7,9 @@ import org.hibernate.annotations.Immutable;
 import javax.persistence.*;
 import java.io.Serializable;
 
+/**
+ * DB 뷰(View) 'ADVERTISEMENT_DISPLAY'에 매핑되는 엔티티 클래스
+ */
 @Getter
 @NoArgsConstructor(access=AccessLevel.PROTECTED)
 @Immutable

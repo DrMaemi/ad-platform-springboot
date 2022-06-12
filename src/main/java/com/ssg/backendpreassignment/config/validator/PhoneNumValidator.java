@@ -3,6 +3,10 @@ package com.ssg.backendpreassignment.config.validator;
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 
+/**
+ * 업체 등록 시 업체전화번호 유효성 검사 진행
+ * 입력된 데이터가 두 개의 '-'로 구분되고 숫자로 이루어져 있는지 검사
+ */
 public class PhoneNumValidator implements ConstraintValidator<PhoneNum, String> {
 
     private boolean isNumber(String str) {

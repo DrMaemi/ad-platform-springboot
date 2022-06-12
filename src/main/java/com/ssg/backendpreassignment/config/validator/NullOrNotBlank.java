@@ -10,6 +10,9 @@ import static java.lang.annotation.ElementType.*;
 import static java.lang.annotation.ElementType.TYPE_USE;
 import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
+/**
+ * 엔티티 수정 시 입력 필드가 null인 경우 유효성 검사를 진행하지 않고, null이 아닌 경우 공백인지 아닌지 검사하는 유효성 검사 어노테이션 정의
+ */
 @Target({METHOD, FIELD, ANNOTATION_TYPE, CONSTRUCTOR, PARAMETER, TYPE_USE})
 @Retention(RUNTIME)
 @Constraint(validatedBy=NullOrNotBlankValidator.class)

@@ -5,6 +5,10 @@ import lombok.*;
 
 import java.time.LocalDateTime;
 
+/**
+ * ProductEntity의 DTO 클래스
+ * ProductRestController ↔ ProductService 레이어 간 전송 데이터 객체
+ */
 @Getter
 @Setter
 @ToString

@@ -9,6 +9,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/**
+ * CompanyEntity의 DTO 클래스
+ * CompanyRestController ↔ CompanyService 레이어 간 전송 데이터 객체
+ */
 @Getter
 @Setter
 @ToString

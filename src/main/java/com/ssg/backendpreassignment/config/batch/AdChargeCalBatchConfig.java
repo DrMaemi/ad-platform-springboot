@@ -18,6 +18,11 @@ import org.springframework.context.annotation.Configuration;
 
 import java.util.*;
 
+/**
+ * 광고 과금 정산을 위한 배치 구성 클래스
+ * Reader, Processor, Writer 빈을 등록하고 Step과 Job 메서드 구성
+ * 전날의 광고 과금 데이터들을 읽어와 집계 처리하여 DB 테이블에 저장
+ */
 @Configuration
 @RequiredArgsConstructor
 public class AdChargeCalBatchConfig {

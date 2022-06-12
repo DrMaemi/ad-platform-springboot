@@ -17,11 +17,19 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * 광고입찰 도메인 관련 HTTP request 매핑 및 처리를 위한 컨트롤러 클래스
+ */
 @RestController
 @RequiredArgsConstructor
 public class AdBidRestController {
     private final AdBidService adBidService;
 
+    /**
+     * 광고입찰 데이터 리스트 조회 요청 API
+     * 저장된 광고입찰 데이터 리스트 반환
+     * @return ResponseEntity
+     */
     @GetMapping("/api/ad/bids")
     public ResponseEntity<?> getBids() {
         List<AdBidDto> adBidDtos = adBidService.getAdBids();
@@ -33,6 +41,12 @@ public class AdBidRestController {
                 .build(), HttpStatus.OK);
     }
 
+    /**
+     * 광고입찰 생성 요청 API
+     * 요청 데이터를 받아 DB에 생성, 생성된 데이터 반환
+     * @param adBidReqDto
+     * @return ResponseEntity
+     */
     @PostMapping("/api/ad/bid")
     public ResponseEntity<?> createAdBid(@RequestBody @Valid AdBidReqDto adBidReqDto) {
         AdBidDto resDto = adBidService.createAdBid(adBidReqDto);

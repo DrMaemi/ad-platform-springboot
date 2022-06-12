@@ -10,6 +10,9 @@ import javax.persistence.Embeddable;
 import java.io.Serializable;
 import java.time.LocalDate;
 
+/**
+ * JPA에서 엔티티의 복합키를 정의하는 클래스
+ */
 @Data
 @NoArgsConstructor(access=AccessLevel.PROTECTED)
 @Embeddable

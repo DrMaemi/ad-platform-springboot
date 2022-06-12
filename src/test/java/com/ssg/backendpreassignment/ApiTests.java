@@ -829,13 +829,13 @@ public class ApiTests {
     }
 
     @Test
-    @DisplayName("21. 광고과금 정산 리스트 조회")
+    @DisplayName("21. 광고과금정산 리스트 조회")
     void getAdChargeCals() throws Exception {
         this.mockMvc.perform(
                         get("/api/ad/charge/cals")
                                 .contentType(MediaType.APPLICATION_JSON)
                 )
-                .andExpect(status().isBadRequest())
+                .andExpect(status().isOk())
                 .andDo(
                         document("GET_api-ad-charge-cals",
                                 responseFields(

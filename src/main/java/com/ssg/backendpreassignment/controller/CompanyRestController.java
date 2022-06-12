@@ -15,12 +15,20 @@ import javax.validation.Valid;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * 업체 도메인 관련 HTTP request 매핑 및 처리를 위한 컨트롤러 클래스
+ */
 @Validated
 @RestController
 @RequiredArgsConstructor
 public class CompanyRestController {
     private final CompanyService companyService;
 
+    /**
+     * 업체 리스트 조회 요청 API
+     * 생성된 업체 Master 정보 리스트 반환
+     * @return ResponseEntity
+     */
     @GetMapping("/api/companies")
     public ResponseEntity<?> getCompanies() {
         return new ResponseEntity<RestResponse>(RestResponse.builder()
@@ -30,6 +38,12 @@ public class CompanyRestController {
                 .build(), HttpStatus.OK);
     }
 
+    /**
+     * 업체 등록 요청 API
+     * 요청 데이터를 받아 DB에 생성, 생성된 데이터 반환
+     * @param companyReqDto
+     * @return ResponseEntity
+     */
     @Validated(CompanyRegister.class)
     @PostMapping("/api/company")
     public ResponseEntity<?> registerCompany(@RequestBody @Valid CompanyReqDto companyReqDto) {
@@ -49,6 +63,12 @@ public class CompanyRestController {
                 .build(), HttpStatus.OK);
     }
 
+    /**
+     * 업체 정보 수정 요청 API
+     * 요청 데이터를 받아 DB에 반영, 반영된 데이터 반환
+     * @param companyReqDto
+     * @return ResponseEntity
+     */
     @PatchMapping("/api/company")
     public ResponseEntity<?> updateCompany(@RequestBody @Valid CompanyReqDto companyReqDto) {
         CompanyDto resDto = companyService.updateCompany(companyReqDto);

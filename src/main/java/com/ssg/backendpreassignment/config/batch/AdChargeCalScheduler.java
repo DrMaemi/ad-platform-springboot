@@ -10,6 +10,9 @@ import org.springframework.stereotype.Component;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Spring 내장 스케쥴러를 이용하여 AdChargeCalBatchConfig에 구성한 배치 Job을 수행하는 스케쥴러
+ */
 @Component
 @RequiredArgsConstructor
 public class AdChargeCalScheduler {

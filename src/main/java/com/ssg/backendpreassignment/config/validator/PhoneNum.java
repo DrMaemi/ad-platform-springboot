@@ -9,6 +9,9 @@ import java.lang.annotation.Target;
 import static java.lang.annotation.ElementType.*;
 import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
+/**
+ * 업체 등록 시 입력된 업체전화번호의 자리수와 입력 값이 숫자로만 이루어져있는지에 대한 유효성 검사를 위한 어노테이션 정의
+ */
 @Target({METHOD, FIELD, ANNOTATION_TYPE, CONSTRUCTOR, PARAMETER, TYPE_USE})
 @Retention(RUNTIME)
 @Constraint(validatedBy=PhoneNumValidator.class)

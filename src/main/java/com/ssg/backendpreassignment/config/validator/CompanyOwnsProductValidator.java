@@ -9,6 +9,10 @@ import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 import java.lang.reflect.Field;
 
+/**
+ * 광고 입찰 생성 시 입력된 업체 ID와 상품 ID에 대해 해당 업체가 해당 상품을 소유하고 있는지 검사
+ * 입력받은 상품 ID로부터 상품 엔티티를 조회하고 해당 엔티티의 업체 ID가 입력받은 업체 ID와 일치하는지 검사
+ */
 @RequiredArgsConstructor
 public class CompanyOwnsProductValidator implements ConstraintValidator<CompanyOwnsProduct, Object> {
     private final ProductService productService;

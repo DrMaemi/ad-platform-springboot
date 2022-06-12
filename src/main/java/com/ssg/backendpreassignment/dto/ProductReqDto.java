@@ -6,6 +6,10 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.PositiveOrZero;
 
+/**
+ * 클라이언트가 상품 도메인 관련 HTTP 요청 시 전송하는 DTO 클래스
+ * Client ↔ ProductRestController 레이어 간 전송 데이터 객체
+ */
 @Getter
 @Setter
 @ToString

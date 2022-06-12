@@ -8,6 +8,10 @@ import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 
+/**
+ * 클라이언트가 광고입찰 도메인 관련 HTTP 요청 시 전송하는 DTO 클래스
+ * Client ↔ AdBidRestController 레이어 간 전송 데이터 객체
+ */
 @Getter
 @Setter
 @ToString

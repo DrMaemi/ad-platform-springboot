@@ -10,6 +10,9 @@ import static java.lang.annotation.ElementType.*;
 import static java.lang.annotation.ElementType.TYPE_USE;
 import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
+/**
+ * 업체 등록 시 상품 리스트에 셋팅된 업체명인지 아닌지 검사하기 위한 유효성 검사 어노테이션 정의
+ */
 @Target({METHOD, FIELD, ANNOTATION_TYPE, CONSTRUCTOR, PARAMETER, TYPE_USE})
 @Retention(RUNTIME)
 @Constraint(validatedBy=CompanyNameExistInRepoValidator.class)

@@ -5,6 +5,10 @@ import lombok.*;
 
 import javax.persistence.*;
 
+/**
+ * DB 테이블 'PRODUCT'에 매핑되는 엔티티 클래스
+ * CompanyEntity와 다대일 양방향 연관 관계
+ */
 @Getter
 @Setter
 @NoArgsConstructor(access= AccessLevel.PROTECTED)

@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
+<!-- saved from url=(0075)https://drmaemi.github.io/Ad-Platform/src/main/resources/templates/docs/api -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.10">
-<meta name="author" content="이상현(dev.maemi@gmail.com, 6045)">
-<title>Spring REST Docs - 광고플랫폼 구축</title>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
+<meta name="author" content="이상현(6045)">
+<title>Spring REST Docs (사전과제 2번 - 광고플랫폼 구축)</title>
+<link rel="stylesheet" href="./REST_DOCS_files/css">
 <style>
 /* Asciidoctor default stylesheet | MIT License | https://asciidoctor.org */
 /* Uncomment @import statement to use as custom stylesheet */
@@ -436,66 +436,61 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 #footer-text{color:rgba(0,0,0,.6);font-size:.9em}}
 @media amzn-kf8{#header,#content,#footnotes,#footer{padding:0}}
 </style>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="./REST_DOCS_files/font-awesome.min.css">
 </head>
 <body class="book">
 <div id="header">
-<h1>Spring REST Docs - 광고플랫폼 구축</h1>
+<h1>Spring REST Docs (사전과제 2번 - 광고플랫폼 구축)</h1>
 <div class="details">
-<span id="author" class="author">이상현(dev.maemi@gmail.com, 6045)</span><br>
+<span id="author" class="author">이상현(6045)</span><br>
 <span id="revnumber">version 0.0.1-SNAPSHOT</span>
 </div>
 <div id="toc" class="toc">
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
-<li><a href="#Product-API">상품(Product) 도메인</a>
+<li><a href="https://drmaemi.github.io/Ad-Platform/src/main/resources/templates/docs/api#Product-API">상품(Product) 도메인</a>
 <ul class="sectlevel2">
-<li><a href="#상품정보-리스트-생성">상품 정보 리스트 생성</a></li>
-<li><a href="#상품정보-리스트-생성-시-유효성-검사">상품 정보 리스트 등록 유효성 검사</a></li>
-<li><a href="#상품정보-리스트-조회">상품 정보 리스트 조회</a></li>
+<li><a href="https://drmaemi.github.io/Ad-Platform/src/main/resources/templates/docs/api#%EC%83%81%ED%92%88%EC%A0%95%EB%B3%B4-%EB%A6%AC%EC%8A%A4%ED%8A%B8-%EC%83%9D%EC%84%B1">상품 정보 리스트 생성</a></li>
+<li><a href="https://drmaemi.github.io/Ad-Platform/src/main/resources/templates/docs/api#%EC%83%81%ED%92%88%EC%A0%95%EB%B3%B4-%EB%A6%AC%EC%8A%A4%ED%8A%B8-%EC%83%9D%EC%84%B1-%EC%8B%9C-%EC%9C%A0%ED%9A%A8%EC%84%B1-%EA%B2%80%EC%82%AC">상품 정보 리스트 등록 유효성 검사</a></li>
+<li><a href="https://drmaemi.github.io/Ad-Platform/src/main/resources/templates/docs/api#%EC%83%81%ED%92%88%EC%A0%95%EB%B3%B4-%EB%A6%AC%EC%8A%A4%ED%8A%B8-%EC%A1%B0%ED%9A%8C">상품 정보 리스트 조회</a></li>
 </ul>
 </li>
-<li><a href="#Company-API">업체(Company) 도메인</a>
+<li><a href="https://drmaemi.github.io/Ad-Platform/src/main/resources/templates/docs/api#Company-API">업체(Company) 도메인</a>
 <ul class="sectlevel2">
-<li><a href="#업체-등록">업체 등록</a></li>
-<li><a href="#업체-등록-시-유효성-검사">업체 등록 시 유효성 검사</a></li>
-<li><a href="#업체정보-리스트-조회">업체정보 리스트 조회</a></li>
-<li><a href="#업체정보-중-업체명을-제외한-채-수정">업체정보 중 업체명을 제외한 채 수정</a></li>
+<li><a href="https://drmaemi.github.io/Ad-Platform/src/main/resources/templates/docs/api#%EC%97%85%EC%B2%B4-%EB%93%B1%EB%A1%9D">업체 등록</a></li>
+<li><a href="https://drmaemi.github.io/Ad-Platform/src/main/resources/templates/docs/api#%EC%97%85%EC%B2%B4-%EB%93%B1%EB%A1%9D-%EC%8B%9C-%EC%9C%A0%ED%9A%A8%EC%84%B1-%EA%B2%80%EC%82%AC">업체 등록 시 유효성 검사</a></li>
+<li><a href="https://drmaemi.github.io/Ad-Platform/src/main/resources/templates/docs/api#%EC%97%85%EC%B2%B4%EC%A0%95%EB%B3%B4-%EB%A6%AC%EC%8A%A4%ED%8A%B8-%EC%A1%B0%ED%9A%8C">업체정보 리스트 조회</a></li>
+<li><a href="https://drmaemi.github.io/Ad-Platform/src/main/resources/templates/docs/api#%EC%97%85%EC%B2%B4%EC%A0%95%EB%B3%B4-%EC%A4%91-%EC%97%85%EC%B2%B4%EB%AA%85%EC%9D%84-%EC%A0%9C%EC%99%B8%ED%95%9C-%EC%B1%84-%EC%88%98%EC%A0%95">업체정보 중 업체명을 제외한 채 수정</a></li>
 </ul>
 </li>
-<li><a href="#Contract-API">계약(Contract) 도메인</a>
+<li><a href="https://drmaemi.github.io/Ad-Platform/src/main/resources/templates/docs/api#Contract-API">계약(Contract) 도메인</a>
 <ul class="sectlevel2">
-<li><a href="#계약-생성">계약 생성</a></li>
-<li><a href="#계약-생성-유효성-검사-1">계약 생성 유효성 검사 1</a></li>
-<li><a href="#계약-생성-유효성-검사-2">계약 생성 유효성 검사 2</a></li>
-<li><a href="#계약-리스트-조회">계약 리스트 조회</a></li>
+<li><a href="https://drmaemi.github.io/Ad-Platform/src/main/resources/templates/docs/api#%EA%B3%84%EC%95%BD-%EC%83%9D%EC%84%B1">계약 생성</a></li>
+<li><a href="https://drmaemi.github.io/Ad-Platform/src/main/resources/templates/docs/api#%EA%B3%84%EC%95%BD-%EC%83%9D%EC%84%B1-%EC%9C%A0%ED%9A%A8%EC%84%B1-%EA%B2%80%EC%82%AC-1">계약 생성 유효성 검사 1</a></li>
+<li><a href="https://drmaemi.github.io/Ad-Platform/src/main/resources/templates/docs/api#%EA%B3%84%EC%95%BD-%EC%83%9D%EC%84%B1-%EC%9C%A0%ED%9A%A8%EC%84%B1-%EA%B2%80%EC%82%AC-2">계약 생성 유효성 검사 2</a></li>
+<li><a href="https://drmaemi.github.io/Ad-Platform/src/main/resources/templates/docs/api#%EA%B3%84%EC%95%BD-%EB%A6%AC%EC%8A%A4%ED%8A%B8-%EC%A1%B0%ED%9A%8C">계약 리스트 조회</a></li>
 </ul>
 </li>
-<li><a href="#AdBid-API">광고입찰(AD Bid) 도메인</a>
+<li><a href="https://drmaemi.github.io/Ad-Platform/src/main/resources/templates/docs/api#AdBid-API">광고입찰(AD Bid) 도메인</a>
 <ul class="sectlevel2">
-<li><a href="#광고입찰-생성-1">광고입찰 생성 1</a></li>
-<li><a href="#광고입찰-생성-2">광고입찰 생성 2</a></li>
-<li><a href="#광고입찰-생성-3">광고입찰 생성 3</a></li>
-<li><a href="#광고입찰-생성-시-유효성-검사">광고입찰 생성 시 유효성 검사</a></li>
+<li><a href="https://drmaemi.github.io/Ad-Platform/src/main/resources/templates/docs/api#%EA%B4%91%EA%B3%A0%EC%9E%85%EC%B0%B0-%EC%83%9D%EC%84%B1-1">광고입찰 생성 1</a></li>
+<li><a href="https://drmaemi.github.io/Ad-Platform/src/main/resources/templates/docs/api#%EA%B4%91%EA%B3%A0%EC%9E%85%EC%B0%B0-%EC%83%9D%EC%84%B1-2">광고입찰 생성 2</a></li>
+<li><a href="https://drmaemi.github.io/Ad-Platform/src/main/resources/templates/docs/api#%EA%B4%91%EA%B3%A0%EC%9E%85%EC%B0%B0-%EC%83%9D%EC%84%B1-3">광고입찰 생성 3</a></li>
+<li><a href="https://drmaemi.github.io/Ad-Platform/src/main/resources/templates/docs/api#%EA%B4%91%EA%B3%A0%EC%9E%85%EC%B0%B0-%EC%83%9D%EC%84%B1-%EC%8B%9C-%EC%9C%A0%ED%9A%A8%EC%84%B1-%EA%B2%80%EC%82%AC">광고입찰 생성 시 유효성 검사</a></li>
 </ul>
 </li>
-<li><a href="#AdDisplay-API">광고전시(AD Display) 도메인</a>
+<li><a href="https://drmaemi.github.io/Ad-Platform/src/main/resources/templates/docs/api#AdDisplay-API">광고전시(AD Display) 도메인</a>
 <ul class="sectlevel2">
-<li><a href="#광고전시-리스트-조회">광고전시 리스트 조회</a></li>
+<li><a href="https://drmaemi.github.io/Ad-Platform/src/main/resources/templates/docs/api#%EA%B4%91%EA%B3%A0%EC%A0%84%EC%8B%9C-%EB%A6%AC%EC%8A%A4%ED%8A%B8-%EC%A1%B0%ED%9A%8C">광고전시 리스트 조회</a></li>
 </ul>
 </li>
-<li><a href="#AdCharge-API">광고과금(AD Charge) 도메인</a>
+<li><a href="https://drmaemi.github.io/Ad-Platform/src/main/resources/templates/docs/api#AdCharge-API">광고과금(AD Charge) 도메인</a>
 <ul class="sectlevel2">
-<li><a href="#광고과금-생성-1">광고과금 생성 1</a></li>
-<li><a href="#광고과금-생성-2">광고과금 생성 2</a></li>
-<li><a href="#광고과금-생성-3">광고과금 생성 3</a></li>
-<li><a href="#광고과금-생성-4">광고과금 생성 4</a></li>
-<li><a href="#광고과금-유효성-검사">광고과금 유효성 검사</a></li>
-</ul>
-</li>
-<li><a href="#AdChargeCal-API">광고과금정산(AD Charge Calculation) 도메인</a>
-<ul class="sectlevel2">
-<li><a href="#광고과금정산-결과-리스트-조회">광고과금정산 결과 리스트 조회</a></li>
+<li><a href="https://drmaemi.github.io/Ad-Platform/src/main/resources/templates/docs/api#%EA%B4%91%EA%B3%A0%EA%B3%BC%EA%B8%88-%EC%83%9D%EC%84%B1-1">광고과금 생성 1</a></li>
+<li><a href="https://drmaemi.github.io/Ad-Platform/src/main/resources/templates/docs/api#%EA%B4%91%EA%B3%A0%EA%B3%BC%EA%B8%88-%EC%83%9D%EC%84%B1-2">광고과금 생성 2</a></li>
+<li><a href="https://drmaemi.github.io/Ad-Platform/src/main/resources/templates/docs/api#%EA%B4%91%EA%B3%A0%EA%B3%BC%EA%B8%88-%EC%83%9D%EC%84%B1-3">광고과금 생성 3</a></li>
+<li><a href="https://drmaemi.github.io/Ad-Platform/src/main/resources/templates/docs/api#%EA%B4%91%EA%B3%A0%EA%B3%BC%EA%B8%88-%EC%83%9D%EC%84%B1-4">광고과금 생성 4</a></li>
+<li><a href="https://drmaemi.github.io/Ad-Platform/src/main/resources/templates/docs/api#%EA%B4%91%EA%B3%A0%EA%B3%BC%EA%B8%88-%EC%9C%A0%ED%9A%A8%EC%84%B1-%EA%B2%80%EC%82%AC">광고과금 유효성 검사</a></li>
 </ul>
 </li>
 </ul>
@@ -503,12 +498,12 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 <div id="content">
 <div class="sect1">
-<h2 id="Product-API"><a class="link" href="#Product-API">상품(Product) 도메인</a></h2>
+<h2 id="Product-API"><a class="link" href="https://drmaemi.github.io/Ad-Platform/src/main/resources/templates/docs/api#Product-API">상품(Product) 도메인</a></h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="상품정보-리스트-생성"><a class="link" href="#상품정보-리스트-생성">상품 정보 리스트 생성</a></h3>
+<h3 id="상품정보-리스트-생성"><a class="link" href="https://drmaemi.github.io/Ad-Platform/src/main/resources/templates/docs/api#%EC%83%81%ED%92%88%EC%A0%95%EB%B3%B4-%EB%A6%AC%EC%8A%A4%ED%8A%B8-%EC%83%9D%EC%84%B1">상품 정보 리스트 생성</a></h3>
 <div class="sect3">
-<h4 id="상품정보-리스트-생성_http_request"><a class="link" href="#상품정보-리스트-생성_http_request">HTTP request</a></h4>
+<h4 id="상품정보-리스트-생성_http_request"><a class="link" href="https://drmaemi.github.io/Ad-Platform/src/main/resources/templates/docs/api#%EC%83%81%ED%92%88%EC%A0%95%EB%B3%B4-%EB%A6%AC%EC%8A%A4%ED%8A%B8-%EC%83%9D%EC%84%B1_http_request">HTTP request</a></h4>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">POST /api/products HTTP/1.1
@@ -596,7 +591,7 @@ Host: localhost:8080
 </div>
 </div>
 <div class="sect3">
-<h4 id="상품정보-리스트-생성_request_fields"><a class="link" href="#상품정보-리스트-생성_request_fields">Request fields</a></h4>
+<h4 id="상품정보-리스트-생성_request_fields"><a class="link" href="https://drmaemi.github.io/Ad-Platform/src/main/resources/templates/docs/api#%EC%83%81%ED%92%88%EC%A0%95%EB%B3%B4-%EB%A6%AC%EC%8A%A4%ED%8A%B8-%EC%83%9D%EC%84%B1_request_fields">Request fields</a></h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 33.3333%;">
@@ -640,7 +635,7 @@ Host: localhost:8080
 </table>
 </div>
 <div class="sect3">
-<h4 id="상품정보-리스트-생성_http_response"><a class="link" href="#상품정보-리스트-생성_http_response">HTTP response</a></h4>
+<h4 id="상품정보-리스트-생성_http_response"><a class="link" href="https://drmaemi.github.io/Ad-Platform/src/main/resources/templates/docs/api#%EC%83%81%ED%92%88%EC%A0%95%EB%B3%B4-%EB%A6%AC%EC%8A%A4%ED%8A%B8-%EC%83%9D%EC%84%B1_http_response">HTTP response</a></h4>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 201 Created
@@ -650,10 +645,10 @@ X-XSS-Protection: 1; mode=block
 Cache-Control: no-cache, no-store, max-age=0, must-revalidate
 Pragma: no-cache
 Expires: 0
-Content-Length: 131
+Content-Length: 130
 
 {
-  "timestamp" : "2022-06-12T21:55:31.0016585",
+  "timestamp" : "2022-06-12T16:37:51.036374",
   "code" : 201,
   "status" : "CREATED",
   "result" : "15 record(s) created"
@@ -662,7 +657,7 @@ Content-Length: 131
 </div>
 </div>
 <div class="sect3">
-<h4 id="상품정보-리스트-생성_response_fields"><a class="link" href="#상품정보-리스트-생성_response_fields">Response fields</a></h4>
+<h4 id="상품정보-리스트-생성_response_fields"><a class="link" href="https://drmaemi.github.io/Ad-Platform/src/main/resources/templates/docs/api#%EC%83%81%ED%92%88%EC%A0%95%EB%B3%B4-%EB%A6%AC%EC%8A%A4%ED%8A%B8-%EC%83%9D%EC%84%B1_response_fields">Response fields</a></h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 33.3333%;">
@@ -702,9 +697,9 @@ Content-Length: 131
 </div>
 </div>
 <div class="sect2">
-<h3 id="상품정보-리스트-생성-시-유효성-검사"><a class="link" href="#상품정보-리스트-생성-시-유효성-검사">상품 정보 리스트 등록 유효성 검사</a></h3>
+<h3 id="상품정보-리스트-생성-시-유효성-검사"><a class="link" href="https://drmaemi.github.io/Ad-Platform/src/main/resources/templates/docs/api#%EC%83%81%ED%92%88%EC%A0%95%EB%B3%B4-%EB%A6%AC%EC%8A%A4%ED%8A%B8-%EC%83%9D%EC%84%B1-%EC%8B%9C-%EC%9C%A0%ED%9A%A8%EC%84%B1-%EA%B2%80%EC%82%AC">상품 정보 리스트 등록 유효성 검사</a></h3>
 <div class="sect3">
-<h4 id="상품정보-리스트-생성-시-유효성-검사_http_request"><a class="link" href="#상품정보-리스트-생성-시-유효성-검사_http_request">HTTP request</a></h4>
+<h4 id="상품정보-리스트-생성-시-유효성-검사_http_request"><a class="link" href="https://drmaemi.github.io/Ad-Platform/src/main/resources/templates/docs/api#%EC%83%81%ED%92%88%EC%A0%95%EB%B3%B4-%EB%A6%AC%EC%8A%A4%ED%8A%B8-%EC%83%9D%EC%84%B1-%EC%8B%9C-%EC%9C%A0%ED%9A%A8%EC%84%B1-%EA%B2%80%EC%82%AC_http_request">HTTP request</a></h4>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">POST /api/products HTTP/1.1
@@ -727,7 +722,7 @@ Host: localhost:8080
 </div>
 </div>
 <div class="sect3">
-<h4 id="상품정보-리스트-생성-시-유효성-검사_request_fields"><a class="link" href="#상품정보-리스트-생성-시-유효성-검사_request_fields">Request fields</a></h4>
+<h4 id="상품정보-리스트-생성-시-유효성-검사_request_fields"><a class="link" href="https://drmaemi.github.io/Ad-Platform/src/main/resources/templates/docs/api#%EC%83%81%ED%92%88%EC%A0%95%EB%B3%B4-%EB%A6%AC%EC%8A%A4%ED%8A%B8-%EC%83%9D%EC%84%B1-%EC%8B%9C-%EC%9C%A0%ED%9A%A8%EC%84%B1-%EA%B2%80%EC%82%AC_request_fields">Request fields</a></h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 33.3333%;">
@@ -771,7 +766,7 @@ Host: localhost:8080
 </table>
 </div>
 <div class="sect3">
-<h4 id="상품정보-리스트-생성-시-유효성-검사_http_response"><a class="link" href="#상품정보-리스트-생성-시-유효성-검사_http_response">HTTP response</a></h4>
+<h4 id="상품정보-리스트-생성-시-유효성-검사_http_response"><a class="link" href="https://drmaemi.github.io/Ad-Platform/src/main/resources/templates/docs/api#%EC%83%81%ED%92%88%EC%A0%95%EB%B3%B4-%EB%A6%AC%EC%8A%A4%ED%8A%B8-%EC%83%9D%EC%84%B1-%EC%8B%9C-%EC%9C%A0%ED%9A%A8%EC%84%B1-%EA%B2%80%EC%82%AC_http_response">HTTP response</a></h4>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 400 Bad Request
@@ -784,7 +779,7 @@ Expires: 0
 Content-Length: 751
 
 {
-  "timestamp" : "2022-06-12T21:55:31.0849034",
+  "timestamp" : "2022-06-12T16:37:51.1121668",
   "code" : 400,
   "status" : "BAD_REQUEST",
   "result" : [ {
@@ -796,20 +791,20 @@ Content-Length: 751
     "message" : "업체명을 입력해주세요.",
     "rejectedValue" : null
   }, {
-    "field" : "addProducts.productReqDtos[1].price",
-    "message" : "상품 가격은 0 이상의 값으로 입력해주세요.",
-    "rejectedValue" : -2000
-  }, {
     "field" : "addProducts.productReqDtos[1].productName",
     "message" : "상품명을 입력해주세요.",
     "rejectedValue" : null
+  }, {
+    "field" : "addProducts.productReqDtos[1].price",
+    "message" : "상품 가격은 0 이상의 값으로 입력해주세요.",
+    "rejectedValue" : -2000
   } ]
 }</code></pre>
 </div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="상품정보-리스트-생성-시-유효성-검사_response_fields"><a class="link" href="#상품정보-리스트-생성-시-유효성-검사_response_fields">Response fields</a></h4>
+<h4 id="상품정보-리스트-생성-시-유효성-검사_response_fields"><a class="link" href="https://drmaemi.github.io/Ad-Platform/src/main/resources/templates/docs/api#%EC%83%81%ED%92%88%EC%A0%95%EB%B3%B4-%EB%A6%AC%EC%8A%A4%ED%8A%B8-%EC%83%9D%EC%84%B1-%EC%8B%9C-%EC%9C%A0%ED%9A%A8%EC%84%B1-%EA%B2%80%EC%82%AC_response_fields">Response fields</a></h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 33.3333%;">
@@ -864,9 +859,9 @@ Content-Length: 751
 </div>
 </div>
 <div class="sect2">
-<h3 id="상품정보-리스트-조회"><a class="link" href="#상품정보-리스트-조회">상품 정보 리스트 조회</a></h3>
+<h3 id="상품정보-리스트-조회"><a class="link" href="https://drmaemi.github.io/Ad-Platform/src/main/resources/templates/docs/api#%EC%83%81%ED%92%88%EC%A0%95%EB%B3%B4-%EB%A6%AC%EC%8A%A4%ED%8A%B8-%EC%A1%B0%ED%9A%8C">상품 정보 리스트 조회</a></h3>
 <div class="sect3">
-<h4 id="상품정보-리스트-조회_http_request"><a class="link" href="#상품정보-리스트-조회_http_request">HTTP request</a></h4>
+<h4 id="상품정보-리스트-조회_http_request"><a class="link" href="https://drmaemi.github.io/Ad-Platform/src/main/resources/templates/docs/api#%EC%83%81%ED%92%88%EC%A0%95%EB%B3%B4-%EB%A6%AC%EC%8A%A4%ED%8A%B8-%EC%A1%B0%ED%9A%8C_http_request">HTTP request</a></h4>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">GET /api/products HTTP/1.1
@@ -876,7 +871,7 @@ Host: localhost:8080</code></pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="상품정보-리스트-조회_http_response"><a class="link" href="#상품정보-리스트-조회_http_response">HTTP response</a></h4>
+<h4 id="상품정보-리스트-조회_http_response"><a class="link" href="https://drmaemi.github.io/Ad-Platform/src/main/resources/templates/docs/api#%EC%83%81%ED%92%88%EC%A0%95%EB%B3%B4-%EB%A6%AC%EC%8A%A4%ED%8A%B8-%EC%A1%B0%ED%9A%8C_http_response">HTTP response</a></h4>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
@@ -886,127 +881,127 @@ X-XSS-Protection: 1; mode=block
 Cache-Control: no-cache, no-store, max-age=0, must-revalidate
 Pragma: no-cache
 Expires: 0
-Content-Length: 4167
+Content-Length: 4171
 
 {
-  "timestamp" : "2022-06-12T21:55:31.1452273",
+  "timestamp" : "2022-06-12T16:37:51.1619643",
   "code" : 200,
   "status" : "OK",
   "result" : [ {
-    "createdDate" : "2022-06-12T21:55:30.930927",
-    "lastModifiedDate" : "2022-06-12T21:55:30.930927",
+    "createdDate" : "2022-06-12T16:37:50.969093",
+    "lastModifiedDate" : "2022-06-12T16:37:50.969093",
     "price" : 600,
     "companyName" : "이마트",
     "id" : 1000000001,
     "stock" : 10,
     "productName" : "허쉬 초코멜로쿠키 45g"
   }, {
-    "createdDate" : "2022-06-12T21:55:30.938474",
-    "lastModifiedDate" : "2022-06-12T21:55:30.938474",
+    "createdDate" : "2022-06-12T16:37:50.977178",
+    "lastModifiedDate" : "2022-06-12T16:37:50.977178",
     "price" : 2000,
     "companyName" : "신세계백화점",
     "id" : 1000000002,
     "stock" : 5,
     "productName" : "크리스피롤 12 곡 180g"
   }, {
-    "createdDate" : "2022-06-12T21:55:30.943328",
-    "lastModifiedDate" : "2022-06-12T21:55:30.943328",
+    "createdDate" : "2022-06-12T16:37:50.981723",
+    "lastModifiedDate" : "2022-06-12T16:37:50.981723",
     "price" : 1200000,
     "companyName" : "삼성전자",
     "id" : 1000000003,
     "stock" : 0,
     "productName" : "갤럭시 22 자급제모델"
   }, {
-    "createdDate" : "2022-06-12T21:55:30.94892",
-    "lastModifiedDate" : "2022-06-12T21:55:30.94892",
+    "createdDate" : "2022-06-12T16:37:50.986257",
+    "lastModifiedDate" : "2022-06-12T16:37:50.986257",
     "price" : 2600,
     "companyName" : "이마트",
     "id" : 1000000004,
     "stock" : 6,
     "productName" : "말랑카우 핸드워시 250ml"
   }, {
-    "createdDate" : "2022-06-12T21:55:30.953076",
-    "lastModifiedDate" : "2022-06-12T21:55:30.953076",
+    "createdDate" : "2022-06-12T16:37:50.990296",
+    "lastModifiedDate" : "2022-06-12T16:37:50.990296",
     "price" : 1200,
     "companyName" : "신세계백화점",
     "id" : 1000000005,
     "stock" : 4,
     "productName" : "삼립 미니꿀호떡 322g"
   }, {
-    "createdDate" : "2022-06-12T21:55:30.956543",
-    "lastModifiedDate" : "2022-06-12T21:55:30.956543",
+    "createdDate" : "2022-06-12T16:37:50.994833",
+    "lastModifiedDate" : "2022-06-12T16:37:50.994833",
     "price" : 6400,
     "companyName" : "이마트",
     "id" : 1000000006,
     "stock" : 2,
     "productName" : "피코크 어랑손만두 어랑만두 700g"
   }, {
-    "createdDate" : "2022-06-12T21:55:30.961327",
-    "lastModifiedDate" : "2022-06-12T21:55:30.961327",
+    "createdDate" : "2022-06-12T16:37:50.998874",
+    "lastModifiedDate" : "2022-06-12T16:37:50.998874",
     "price" : 2800,
     "companyName" : "신세계백화점",
     "id" : 1000000007,
     "stock" : 1,
     "productName" : "빼빼로바 아몬드아이스크림 4입"
   }, {
-    "createdDate" : "2022-06-12T21:55:30.96597",
-    "lastModifiedDate" : "2022-06-12T21:55:30.96597",
+    "createdDate" : "2022-06-12T16:37:51.002918",
+    "lastModifiedDate" : "2022-06-12T16:37:51.002918",
     "price" : 2500,
     "companyName" : "이마트",
     "id" : 1000000008,
     "stock" : 3,
     "productName" : "피코크 에이 클래스 우유 900ml"
   }, {
-    "createdDate" : "2022-06-12T21:55:30.969986",
-    "lastModifiedDate" : "2022-06-12T21:55:30.969986",
+    "createdDate" : "2022-06-12T16:37:51.00695",
+    "lastModifiedDate" : "2022-06-12T16:37:51.00695",
     "price" : 4500,
     "companyName" : "이마트",
     "id" : 1000000009,
     "stock" : 0,
     "productName" : "아삭달콤 방울토마토 500g"
   }, {
-    "createdDate" : "2022-06-12T21:55:30.973825",
-    "lastModifiedDate" : "2022-06-12T21:55:30.973825",
+    "createdDate" : "2022-06-12T16:37:51.010487",
+    "lastModifiedDate" : "2022-06-12T16:37:51.010487",
     "price" : 3000,
     "companyName" : "이마트",
     "id" : 1000000010,
     "stock" : 1,
     "productName" : "[롯데삼강] 돼지바 (70ml*6 입)"
   }, {
-    "createdDate" : "2022-06-12T21:55:30.978103",
-    "lastModifiedDate" : "2022-06-12T21:55:30.978103",
+    "createdDate" : "2022-06-12T16:37:51.015539",
+    "lastModifiedDate" : "2022-06-12T16:37:51.015539",
     "price" : 129000,
     "companyName" : "나이키",
     "id" : 1000000011,
     "stock" : 4,
     "productName" : "나이키 덩크로우 흰검"
   }, {
-    "createdDate" : "2022-06-12T21:55:30.984251",
-    "lastModifiedDate" : "2022-06-12T21:55:30.984251",
+    "createdDate" : "2022-06-12T16:37:51.020584",
+    "lastModifiedDate" : "2022-06-12T16:37:51.020584",
     "price" : 18500,
     "companyName" : "스타벅스",
     "id" : 1000000012,
     "stock" : 4,
     "productName" : "이달의 원두 500g"
   }, {
-    "createdDate" : "2022-06-12T21:55:30.987261",
-    "lastModifiedDate" : "2022-06-12T21:55:30.987261",
+    "createdDate" : "2022-06-12T16:37:51.024628",
+    "lastModifiedDate" : "2022-06-12T16:37:51.024628",
     "price" : 23000,
     "companyName" : "스타벅스",
     "id" : 1000000013,
     "stock" : 7,
     "productName" : "아쿠아머그"
   }, {
-    "createdDate" : "2022-06-12T21:55:30.99226",
-    "lastModifiedDate" : "2022-06-12T21:55:30.99226",
+    "createdDate" : "2022-06-12T16:37:51.029174",
+    "lastModifiedDate" : "2022-06-12T16:37:51.029174",
     "price" : 480000,
     "companyName" : "삼성전자",
     "id" : 1000000014,
     "stock" : 2,
     "productName" : "삼성전자 43 인치 스마트모니터"
   }, {
-    "createdDate" : "2022-06-12T21:55:30.996652",
-    "lastModifiedDate" : "2022-06-12T21:55:30.996652",
+    "createdDate" : "2022-06-12T16:37:51.032705",
+    "lastModifiedDate" : "2022-06-12T16:37:51.032705",
     "price" : 25000,
     "companyName" : "나이키",
     "id" : 1000000015,
@@ -1018,7 +1013,7 @@ Content-Length: 4167
 </div>
 </div>
 <div class="sect3">
-<h4 id="상품정보-리스트-조회_response_fields"><a class="link" href="#상품정보-리스트-조회_response_fields">Response fields</a></h4>
+<h4 id="상품정보-리스트-조회_response_fields"><a class="link" href="https://drmaemi.github.io/Ad-Platform/src/main/resources/templates/docs/api#%EC%83%81%ED%92%88%EC%A0%95%EB%B3%B4-%EB%A6%AC%EC%8A%A4%ED%8A%B8-%EC%A1%B0%ED%9A%8C_response_fields">Response fields</a></h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 33.3333%;">
@@ -1056,7 +1051,7 @@ Content-Length: 4167
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>result.[].id</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Product&#8217;s ID</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Product’s ID</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>result.[].companyName</code></p></td>
@@ -1095,12 +1090,12 @@ Content-Length: 4167
 </div>
 </div>
 <div class="sect1">
-<h2 id="Company-API"><a class="link" href="#Company-API">업체(Company) 도메인</a></h2>
+<h2 id="Company-API"><a class="link" href="https://drmaemi.github.io/Ad-Platform/src/main/resources/templates/docs/api#Company-API">업체(Company) 도메인</a></h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="업체-등록"><a class="link" href="#업체-등록">업체 등록</a></h3>
+<h3 id="업체-등록"><a class="link" href="https://drmaemi.github.io/Ad-Platform/src/main/resources/templates/docs/api#%EC%97%85%EC%B2%B4-%EB%93%B1%EB%A1%9D">업체 등록</a></h3>
 <div class="sect3">
-<h4 id="업체-등록_http_request"><a class="link" href="#업체-등록_http_request">HTTP request</a></h4>
+<h4 id="업체-등록_http_request"><a class="link" href="https://drmaemi.github.io/Ad-Platform/src/main/resources/templates/docs/api#%EC%97%85%EC%B2%B4-%EB%93%B1%EB%A1%9D_http_request">HTTP request</a></h4>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">POST /api/company HTTP/1.1
@@ -1118,7 +1113,7 @@ Host: localhost:8080
 </div>
 </div>
 <div class="sect3">
-<h4 id="업체-등록_request_fields"><a class="link" href="#업체-등록_request_fields">Request fields</a></h4>
+<h4 id="업체-등록_request_fields"><a class="link" href="https://drmaemi.github.io/Ad-Platform/src/main/resources/templates/docs/api#%EC%97%85%EC%B2%B4-%EB%93%B1%EB%A1%9D_request_fields">Request fields</a></h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 33.3333%;">
@@ -1141,23 +1136,23 @@ Host: localhost:8080
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>businessRegistrationNumber</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Company&#8217;s business registration number</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Company’s business registration number</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>phoneNumber</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Company&#8217;s phone number</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Company’s phone number</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>address</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Company&#8217;s address</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Company’s address</p></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="sect3">
-<h4 id="업체-등록_http_response"><a class="link" href="#업체-등록_http_response">HTTP response</a></h4>
+<h4 id="업체-등록_http_response"><a class="link" href="https://drmaemi.github.io/Ad-Platform/src/main/resources/templates/docs/api#%EC%97%85%EC%B2%B4-%EB%93%B1%EB%A1%9D_http_response">HTTP response</a></h4>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
@@ -1170,7 +1165,7 @@ Expires: 0
 Content-Length: 283
 
 {
-  "timestamp" : "2022-06-12T21:55:31.2368409",
+  "timestamp" : "2022-06-12T16:37:51.2296287",
   "code" : 200,
   "status" : "OK",
   "result" : {
@@ -1185,7 +1180,7 @@ Content-Length: 283
 </div>
 </div>
 <div class="sect3">
-<h4 id="업체-등록_response_fields"><a class="link" href="#업체-등록_response_fields">Response fields</a></h4>
+<h4 id="업체-등록_response_fields"><a class="link" href="https://drmaemi.github.io/Ad-Platform/src/main/resources/templates/docs/api#%EC%97%85%EC%B2%B4-%EB%93%B1%EB%A1%9D_response_fields">Response fields</a></h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 33.3333%;">
@@ -1223,36 +1218,36 @@ Content-Length: 283
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>result.id</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Processed company&#8217;s ID</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Processed company’s ID</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>result.companyName</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Processed company&#8217;s name</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Processed company’s name</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>result.businessRegistrationNumber</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Processed company&#8217;s business registration number</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Processed company’s business registration number</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>result.phoneNumber</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Processed company&#8217;s phone number</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Processed company’s phone number</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>result.address</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Processed company&#8217;s address</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Processed company’s address</p></td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
 <div class="sect2">
-<h3 id="업체-등록-시-유효성-검사"><a class="link" href="#업체-등록-시-유효성-검사">업체 등록 시 유효성 검사</a></h3>
+<h3 id="업체-등록-시-유효성-검사"><a class="link" href="https://drmaemi.github.io/Ad-Platform/src/main/resources/templates/docs/api#%EC%97%85%EC%B2%B4-%EB%93%B1%EB%A1%9D-%EC%8B%9C-%EC%9C%A0%ED%9A%A8%EC%84%B1-%EA%B2%80%EC%82%AC">업체 등록 시 유효성 검사</a></h3>
 <div class="sect3">
-<h4 id="업체-등록-시-유효성-검사_http_request"><a class="link" href="#업체-등록-시-유효성-검사_http_request">HTTP request</a></h4>
+<h4 id="업체-등록-시-유효성-검사_http_request"><a class="link" href="https://drmaemi.github.io/Ad-Platform/src/main/resources/templates/docs/api#%EC%97%85%EC%B2%B4-%EB%93%B1%EB%A1%9D-%EC%8B%9C-%EC%9C%A0%ED%9A%A8%EC%84%B1-%EA%B2%80%EC%82%AC_http_request">HTTP request</a></h4>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">POST /api/company HTTP/1.1
@@ -1270,7 +1265,7 @@ Host: localhost:8080
 </div>
 </div>
 <div class="sect3">
-<h4 id="업체-등록-시-유효성-검사_request_fields"><a class="link" href="#업체-등록-시-유효성-검사_request_fields">Request fields</a></h4>
+<h4 id="업체-등록-시-유효성-검사_request_fields"><a class="link" href="https://drmaemi.github.io/Ad-Platform/src/main/resources/templates/docs/api#%EC%97%85%EC%B2%B4-%EB%93%B1%EB%A1%9D-%EC%8B%9C-%EC%9C%A0%ED%9A%A8%EC%84%B1-%EA%B2%80%EC%82%AC_request_fields">Request fields</a></h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 33.3333%;">
@@ -1293,23 +1288,23 @@ Host: localhost:8080
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>businessRegistrationNumber</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Company&#8217;s business registration number</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Company’s business registration number</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>phoneNumber</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Company&#8217;s phone number</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Company’s phone number</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>address</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Null</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Company&#8217;s address</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Company’s address</p></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="sect3">
-<h4 id="업체-등록-시-유효성-검사_http_response"><a class="link" href="#업체-등록-시-유효성-검사_http_response">HTTP response</a></h4>
+<h4 id="업체-등록-시-유효성-검사_http_response"><a class="link" href="https://drmaemi.github.io/Ad-Platform/src/main/resources/templates/docs/api#%EC%97%85%EC%B2%B4-%EB%93%B1%EB%A1%9D-%EC%8B%9C-%EC%9C%A0%ED%9A%A8%EC%84%B1-%EA%B2%80%EC%82%AC_http_response">HTTP response</a></h4>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 400 Bad Request
@@ -1322,32 +1317,32 @@ Expires: 0
 Content-Length: 838
 
 {
-  "timestamp" : "2022-06-12T21:55:31.2668713",
+  "timestamp" : "2022-06-12T16:37:51.2520406",
   "code" : 400,
   "status" : "BAD_REQUEST",
   "result" : [ {
-    "field" : "companyName",
-    "message" : "상품 리스트에 존재하는 업체명이 아닙니다. 다시 한 번 확인해주세요.",
-    "rejectedValue" : "등록되지 않은 업체 이름"
-  }, {
     "field" : "businessRegistrationNumber",
     "message" : "사업자번호는 XXX-XX-XXXXX 형태로 총 10개의 숫자를 입력해주세요.",
     "rejectedValue" : "123456-78901"
+  }, {
+    "field" : "address",
+    "message" : "주소지를 입력해주세요.",
+    "rejectedValue" : null
   }, {
     "field" : "phoneNumber",
     "message" : "업체전화번호는 XXX-XXX-XXXX와 같이 '-'를 이용해 구분하여 숫자를 입력해주세요.",
     "rejectedValue" : "010-1234567"
   }, {
-    "field" : "address",
-    "message" : "주소지를 입력해주세요.",
-    "rejectedValue" : null
+    "field" : "companyName",
+    "message" : "상품 리스트에 존재하는 업체명이 아닙니다. 다시 한 번 확인해주세요.",
+    "rejectedValue" : "등록되지 않은 업체 이름"
   } ]
 }</code></pre>
 </div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="업체-등록-시-유효성-검사_response_fields"><a class="link" href="#업체-등록-시-유효성-검사_response_fields">Response fields</a></h4>
+<h4 id="업체-등록-시-유효성-검사_response_fields"><a class="link" href="https://drmaemi.github.io/Ad-Platform/src/main/resources/templates/docs/api#%EC%97%85%EC%B2%B4-%EB%93%B1%EB%A1%9D-%EC%8B%9C-%EC%9C%A0%ED%9A%A8%EC%84%B1-%EA%B2%80%EC%82%AC_response_fields">Response fields</a></h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 33.3333%;">
@@ -1402,9 +1397,9 @@ Content-Length: 838
 </div>
 </div>
 <div class="sect2">
-<h3 id="업체정보-리스트-조회"><a class="link" href="#업체정보-리스트-조회">업체정보 리스트 조회</a></h3>
+<h3 id="업체정보-리스트-조회"><a class="link" href="https://drmaemi.github.io/Ad-Platform/src/main/resources/templates/docs/api#%EC%97%85%EC%B2%B4%EC%A0%95%EB%B3%B4-%EB%A6%AC%EC%8A%A4%ED%8A%B8-%EC%A1%B0%ED%9A%8C">업체정보 리스트 조회</a></h3>
 <div class="sect3">
-<h4 id="업체정보-리스트-조회_http_request"><a class="link" href="#업체정보-리스트-조회_http_request">HTTP request</a></h4>
+<h4 id="업체정보-리스트-조회_http_request"><a class="link" href="https://drmaemi.github.io/Ad-Platform/src/main/resources/templates/docs/api#%EC%97%85%EC%B2%B4%EC%A0%95%EB%B3%B4-%EB%A6%AC%EC%8A%A4%ED%8A%B8-%EC%A1%B0%ED%9A%8C_http_request">HTTP request</a></h4>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">GET /api/companies HTTP/1.1
@@ -1414,7 +1409,7 @@ Host: localhost:8080</code></pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="업체정보-리스트-조회_http_response"><a class="link" href="#업체정보-리스트-조회_http_response">HTTP response</a></h4>
+<h4 id="업체정보-리스트-조회_http_response"><a class="link" href="https://drmaemi.github.io/Ad-Platform/src/main/resources/templates/docs/api#%EC%97%85%EC%B2%B4%EC%A0%95%EB%B3%B4-%EB%A6%AC%EC%8A%A4%ED%8A%B8-%EC%A1%B0%ED%9A%8C_http_response">HTTP response</a></h4>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
@@ -1424,10 +1419,10 @@ X-XSS-Protection: 1; mode=block
 Cache-Control: no-cache, no-store, max-age=0, must-revalidate
 Pragma: no-cache
 Expires: 0
-Content-Length: 5697
+Content-Length: 5700
 
 {
-  "timestamp" : "2022-06-12T21:55:31.2969387",
+  "timestamp" : "2022-06-12T16:37:51.279799",
   "code" : 200,
   "status" : "OK",
   "result" : [ {
@@ -1442,51 +1437,51 @@ Content-Length: 5697
       "productName" : "허쉬 초코멜로쿠키 45g",
       "price" : 600,
       "stock" : 10,
-      "createdDate" : "2022-06-12T21:55:30.930927",
-      "lastModifiedDate" : "2022-06-12T21:55:30.930927"
+      "createdDate" : "2022-06-12T16:37:50.969093",
+      "lastModifiedDate" : "2022-06-12T16:37:50.969093"
     }, {
       "id" : 1000000004,
       "companyDto" : null,
       "productName" : "말랑카우 핸드워시 250ml",
       "price" : 2600,
       "stock" : 6,
-      "createdDate" : "2022-06-12T21:55:30.94892",
-      "lastModifiedDate" : "2022-06-12T21:55:30.94892"
+      "createdDate" : "2022-06-12T16:37:50.986257",
+      "lastModifiedDate" : "2022-06-12T16:37:50.986257"
     }, {
       "id" : 1000000006,
       "companyDto" : null,
       "productName" : "피코크 어랑손만두 어랑만두 700g",
       "price" : 6400,
       "stock" : 2,
-      "createdDate" : "2022-06-12T21:55:30.956543",
-      "lastModifiedDate" : "2022-06-12T21:55:30.956543"
+      "createdDate" : "2022-06-12T16:37:50.994833",
+      "lastModifiedDate" : "2022-06-12T16:37:50.994833"
     }, {
       "id" : 1000000008,
       "companyDto" : null,
       "productName" : "피코크 에이 클래스 우유 900ml",
       "price" : 2500,
       "stock" : 3,
-      "createdDate" : "2022-06-12T21:55:30.96597",
-      "lastModifiedDate" : "2022-06-12T21:55:30.96597"
+      "createdDate" : "2022-06-12T16:37:51.002918",
+      "lastModifiedDate" : "2022-06-12T16:37:51.002918"
     }, {
       "id" : 1000000009,
       "companyDto" : null,
       "productName" : "아삭달콤 방울토마토 500g",
       "price" : 4500,
       "stock" : 0,
-      "createdDate" : "2022-06-12T21:55:30.969986",
-      "lastModifiedDate" : "2022-06-12T21:55:30.969986"
+      "createdDate" : "2022-06-12T16:37:51.00695",
+      "lastModifiedDate" : "2022-06-12T16:37:51.00695"
     }, {
       "id" : 1000000010,
       "companyDto" : null,
       "productName" : "[롯데삼강] 돼지바 (70ml*6 입)",
       "price" : 3000,
       "stock" : 1,
-      "createdDate" : "2022-06-12T21:55:30.973825",
-      "lastModifiedDate" : "2022-06-12T21:55:30.973825"
+      "createdDate" : "2022-06-12T16:37:51.010487",
+      "lastModifiedDate" : "2022-06-12T16:37:51.010487"
     } ],
-    "createdDate" : "2022-06-12T21:55:30.882592",
-    "lastModifiedDate" : "2022-06-12T21:55:31.218738"
+    "createdDate" : "2022-06-12T16:37:50.926985",
+    "lastModifiedDate" : "2022-06-12T16:37:51.221566"
   }, {
     "id" : 1000000002,
     "name" : "신세계백화점",
@@ -1499,27 +1494,27 @@ Content-Length: 5697
       "productName" : "크리스피롤 12 곡 180g",
       "price" : 2000,
       "stock" : 5,
-      "createdDate" : "2022-06-12T21:55:30.938474",
-      "lastModifiedDate" : "2022-06-12T21:55:30.938474"
+      "createdDate" : "2022-06-12T16:37:50.977178",
+      "lastModifiedDate" : "2022-06-12T16:37:50.977178"
     }, {
       "id" : 1000000005,
       "companyDto" : null,
       "productName" : "삼립 미니꿀호떡 322g",
       "price" : 1200,
       "stock" : 4,
-      "createdDate" : "2022-06-12T21:55:30.953076",
-      "lastModifiedDate" : "2022-06-12T21:55:30.953076"
+      "createdDate" : "2022-06-12T16:37:50.990296",
+      "lastModifiedDate" : "2022-06-12T16:37:50.990296"
     }, {
       "id" : 1000000007,
       "companyDto" : null,
       "productName" : "빼빼로바 아몬드아이스크림 4입",
       "price" : 2800,
       "stock" : 1,
-      "createdDate" : "2022-06-12T21:55:30.961327",
-      "lastModifiedDate" : "2022-06-12T21:55:30.961327"
+      "createdDate" : "2022-06-12T16:37:50.998874",
+      "lastModifiedDate" : "2022-06-12T16:37:50.998874"
     } ],
-    "createdDate" : "2022-06-12T21:55:30.936971",
-    "lastModifiedDate" : "2022-06-12T21:55:30.936971"
+    "createdDate" : "2022-06-12T16:37:50.974651",
+    "lastModifiedDate" : "2022-06-12T16:37:50.974651"
   }, {
     "id" : 1000000003,
     "name" : "삼성전자",
@@ -1532,19 +1527,19 @@ Content-Length: 5697
       "productName" : "갤럭시 22 자급제모델",
       "price" : 1200000,
       "stock" : 0,
-      "createdDate" : "2022-06-12T21:55:30.943328",
-      "lastModifiedDate" : "2022-06-12T21:55:30.943328"
+      "createdDate" : "2022-06-12T16:37:50.981723",
+      "lastModifiedDate" : "2022-06-12T16:37:50.981723"
     }, {
       "id" : 1000000014,
       "companyDto" : null,
       "productName" : "삼성전자 43 인치 스마트모니터",
       "price" : 480000,
       "stock" : 2,
-      "createdDate" : "2022-06-12T21:55:30.99226",
-      "lastModifiedDate" : "2022-06-12T21:55:30.99226"
+      "createdDate" : "2022-06-12T16:37:51.029174",
+      "lastModifiedDate" : "2022-06-12T16:37:51.029174"
     } ],
-    "createdDate" : "2022-06-12T21:55:30.941508",
-    "lastModifiedDate" : "2022-06-12T21:55:30.941508"
+    "createdDate" : "2022-06-12T16:37:50.979705",
+    "lastModifiedDate" : "2022-06-12T16:37:50.979705"
   }, {
     "id" : 1000000004,
     "name" : "나이키",
@@ -1557,19 +1552,19 @@ Content-Length: 5697
       "productName" : "나이키 덩크로우 흰검",
       "price" : 129000,
       "stock" : 4,
-      "createdDate" : "2022-06-12T21:55:30.978103",
-      "lastModifiedDate" : "2022-06-12T21:55:30.978103"
+      "createdDate" : "2022-06-12T16:37:51.015539",
+      "lastModifiedDate" : "2022-06-12T16:37:51.015539"
     }, {
       "id" : 1000000015,
       "companyDto" : null,
       "productName" : "나이키 헤리티지 스우시 캡",
       "price" : 25000,
       "stock" : 5,
-      "createdDate" : "2022-06-12T21:55:30.996652",
-      "lastModifiedDate" : "2022-06-12T21:55:30.996652"
+      "createdDate" : "2022-06-12T16:37:51.032705",
+      "lastModifiedDate" : "2022-06-12T16:37:51.032705"
     } ],
-    "createdDate" : "2022-06-12T21:55:30.976689",
-    "lastModifiedDate" : "2022-06-12T21:55:30.976689"
+    "createdDate" : "2022-06-12T16:37:51.013517",
+    "lastModifiedDate" : "2022-06-12T16:37:51.013517"
   }, {
     "id" : 1000000005,
     "name" : "스타벅스",
@@ -1582,26 +1577,26 @@ Content-Length: 5697
       "productName" : "이달의 원두 500g",
       "price" : 18500,
       "stock" : 4,
-      "createdDate" : "2022-06-12T21:55:30.984251",
-      "lastModifiedDate" : "2022-06-12T21:55:30.984251"
+      "createdDate" : "2022-06-12T16:37:51.020584",
+      "lastModifiedDate" : "2022-06-12T16:37:51.020584"
     }, {
       "id" : 1000000013,
       "companyDto" : null,
       "productName" : "아쿠아머그",
       "price" : 23000,
       "stock" : 7,
-      "createdDate" : "2022-06-12T21:55:30.987261",
-      "lastModifiedDate" : "2022-06-12T21:55:30.987261"
+      "createdDate" : "2022-06-12T16:37:51.024628",
+      "lastModifiedDate" : "2022-06-12T16:37:51.024628"
     } ],
-    "createdDate" : "2022-06-12T21:55:30.981807",
-    "lastModifiedDate" : "2022-06-12T21:55:30.981807"
+    "createdDate" : "2022-06-12T16:37:51.018567",
+    "lastModifiedDate" : "2022-06-12T16:37:51.018567"
   } ]
 }</code></pre>
 </div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="업체정보-리스트-조회_response_fields"><a class="link" href="#업체정보-리스트-조회_response_fields">Response fields</a></h4>
+<h4 id="업체정보-리스트-조회_response_fields"><a class="link" href="https://drmaemi.github.io/Ad-Platform/src/main/resources/templates/docs/api#%EC%97%85%EC%B2%B4%EC%A0%95%EB%B3%B4-%EB%A6%AC%EC%8A%A4%ED%8A%B8-%EC%A1%B0%ED%9A%8C_response_fields">Response fields</a></h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 33.3333%;">
@@ -1639,27 +1634,27 @@ Content-Length: 5697
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>result.[].id</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Company&#8217;s ID</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Company’s ID</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>result.[].name</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Company&#8217;s name</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Company’s name</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>result.[].businessRegistrationNumber</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Company&#8217;s business registration number</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Company’s business registration number</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>result.[].phoneNumber</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Company&#8217;s phone number</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Company’s phone number</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>result.[].address</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Company&#8217;s address</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Company’s address</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>result.[].createdDate</code></p></td>
@@ -1721,9 +1716,9 @@ Content-Length: 5697
 </div>
 </div>
 <div class="sect2">
-<h3 id="업체정보-중-업체명을-제외한-채-수정"><a class="link" href="#업체정보-중-업체명을-제외한-채-수정">업체정보 중 업체명을 제외한 채 수정</a></h3>
+<h3 id="업체정보-중-업체명을-제외한-채-수정"><a class="link" href="https://drmaemi.github.io/Ad-Platform/src/main/resources/templates/docs/api#%EC%97%85%EC%B2%B4%EC%A0%95%EB%B3%B4-%EC%A4%91-%EC%97%85%EC%B2%B4%EB%AA%85%EC%9D%84-%EC%A0%9C%EC%99%B8%ED%95%9C-%EC%B1%84-%EC%88%98%EC%A0%95">업체정보 중 업체명을 제외한 채 수정</a></h3>
 <div class="sect3">
-<h4 id="업체정보-중-업체명을-제외한-채-수정_http_request"><a class="link" href="#업체정보-중-업체명을-제외한-채-수정_http_request">HTTP request</a></h4>
+<h4 id="업체정보-중-업체명을-제외한-채-수정_http_request"><a class="link" href="https://drmaemi.github.io/Ad-Platform/src/main/resources/templates/docs/api#%EC%97%85%EC%B2%B4%EC%A0%95%EB%B3%B4-%EC%A4%91-%EC%97%85%EC%B2%B4%EB%AA%85%EC%9D%84-%EC%A0%9C%EC%99%B8%ED%95%9C-%EC%B1%84-%EC%88%98%EC%A0%95_http_request">HTTP request</a></h4>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">PATCH /api/company HTTP/1.1
@@ -1741,7 +1736,7 @@ Host: localhost:8080
 </div>
 </div>
 <div class="sect3">
-<h4 id="업체정보-중-업체명을-제외한-채-수정_request_fields"><a class="link" href="#업체정보-중-업체명을-제외한-채-수정_request_fields">Request fields</a></h4>
+<h4 id="업체정보-중-업체명을-제외한-채-수정_request_fields"><a class="link" href="https://drmaemi.github.io/Ad-Platform/src/main/resources/templates/docs/api#%EC%97%85%EC%B2%B4%EC%A0%95%EB%B3%B4-%EC%A4%91-%EC%97%85%EC%B2%B4%EB%AA%85%EC%9D%84-%EC%A0%9C%EC%99%B8%ED%95%9C-%EC%B1%84-%EC%88%98%EC%A0%95_request_fields">Request fields</a></h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 33.3333%;">
@@ -1764,23 +1759,23 @@ Host: localhost:8080
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>businessRegistrationNumber</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Null</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Company&#8217;s business registration number to update. It would not be updated if the value is null.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Company’s business registration number to update. It would not be updated if the value is null.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>phoneNumber</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Company&#8217;s phone number to update. It would not be updated if the value is null</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Company’s phone number to update. It would not be updated if the value is null</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>address</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Company&#8217;s address to update. It would not be updated if the value is null</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Company’s address to update. It would not be updated if the value is null</p></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="sect3">
-<h4 id="업체정보-중-업체명을-제외한-채-수정_http_response"><a class="link" href="#업체정보-중-업체명을-제외한-채-수정_http_response">HTTP response</a></h4>
+<h4 id="업체정보-중-업체명을-제외한-채-수정_http_response"><a class="link" href="https://drmaemi.github.io/Ad-Platform/src/main/resources/templates/docs/api#%EC%97%85%EC%B2%B4%EC%A0%95%EB%B3%B4-%EC%A4%91-%EC%97%85%EC%B2%B4%EB%AA%85%EC%9D%84-%EC%A0%9C%EC%99%B8%ED%95%9C-%EC%B1%84-%EC%88%98%EC%A0%95_http_response">HTTP response</a></h4>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
@@ -1790,10 +1785,10 @@ X-XSS-Protection: 1; mode=block
 Cache-Control: no-cache, no-store, max-age=0, must-revalidate
 Pragma: no-cache
 Expires: 0
-Content-Length: 293
+Content-Length: 294
 
 {
-  "timestamp" : "2022-06-12T21:55:31.332319",
+  "timestamp" : "2022-06-12T16:37:51.3105893",
   "code" : 200,
   "status" : "OK",
   "result" : {
@@ -1808,7 +1803,7 @@ Content-Length: 293
 </div>
 </div>
 <div class="sect3">
-<h4 id="업체정보-중-업체명을-제외한-채-수정_response_fields"><a class="link" href="#업체정보-중-업체명을-제외한-채-수정_response_fields">Response fields</a></h4>
+<h4 id="업체정보-중-업체명을-제외한-채-수정_response_fields"><a class="link" href="https://drmaemi.github.io/Ad-Platform/src/main/resources/templates/docs/api#%EC%97%85%EC%B2%B4%EC%A0%95%EB%B3%B4-%EC%A4%91-%EC%97%85%EC%B2%B4%EB%AA%85%EC%9D%84-%EC%A0%9C%EC%99%B8%ED%95%9C-%EC%B1%84-%EC%88%98%EC%A0%95_response_fields">Response fields</a></h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 33.3333%;">
@@ -1846,27 +1841,27 @@ Content-Length: 293
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>result.id</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Updated company&#8217;s ID</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Updated company’s ID</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>result.companyName</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Updated company&#8217;s name</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Updated company’s name</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>result.businessRegistrationNumber</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Updated company&#8217;s business registration number</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Updated company’s business registration number</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>result.phoneNumber</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Updated company&#8217;s phone number</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Updated company’s phone number</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>result.address</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Updated company&#8217;s address</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Updated company’s address</p></td>
 </tr>
 </tbody>
 </table>
@@ -1875,12 +1870,12 @@ Content-Length: 293
 </div>
 </div>
 <div class="sect1">
-<h2 id="Contract-API"><a class="link" href="#Contract-API">계약(Contract) 도메인</a></h2>
+<h2 id="Contract-API"><a class="link" href="https://drmaemi.github.io/Ad-Platform/src/main/resources/templates/docs/api#Contract-API">계약(Contract) 도메인</a></h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="계약-생성"><a class="link" href="#계약-생성">계약 생성</a></h3>
+<h3 id="계약-생성"><a class="link" href="https://drmaemi.github.io/Ad-Platform/src/main/resources/templates/docs/api#%EA%B3%84%EC%95%BD-%EC%83%9D%EC%84%B1">계약 생성</a></h3>
 <div class="sect3">
-<h4 id="계약-생성_http_request"><a class="link" href="#계약-생성_http_request">HTTP request</a></h4>
+<h4 id="계약-생성_http_request"><a class="link" href="https://drmaemi.github.io/Ad-Platform/src/main/resources/templates/docs/api#%EA%B3%84%EC%95%BD-%EC%83%9D%EC%84%B1_http_request">HTTP request</a></h4>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">POST /api/contract HTTP/1.1
@@ -1895,7 +1890,7 @@ Host: localhost:8080
 </div>
 </div>
 <div class="sect3">
-<h4 id="계약-생성_request_fields"><a class="link" href="#계약-생성_request_fields">Request fields</a></h4>
+<h4 id="계약-생성_request_fields"><a class="link" href="https://drmaemi.github.io/Ad-Platform/src/main/resources/templates/docs/api#%EA%B3%84%EC%95%BD-%EC%83%9D%EC%84%B1_request_fields">Request fields</a></h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 33.3333%;">
@@ -1913,13 +1908,13 @@ Host: localhost:8080
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>companyId</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Company&#8217;s ID to create contract</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Company’s ID to create contract</p></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="sect3">
-<h4 id="계약-생성_http_response"><a class="link" href="#계약-생성_http_response">HTTP response</a></h4>
+<h4 id="계약-생성_http_response"><a class="link" href="https://drmaemi.github.io/Ad-Platform/src/main/resources/templates/docs/api#%EA%B3%84%EC%95%BD-%EC%83%9D%EC%84%B1_http_response">HTTP response</a></h4>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 201 Created
@@ -1929,10 +1924,10 @@ X-XSS-Protection: 1; mode=block
 Cache-Control: no-cache, no-store, max-age=0, must-revalidate
 Pragma: no-cache
 Expires: 0
-Content-Length: 224
+Content-Length: 223
 
 {
-  "timestamp" : "2022-06-12T21:55:31.4003042",
+  "timestamp" : "2022-06-12T16:37:51.360191",
   "code" : 201,
   "status" : "CREATED",
   "result" : {
@@ -1946,7 +1941,7 @@ Content-Length: 224
 </div>
 </div>
 <div class="sect3">
-<h4 id="계약-생성_response_fields"><a class="link" href="#계약-생성_response_fields">Response fields</a></h4>
+<h4 id="계약-생성_response_fields"><a class="link" href="https://drmaemi.github.io/Ad-Platform/src/main/resources/templates/docs/api#%EA%B3%84%EC%95%BD-%EC%83%9D%EC%84%B1_response_fields">Response fields</a></h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 33.3333%;">
@@ -1979,7 +1974,7 @@ Content-Length: 224
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>result</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Object</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Contracted company&#8217;s info</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Contracted company’s info</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>result.id</code></p></td>
@@ -2006,9 +2001,9 @@ Content-Length: 224
 </div>
 </div>
 <div class="sect2">
-<h3 id="계약-생성-유효성-검사-1"><a class="link" href="#계약-생성-유효성-검사-1">계약 생성 유효성 검사 1</a></h3>
+<h3 id="계약-생성-유효성-검사-1"><a class="link" href="https://drmaemi.github.io/Ad-Platform/src/main/resources/templates/docs/api#%EA%B3%84%EC%95%BD-%EC%83%9D%EC%84%B1-%EC%9C%A0%ED%9A%A8%EC%84%B1-%EA%B2%80%EC%82%AC-1">계약 생성 유효성 검사 1</a></h3>
 <div class="sect3">
-<h4 id="계약-생성-유효성-검사-1_http_request"><a class="link" href="#계약-생성-유효성-검사-1_http_request">HTTP request</a></h4>
+<h4 id="계약-생성-유효성-검사-1_http_request"><a class="link" href="https://drmaemi.github.io/Ad-Platform/src/main/resources/templates/docs/api#%EA%B3%84%EC%95%BD-%EC%83%9D%EC%84%B1-%EC%9C%A0%ED%9A%A8%EC%84%B1-%EA%B2%80%EC%82%AC-1_http_request">HTTP request</a></h4>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">POST /api/contract HTTP/1.1
@@ -2023,7 +2018,7 @@ Host: localhost:8080
 </div>
 </div>
 <div class="sect3">
-<h4 id="계약-생성-유효성-검사-1_request_fields"><a class="link" href="#계약-생성-유효성-검사-1_request_fields">Request fields</a></h4>
+<h4 id="계약-생성-유효성-검사-1_request_fields"><a class="link" href="https://drmaemi.github.io/Ad-Platform/src/main/resources/templates/docs/api#%EA%B3%84%EC%95%BD-%EC%83%9D%EC%84%B1-%EC%9C%A0%ED%9A%A8%EC%84%B1-%EA%B2%80%EC%82%AC-1_request_fields">Request fields</a></h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 33.3333%;">
@@ -2041,13 +2036,13 @@ Host: localhost:8080
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>companyId</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Company&#8217;s ID to create contract</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Company’s ID to create contract</p></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="sect3">
-<h4 id="계약-생성-유효성-검사-1_http_response"><a class="link" href="#계약-생성-유효성-검사-1_http_response">HTTP response</a></h4>
+<h4 id="계약-생성-유효성-검사-1_http_response"><a class="link" href="https://drmaemi.github.io/Ad-Platform/src/main/resources/templates/docs/api#%EA%B3%84%EC%95%BD-%EC%83%9D%EC%84%B1-%EC%9C%A0%ED%9A%A8%EC%84%B1-%EA%B2%80%EC%82%AC-1_http_response">HTTP response</a></h4>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 400 Bad Request
@@ -2060,7 +2055,7 @@ Expires: 0
 Content-Length: 252
 
 {
-  "timestamp" : "2022-06-12T21:55:31.4268829",
+  "timestamp" : "2022-06-12T16:37:51.3819084",
   "code" : 400,
   "status" : "BAD_REQUEST",
   "result" : [ {
@@ -2073,7 +2068,7 @@ Content-Length: 252
 </div>
 </div>
 <div class="sect3">
-<h4 id="계약-생성-유효성-검사-1_response_fields"><a class="link" href="#계약-생성-유효성-검사-1_response_fields">Response fields</a></h4>
+<h4 id="계약-생성-유효성-검사-1_response_fields"><a class="link" href="https://drmaemi.github.io/Ad-Platform/src/main/resources/templates/docs/api#%EA%B3%84%EC%95%BD-%EC%83%9D%EC%84%B1-%EC%9C%A0%ED%9A%A8%EC%84%B1-%EA%B2%80%EC%82%AC-1_response_fields">Response fields</a></h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 33.3333%;">
@@ -2128,9 +2123,9 @@ Content-Length: 252
 </div>
 </div>
 <div class="sect2">
-<h3 id="계약-생성-유효성-검사-2"><a class="link" href="#계약-생성-유효성-검사-2">계약 생성 유효성 검사 2</a></h3>
+<h3 id="계약-생성-유효성-검사-2"><a class="link" href="https://drmaemi.github.io/Ad-Platform/src/main/resources/templates/docs/api#%EA%B3%84%EC%95%BD-%EC%83%9D%EC%84%B1-%EC%9C%A0%ED%9A%A8%EC%84%B1-%EA%B2%80%EC%82%AC-2">계약 생성 유효성 검사 2</a></h3>
 <div class="sect3">
-<h4 id="계약-생성-유효성-검사-2_http_request"><a class="link" href="#계약-생성-유효성-검사-2_http_request">HTTP request</a></h4>
+<h4 id="계약-생성-유효성-검사-2_http_request"><a class="link" href="https://drmaemi.github.io/Ad-Platform/src/main/resources/templates/docs/api#%EA%B3%84%EC%95%BD-%EC%83%9D%EC%84%B1-%EC%9C%A0%ED%9A%A8%EC%84%B1-%EA%B2%80%EC%82%AC-2_http_request">HTTP request</a></h4>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">POST /api/contract HTTP/1.1
@@ -2145,7 +2140,7 @@ Host: localhost:8080
 </div>
 </div>
 <div class="sect3">
-<h4 id="계약-생성-유효성-검사-2_request_fields"><a class="link" href="#계약-생성-유효성-검사-2_request_fields">Request fields</a></h4>
+<h4 id="계약-생성-유효성-검사-2_request_fields"><a class="link" href="https://drmaemi.github.io/Ad-Platform/src/main/resources/templates/docs/api#%EA%B3%84%EC%95%BD-%EC%83%9D%EC%84%B1-%EC%9C%A0%ED%9A%A8%EC%84%B1-%EA%B2%80%EC%82%AC-2_request_fields">Request fields</a></h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 33.3333%;">
@@ -2163,13 +2158,13 @@ Host: localhost:8080
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>companyId</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Company&#8217;s ID to create contract</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Company’s ID to create contract</p></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="sect3">
-<h4 id="계약-생성-유효성-검사-2_http_response"><a class="link" href="#계약-생성-유효성-검사-2_http_response">HTTP response</a></h4>
+<h4 id="계약-생성-유효성-검사-2_http_response"><a class="link" href="https://drmaemi.github.io/Ad-Platform/src/main/resources/templates/docs/api#%EA%B3%84%EC%95%BD-%EC%83%9D%EC%84%B1-%EC%9C%A0%ED%9A%A8%EC%84%B1-%EA%B2%80%EC%82%AC-2_http_response">HTTP response</a></h4>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 400 Bad Request
@@ -2182,7 +2177,7 @@ Expires: 0
 Content-Length: 296
 
 {
-  "timestamp" : "2022-06-12T21:55:31.4483828",
+  "timestamp" : "2022-06-12T16:37:51.4018039",
   "code" : 400,
   "status" : "BAD_REQUEST",
   "result" : [ {
@@ -2195,7 +2190,7 @@ Content-Length: 296
 </div>
 </div>
 <div class="sect3">
-<h4 id="계약-생성-유효성-검사-2_response_fields"><a class="link" href="#계약-생성-유효성-검사-2_response_fields">Response fields</a></h4>
+<h4 id="계약-생성-유효성-검사-2_response_fields"><a class="link" href="https://drmaemi.github.io/Ad-Platform/src/main/resources/templates/docs/api#%EA%B3%84%EC%95%BD-%EC%83%9D%EC%84%B1-%EC%9C%A0%ED%9A%A8%EC%84%B1-%EA%B2%80%EC%82%AC-2_response_fields">Response fields</a></h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 33.3333%;">
@@ -2250,9 +2245,9 @@ Content-Length: 296
 </div>
 </div>
 <div class="sect2">
-<h3 id="계약-리스트-조회"><a class="link" href="#계약-리스트-조회">계약 리스트 조회</a></h3>
+<h3 id="계약-리스트-조회"><a class="link" href="https://drmaemi.github.io/Ad-Platform/src/main/resources/templates/docs/api#%EA%B3%84%EC%95%BD-%EB%A6%AC%EC%8A%A4%ED%8A%B8-%EC%A1%B0%ED%9A%8C">계약 리스트 조회</a></h3>
 <div class="sect3">
-<h4 id="계약-리스트-조회_http_request"><a class="link" href="#계약-리스트-조회_http_request">HTTP request</a></h4>
+<h4 id="계약-리스트-조회_http_request"><a class="link" href="https://drmaemi.github.io/Ad-Platform/src/main/resources/templates/docs/api#%EA%B3%84%EC%95%BD-%EB%A6%AC%EC%8A%A4%ED%8A%B8-%EC%A1%B0%ED%9A%8C_http_request">HTTP request</a></h4>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">GET /api/contracts HTTP/1.1
@@ -2262,7 +2257,7 @@ Host: localhost:8080</code></pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="계약-리스트-조회_http_response"><a class="link" href="#계약-리스트-조회_http_response">HTTP response</a></h4>
+<h4 id="계약-리스트-조회_http_response"><a class="link" href="https://drmaemi.github.io/Ad-Platform/src/main/resources/templates/docs/api#%EA%B3%84%EC%95%BD-%EB%A6%AC%EC%8A%A4%ED%8A%B8-%EC%A1%B0%ED%9A%8C_http_response">HTTP response</a></h4>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
@@ -2272,17 +2267,17 @@ X-XSS-Protection: 1; mode=block
 Cache-Control: no-cache, no-store, max-age=0, must-revalidate
 Pragma: no-cache
 Expires: 0
-Content-Length: 330
+Content-Length: 328
 
 {
-  "timestamp" : "2022-06-12T21:55:31.4666178",
+  "timestamp" : "2022-06-12T16:37:51.4194755",
   "code" : 200,
   "status" : "OK",
   "result" : [ {
     "companyId" : 1000000001,
-    "createdDate" : "2022-06-12T21:55:31.392066",
+    "createdDate" : "2022-06-12T16:37:51.35463",
     "endDate" : "2023-06-12",
-    "lastModifiedDate" : "2022-06-12T21:55:31.392066",
+    "lastModifiedDate" : "2022-06-12T16:37:51.35463",
     "id" : 1,
     "startDate" : "2022-06-12"
   } ]
@@ -2291,7 +2286,7 @@ Content-Length: 330
 </div>
 </div>
 <div class="sect3">
-<h4 id="계약-리스트-조회_response_fields"><a class="link" href="#계약-리스트-조회_response_fields">Response fields</a></h4>
+<h4 id="계약-리스트-조회_response_fields"><a class="link" href="https://drmaemi.github.io/Ad-Platform/src/main/resources/templates/docs/api#%EA%B3%84%EC%95%BD-%EB%A6%AC%EC%8A%A4%ED%8A%B8-%EC%A1%B0%ED%9A%8C_response_fields">Response fields</a></h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 33.3333%;">
@@ -2363,12 +2358,12 @@ Content-Length: 330
 </div>
 </div>
 <div class="sect1">
-<h2 id="AdBid-API"><a class="link" href="#AdBid-API">광고입찰(AD Bid) 도메인</a></h2>
+<h2 id="AdBid-API"><a class="link" href="https://drmaemi.github.io/Ad-Platform/src/main/resources/templates/docs/api#AdBid-API">광고입찰(AD Bid) 도메인</a></h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="광고입찰-생성-1"><a class="link" href="#광고입찰-생성-1">광고입찰 생성 1</a></h3>
+<h3 id="광고입찰-생성-1"><a class="link" href="https://drmaemi.github.io/Ad-Platform/src/main/resources/templates/docs/api#%EA%B4%91%EA%B3%A0%EC%9E%85%EC%B0%B0-%EC%83%9D%EC%84%B1-1">광고입찰 생성 1</a></h3>
 <div class="sect3">
-<h4 id="광고입찰-생성-1_http_request"><a class="link" href="#광고입찰-생성-1_http_request">HTTP request</a></h4>
+<h4 id="광고입찰-생성-1_http_request"><a class="link" href="https://drmaemi.github.io/Ad-Platform/src/main/resources/templates/docs/api#%EA%B4%91%EA%B3%A0%EC%9E%85%EC%B0%B0-%EC%83%9D%EC%84%B1-1_http_request">HTTP request</a></h4>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">POST /api/ad/bid HTTP/1.1
@@ -2385,7 +2380,7 @@ Host: localhost:8080
 </div>
 </div>
 <div class="sect3">
-<h4 id="광고입찰-생성-1_request_fields"><a class="link" href="#광고입찰-생성-1_request_fields">Request fields</a></h4>
+<h4 id="광고입찰-생성-1_request_fields"><a class="link" href="https://drmaemi.github.io/Ad-Platform/src/main/resources/templates/docs/api#%EA%B4%91%EA%B3%A0%EC%9E%85%EC%B0%B0-%EC%83%9D%EC%84%B1-1_request_fields">Request fields</a></h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 33.3333%;">
@@ -2419,7 +2414,7 @@ Host: localhost:8080
 </table>
 </div>
 <div class="sect3">
-<h4 id="광고입찰-생성-1_http_response"><a class="link" href="#광고입찰-생성-1_http_response">HTTP response</a></h4>
+<h4 id="광고입찰-생성-1_http_response"><a class="link" href="https://drmaemi.github.io/Ad-Platform/src/main/resources/templates/docs/api#%EA%B4%91%EA%B3%A0%EC%9E%85%EC%B0%B0-%EC%83%9D%EC%84%B1-1_http_response">HTTP response</a></h4>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 201 Created
@@ -2432,14 +2427,14 @@ Expires: 0
 Content-Length: 332
 
 {
-  "timestamp" : "2022-06-12T21:55:31.5314226",
+  "timestamp" : "2022-06-12T16:37:51.4662006",
   "code" : 201,
   "status" : "CREATED",
   "result" : {
     "companyId" : 1000000001,
-    "createdDate" : "2022-06-12T21:55:31.5253632",
+    "createdDate" : "2022-06-12T16:37:51.4621609",
     "productId" : 1000000001,
-    "lastModifiedDate" : "2022-06-12T21:55:31.5253632",
+    "lastModifiedDate" : "2022-06-12T16:37:51.4621609",
     "id" : 1000000001,
     "bidPrice" : 100
   }
@@ -2448,7 +2443,7 @@ Content-Length: 332
 </div>
 </div>
 <div class="sect3">
-<h4 id="광고입찰-생성-1_response_fields"><a class="link" href="#광고입찰-생성-1_response_fields">Response fields</a></h4>
+<h4 id="광고입찰-생성-1_response_fields"><a class="link" href="https://drmaemi.github.io/Ad-Platform/src/main/resources/templates/docs/api#%EA%B4%91%EA%B3%A0%EC%9E%85%EC%B0%B0-%EC%83%9D%EC%84%B1-1_response_fields">Response fields</a></h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 33.3333%;">
@@ -2518,9 +2513,9 @@ Content-Length: 332
 </div>
 </div>
 <div class="sect2">
-<h3 id="광고입찰-생성-2"><a class="link" href="#광고입찰-생성-2">광고입찰 생성 2</a></h3>
+<h3 id="광고입찰-생성-2"><a class="link" href="https://drmaemi.github.io/Ad-Platform/src/main/resources/templates/docs/api#%EA%B4%91%EA%B3%A0%EC%9E%85%EC%B0%B0-%EC%83%9D%EC%84%B1-2">광고입찰 생성 2</a></h3>
 <div class="sect3">
-<h4 id="광고입찰-생성-2_http_request"><a class="link" href="#광고입찰-생성-2_http_request">HTTP request</a></h4>
+<h4 id="광고입찰-생성-2_http_request"><a class="link" href="https://drmaemi.github.io/Ad-Platform/src/main/resources/templates/docs/api#%EA%B4%91%EA%B3%A0%EC%9E%85%EC%B0%B0-%EC%83%9D%EC%84%B1-2_http_request">HTTP request</a></h4>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">POST /api/ad/bid HTTP/1.1
@@ -2537,7 +2532,7 @@ Host: localhost:8080
 </div>
 </div>
 <div class="sect3">
-<h4 id="광고입찰-생성-2_request_fields"><a class="link" href="#광고입찰-생성-2_request_fields">Request fields</a></h4>
+<h4 id="광고입찰-생성-2_request_fields"><a class="link" href="https://drmaemi.github.io/Ad-Platform/src/main/resources/templates/docs/api#%EA%B4%91%EA%B3%A0%EC%9E%85%EC%B0%B0-%EC%83%9D%EC%84%B1-2_request_fields">Request fields</a></h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 33.3333%;">
@@ -2571,7 +2566,7 @@ Host: localhost:8080
 </table>
 </div>
 <div class="sect3">
-<h4 id="광고입찰-생성-2_http_response"><a class="link" href="#광고입찰-생성-2_http_response">HTTP response</a></h4>
+<h4 id="광고입찰-생성-2_http_response"><a class="link" href="https://drmaemi.github.io/Ad-Platform/src/main/resources/templates/docs/api#%EA%B4%91%EA%B3%A0%EC%9E%85%EC%B0%B0-%EC%83%9D%EC%84%B1-2_http_response">HTTP response</a></h4>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 201 Created
@@ -2581,17 +2576,17 @@ X-XSS-Protection: 1; mode=block
 Cache-Control: no-cache, no-store, max-age=0, must-revalidate
 Pragma: no-cache
 Expires: 0
-Content-Length: 332
+Content-Length: 330
 
 {
-  "timestamp" : "2022-06-12T21:55:31.5732918",
+  "timestamp" : "2022-06-12T16:37:51.4894484",
   "code" : 201,
   "status" : "CREATED",
   "result" : {
     "companyId" : 1000000001,
-    "createdDate" : "2022-06-12T21:55:31.5709067",
+    "createdDate" : "2022-06-12T16:37:51.487936",
     "productId" : 1000000004,
-    "lastModifiedDate" : "2022-06-12T21:55:31.5709067",
+    "lastModifiedDate" : "2022-06-12T16:37:51.487936",
     "id" : 1000000002,
     "bidPrice" : 250
   }
@@ -2600,7 +2595,7 @@ Content-Length: 332
 </div>
 </div>
 <div class="sect3">
-<h4 id="광고입찰-생성-2_response_fields"><a class="link" href="#광고입찰-생성-2_response_fields">Response fields</a></h4>
+<h4 id="광고입찰-생성-2_response_fields"><a class="link" href="https://drmaemi.github.io/Ad-Platform/src/main/resources/templates/docs/api#%EA%B4%91%EA%B3%A0%EC%9E%85%EC%B0%B0-%EC%83%9D%EC%84%B1-2_response_fields">Response fields</a></h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 33.3333%;">
@@ -2670,9 +2665,9 @@ Content-Length: 332
 </div>
 </div>
 <div class="sect2">
-<h3 id="광고입찰-생성-3"><a class="link" href="#광고입찰-생성-3">광고입찰 생성 3</a></h3>
+<h3 id="광고입찰-생성-3"><a class="link" href="https://drmaemi.github.io/Ad-Platform/src/main/resources/templates/docs/api#%EA%B4%91%EA%B3%A0%EC%9E%85%EC%B0%B0-%EC%83%9D%EC%84%B1-3">광고입찰 생성 3</a></h3>
 <div class="sect3">
-<h4 id="광고입찰-생성-3_http_request"><a class="link" href="#광고입찰-생성-3_http_request">HTTP request</a></h4>
+<h4 id="광고입찰-생성-3_http_request"><a class="link" href="https://drmaemi.github.io/Ad-Platform/src/main/resources/templates/docs/api#%EA%B4%91%EA%B3%A0%EC%9E%85%EC%B0%B0-%EC%83%9D%EC%84%B1-3_http_request">HTTP request</a></h4>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">POST /api/ad/bid HTTP/1.1
@@ -2689,7 +2684,7 @@ Host: localhost:8080
 </div>
 </div>
 <div class="sect3">
-<h4 id="광고입찰-생성-3_request_fields"><a class="link" href="#광고입찰-생성-3_request_fields">Request fields</a></h4>
+<h4 id="광고입찰-생성-3_request_fields"><a class="link" href="https://drmaemi.github.io/Ad-Platform/src/main/resources/templates/docs/api#%EA%B4%91%EA%B3%A0%EC%9E%85%EC%B0%B0-%EC%83%9D%EC%84%B1-3_request_fields">Request fields</a></h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 33.3333%;">
@@ -2723,7 +2718,7 @@ Host: localhost:8080
 </table>
 </div>
 <div class="sect3">
-<h4 id="광고입찰-생성-3_http_response"><a class="link" href="#광고입찰-생성-3_http_response">HTTP response</a></h4>
+<h4 id="광고입찰-생성-3_http_response"><a class="link" href="https://drmaemi.github.io/Ad-Platform/src/main/resources/templates/docs/api#%EA%B4%91%EA%B3%A0%EC%9E%85%EC%B0%B0-%EC%83%9D%EC%84%B1-3_http_response">HTTP response</a></h4>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 201 Created
@@ -2733,17 +2728,17 @@ X-XSS-Protection: 1; mode=block
 Cache-Control: no-cache, no-store, max-age=0, must-revalidate
 Pragma: no-cache
 Expires: 0
-Content-Length: 330
+Content-Length: 332
 
 {
-  "timestamp" : "2022-06-12T21:55:31.6093797",
+  "timestamp" : "2022-06-12T16:37:51.5126918",
   "code" : 201,
   "status" : "CREATED",
   "result" : {
     "companyId" : 1000000001,
-    "createdDate" : "2022-06-12T21:55:31.608128",
+    "createdDate" : "2022-06-12T16:37:51.5111793",
     "productId" : 1000000009,
-    "lastModifiedDate" : "2022-06-12T21:55:31.608128",
+    "lastModifiedDate" : "2022-06-12T16:37:51.5111793",
     "id" : 1000000003,
     "bidPrice" : 350
   }
@@ -2752,7 +2747,7 @@ Content-Length: 330
 </div>
 </div>
 <div class="sect3">
-<h4 id="광고입찰-생성-3_response_fields"><a class="link" href="#광고입찰-생성-3_response_fields">Response fields</a></h4>
+<h4 id="광고입찰-생성-3_response_fields"><a class="link" href="https://drmaemi.github.io/Ad-Platform/src/main/resources/templates/docs/api#%EA%B4%91%EA%B3%A0%EC%9E%85%EC%B0%B0-%EC%83%9D%EC%84%B1-3_response_fields">Response fields</a></h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 33.3333%;">
@@ -2822,9 +2817,9 @@ Content-Length: 330
 </div>
 </div>
 <div class="sect2">
-<h3 id="광고입찰-생성-시-유효성-검사"><a class="link" href="#광고입찰-생성-시-유효성-검사">광고입찰 생성 시 유효성 검사</a></h3>
+<h3 id="광고입찰-생성-시-유효성-검사"><a class="link" href="https://drmaemi.github.io/Ad-Platform/src/main/resources/templates/docs/api#%EA%B4%91%EA%B3%A0%EC%9E%85%EC%B0%B0-%EC%83%9D%EC%84%B1-%EC%8B%9C-%EC%9C%A0%ED%9A%A8%EC%84%B1-%EA%B2%80%EC%82%AC">광고입찰 생성 시 유효성 검사</a></h3>
 <div class="sect3">
-<h4 id="광고입찰-생성-시-유효성-검사_http_request"><a class="link" href="#광고입찰-생성-시-유효성-검사_http_request">HTTP request</a></h4>
+<h4 id="광고입찰-생성-시-유효성-검사_http_request"><a class="link" href="https://drmaemi.github.io/Ad-Platform/src/main/resources/templates/docs/api#%EA%B4%91%EA%B3%A0%EC%9E%85%EC%B0%B0-%EC%83%9D%EC%84%B1-%EC%8B%9C-%EC%9C%A0%ED%9A%A8%EC%84%B1-%EA%B2%80%EC%82%AC_http_request">HTTP request</a></h4>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">POST /api/ad/bid HTTP/1.1
@@ -2841,7 +2836,7 @@ Host: localhost:8080
 </div>
 </div>
 <div class="sect3">
-<h4 id="광고입찰-생성-시-유효성-검사_request_fields"><a class="link" href="#광고입찰-생성-시-유효성-검사_request_fields">Request fields</a></h4>
+<h4 id="광고입찰-생성-시-유효성-검사_request_fields"><a class="link" href="https://drmaemi.github.io/Ad-Platform/src/main/resources/templates/docs/api#%EA%B4%91%EA%B3%A0%EC%9E%85%EC%B0%B0-%EC%83%9D%EC%84%B1-%EC%8B%9C-%EC%9C%A0%ED%9A%A8%EC%84%B1-%EA%B2%80%EC%82%AC_request_fields">Request fields</a></h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 33.3333%;">
@@ -2875,7 +2870,7 @@ Host: localhost:8080
 </table>
 </div>
 <div class="sect3">
-<h4 id="광고입찰-생성-시-유효성-검사_http_response"><a class="link" href="#광고입찰-생성-시-유효성-검사_http_response">HTTP response</a></h4>
+<h4 id="광고입찰-생성-시-유효성-검사_http_response"><a class="link" href="https://drmaemi.github.io/Ad-Platform/src/main/resources/templates/docs/api#%EA%B4%91%EA%B3%A0%EC%9E%85%EC%B0%B0-%EC%83%9D%EC%84%B1-%EC%8B%9C-%EC%9C%A0%ED%9A%A8%EC%84%B1-%EA%B2%80%EC%82%AC_http_response">HTTP response</a></h4>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 400 Bad Request
@@ -2888,7 +2883,7 @@ Expires: 0
 Content-Length: 494
 
 {
-  "timestamp" : "2022-06-12T21:55:31.6434302",
+  "timestamp" : "2022-06-12T16:37:51.5361367",
   "code" : 400,
   "status" : "BAD_REQUEST",
   "result" : [ {
@@ -2905,7 +2900,7 @@ Content-Length: 494
 </div>
 </div>
 <div class="sect3">
-<h4 id="광고입찰-생성-시-유효성-검사_response_fields"><a class="link" href="#광고입찰-생성-시-유효성-검사_response_fields">Response fields</a></h4>
+<h4 id="광고입찰-생성-시-유효성-검사_response_fields"><a class="link" href="https://drmaemi.github.io/Ad-Platform/src/main/resources/templates/docs/api#%EA%B4%91%EA%B3%A0%EC%9E%85%EC%B0%B0-%EC%83%9D%EC%84%B1-%EC%8B%9C-%EC%9C%A0%ED%9A%A8%EC%84%B1-%EA%B2%80%EC%82%AC_response_fields">Response fields</a></h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 33.3333%;">
@@ -2962,12 +2957,12 @@ Content-Length: 494
 </div>
 </div>
 <div class="sect1">
-<h2 id="AdDisplay-API"><a class="link" href="#AdDisplay-API">광고전시(AD Display) 도메인</a></h2>
+<h2 id="AdDisplay-API"><a class="link" href="https://drmaemi.github.io/Ad-Platform/src/main/resources/templates/docs/api#AdDisplay-API">광고전시(AD Display) 도메인</a></h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="광고전시-리스트-조회"><a class="link" href="#광고전시-리스트-조회">광고전시 리스트 조회</a></h3>
+<h3 id="광고전시-리스트-조회"><a class="link" href="https://drmaemi.github.io/Ad-Platform/src/main/resources/templates/docs/api#%EA%B4%91%EA%B3%A0%EC%A0%84%EC%8B%9C-%EB%A6%AC%EC%8A%A4%ED%8A%B8-%EC%A1%B0%ED%9A%8C">광고전시 리스트 조회</a></h3>
 <div class="sect3">
-<h4 id="광고전시-리스트-조회_http_request"><a class="link" href="#광고전시-리스트-조회_http_request">HTTP request</a></h4>
+<h4 id="광고전시-리스트-조회_http_request"><a class="link" href="https://drmaemi.github.io/Ad-Platform/src/main/resources/templates/docs/api#%EA%B4%91%EA%B3%A0%EC%A0%84%EC%8B%9C-%EB%A6%AC%EC%8A%A4%ED%8A%B8-%EC%A1%B0%ED%9A%8C_http_request">HTTP request</a></h4>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">GET /api/ad/display HTTP/1.1
@@ -2977,7 +2972,7 @@ Host: localhost:8080</code></pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="광고전시-리스트-조회_http_response"><a class="link" href="#광고전시-리스트-조회_http_response">HTTP response</a></h4>
+<h4 id="광고전시-리스트-조회_http_response"><a class="link" href="https://drmaemi.github.io/Ad-Platform/src/main/resources/templates/docs/api#%EA%B4%91%EA%B3%A0%EC%A0%84%EC%8B%9C-%EB%A6%AC%EC%8A%A4%ED%8A%B8-%EC%A1%B0%ED%9A%8C_http_response">HTTP response</a></h4>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
@@ -2990,7 +2985,7 @@ Expires: 0
 Content-Length: 344
 
 {
-  "timestamp" : "2022-06-12T21:55:31.6725438",
+  "timestamp" : "2022-06-12T16:37:51.5579628",
   "code" : 200,
   "status" : "OK",
   "result" : [ {
@@ -3009,7 +3004,7 @@ Content-Length: 344
 </div>
 </div>
 <div class="sect3">
-<h4 id="광고전시-리스트-조회_response_fields"><a class="link" href="#광고전시-리스트-조회_response_fields">Response fields</a></h4>
+<h4 id="광고전시-리스트-조회_response_fields"><a class="link" href="https://drmaemi.github.io/Ad-Platform/src/main/resources/templates/docs/api#%EA%B4%91%EA%B3%A0%EC%A0%84%EC%8B%9C-%EB%A6%AC%EC%8A%A4%ED%8A%B8-%EC%A1%B0%ED%9A%8C_response_fields">Response fields</a></h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 33.3333%;">
@@ -3071,12 +3066,12 @@ Content-Length: 344
 </div>
 </div>
 <div class="sect1">
-<h2 id="AdCharge-API"><a class="link" href="#AdCharge-API">광고과금(AD Charge) 도메인</a></h2>
+<h2 id="AdCharge-API"><a class="link" href="https://drmaemi.github.io/Ad-Platform/src/main/resources/templates/docs/api#AdCharge-API">광고과금(AD Charge) 도메인</a></h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="광고과금-생성-1"><a class="link" href="#광고과금-생성-1">광고과금 생성 1</a></h3>
+<h3 id="광고과금-생성-1"><a class="link" href="https://drmaemi.github.io/Ad-Platform/src/main/resources/templates/docs/api#%EA%B4%91%EA%B3%A0%EA%B3%BC%EA%B8%88-%EC%83%9D%EC%84%B1-1">광고과금 생성 1</a></h3>
 <div class="sect3">
-<h4 id="광고과금-생성-1_http_request"><a class="link" href="#광고과금-생성-1_http_request">HTTP request</a></h4>
+<h4 id="광고과금-생성-1_http_request"><a class="link" href="https://drmaemi.github.io/Ad-Platform/src/main/resources/templates/docs/api#%EA%B4%91%EA%B3%A0%EA%B3%BC%EA%B8%88-%EC%83%9D%EC%84%B1-1_http_request">HTTP request</a></h4>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">POST /api/ad/charge HTTP/1.1
@@ -3091,7 +3086,7 @@ Host: localhost:8080
 </div>
 </div>
 <div class="sect3">
-<h4 id="광고과금-생성-1_request_fields"><a class="link" href="#광고과금-생성-1_request_fields">Request fields</a></h4>
+<h4 id="광고과금-생성-1_request_fields"><a class="link" href="https://drmaemi.github.io/Ad-Platform/src/main/resources/templates/docs/api#%EA%B4%91%EA%B3%A0%EA%B3%BC%EA%B8%88-%EC%83%9D%EC%84%B1-1_request_fields">Request fields</a></h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 33.3333%;">
@@ -3115,7 +3110,7 @@ Host: localhost:8080
 </table>
 </div>
 <div class="sect3">
-<h4 id="광고과금-생성-1_http_response"><a class="link" href="#광고과금-생성-1_http_response">HTTP response</a></h4>
+<h4 id="광고과금-생성-1_http_response"><a class="link" href="https://drmaemi.github.io/Ad-Platform/src/main/resources/templates/docs/api#%EA%B4%91%EA%B3%A0%EA%B3%BC%EA%B8%88-%EC%83%9D%EC%84%B1-1_http_response">HTTP response</a></h4>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 201 Created
@@ -3128,7 +3123,7 @@ Expires: 0
 Content-Length: 215
 
 {
-  "timestamp" : "2022-06-12T21:55:31.7162128",
+  "timestamp" : "2022-06-12T16:37:51.5958345",
   "code" : 201,
   "status" : "CREATED",
   "result" : {
@@ -3142,7 +3137,7 @@ Content-Length: 215
 </div>
 </div>
 <div class="sect3">
-<h4 id="광고과금-생성-1_response_fields"><a class="link" href="#광고과금-생성-1_response_fields">Response fields</a></h4>
+<h4 id="광고과금-생성-1_response_fields"><a class="link" href="https://drmaemi.github.io/Ad-Platform/src/main/resources/templates/docs/api#%EA%B4%91%EA%B3%A0%EA%B3%BC%EA%B8%88-%EC%83%9D%EC%84%B1-1_response_fields">Response fields</a></h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 33.3333%;">
@@ -3202,9 +3197,9 @@ Content-Length: 215
 </div>
 </div>
 <div class="sect2">
-<h3 id="광고과금-생성-2"><a class="link" href="#광고과금-생성-2">광고과금 생성 2</a></h3>
+<h3 id="광고과금-생성-2"><a class="link" href="https://drmaemi.github.io/Ad-Platform/src/main/resources/templates/docs/api#%EA%B4%91%EA%B3%A0%EA%B3%BC%EA%B8%88-%EC%83%9D%EC%84%B1-2">광고과금 생성 2</a></h3>
 <div class="sect3">
-<h4 id="광고과금-생성-2_http_request"><a class="link" href="#광고과금-생성-2_http_request">HTTP request</a></h4>
+<h4 id="광고과금-생성-2_http_request"><a class="link" href="https://drmaemi.github.io/Ad-Platform/src/main/resources/templates/docs/api#%EA%B4%91%EA%B3%A0%EA%B3%BC%EA%B8%88-%EC%83%9D%EC%84%B1-2_http_request">HTTP request</a></h4>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">POST /api/ad/charge HTTP/1.1
@@ -3219,7 +3214,7 @@ Host: localhost:8080
 </div>
 </div>
 <div class="sect3">
-<h4 id="광고과금-생성-2_request_fields"><a class="link" href="#광고과금-생성-2_request_fields">Request fields</a></h4>
+<h4 id="광고과금-생성-2_request_fields"><a class="link" href="https://drmaemi.github.io/Ad-Platform/src/main/resources/templates/docs/api#%EA%B4%91%EA%B3%A0%EA%B3%BC%EA%B8%88-%EC%83%9D%EC%84%B1-2_request_fields">Request fields</a></h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 33.3333%;">
@@ -3243,7 +3238,7 @@ Host: localhost:8080
 </table>
 </div>
 <div class="sect3">
-<h4 id="광고과금-생성-2_http_response"><a class="link" href="#광고과금-생성-2_http_response">HTTP response</a></h4>
+<h4 id="광고과금-생성-2_http_response"><a class="link" href="https://drmaemi.github.io/Ad-Platform/src/main/resources/templates/docs/api#%EA%B4%91%EA%B3%A0%EA%B3%BC%EA%B8%88-%EC%83%9D%EC%84%B1-2_http_response">HTTP response</a></h4>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 201 Created
@@ -3256,7 +3251,7 @@ Expires: 0
 Content-Length: 215
 
 {
-  "timestamp" : "2022-06-12T21:55:31.7394073",
+  "timestamp" : "2022-06-12T16:37:51.6160261",
   "code" : 201,
   "status" : "CREATED",
   "result" : {
@@ -3270,7 +3265,7 @@ Content-Length: 215
 </div>
 </div>
 <div class="sect3">
-<h4 id="광고과금-생성-2_response_fields"><a class="link" href="#광고과금-생성-2_response_fields">Response fields</a></h4>
+<h4 id="광고과금-생성-2_response_fields"><a class="link" href="https://drmaemi.github.io/Ad-Platform/src/main/resources/templates/docs/api#%EA%B4%91%EA%B3%A0%EA%B3%BC%EA%B8%88-%EC%83%9D%EC%84%B1-2_response_fields">Response fields</a></h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 33.3333%;">
@@ -3330,9 +3325,9 @@ Content-Length: 215
 </div>
 </div>
 <div class="sect2">
-<h3 id="광고과금-생성-3"><a class="link" href="#광고과금-생성-3">광고과금 생성 3</a></h3>
+<h3 id="광고과금-생성-3"><a class="link" href="https://drmaemi.github.io/Ad-Platform/src/main/resources/templates/docs/api#%EA%B4%91%EA%B3%A0%EA%B3%BC%EA%B8%88-%EC%83%9D%EC%84%B1-3">광고과금 생성 3</a></h3>
 <div class="sect3">
-<h4 id="광고과금-생성-3_http_request"><a class="link" href="#광고과금-생성-3_http_request">HTTP request</a></h4>
+<h4 id="광고과금-생성-3_http_request"><a class="link" href="https://drmaemi.github.io/Ad-Platform/src/main/resources/templates/docs/api#%EA%B4%91%EA%B3%A0%EA%B3%BC%EA%B8%88-%EC%83%9D%EC%84%B1-3_http_request">HTTP request</a></h4>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">POST /api/ad/charge HTTP/1.1
@@ -3347,7 +3342,7 @@ Host: localhost:8080
 </div>
 </div>
 <div class="sect3">
-<h4 id="광고과금-생성-3_request_fields"><a class="link" href="#광고과금-생성-3_request_fields">Request fields</a></h4>
+<h4 id="광고과금-생성-3_request_fields"><a class="link" href="https://drmaemi.github.io/Ad-Platform/src/main/resources/templates/docs/api#%EA%B4%91%EA%B3%A0%EA%B3%BC%EA%B8%88-%EC%83%9D%EC%84%B1-3_request_fields">Request fields</a></h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 33.3333%;">
@@ -3371,7 +3366,7 @@ Host: localhost:8080
 </table>
 </div>
 <div class="sect3">
-<h4 id="광고과금-생성-3_http_response"><a class="link" href="#광고과금-생성-3_http_response">HTTP response</a></h4>
+<h4 id="광고과금-생성-3_http_response"><a class="link" href="https://drmaemi.github.io/Ad-Platform/src/main/resources/templates/docs/api#%EA%B4%91%EA%B3%A0%EA%B3%BC%EA%B8%88-%EC%83%9D%EC%84%B1-3_http_response">HTTP response</a></h4>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 201 Created
@@ -3384,7 +3379,7 @@ Expires: 0
 Content-Length: 215
 
 {
-  "timestamp" : "2022-06-12T21:55:31.7639608",
+  "timestamp" : "2022-06-12T16:37:51.6326842",
   "code" : 201,
   "status" : "CREATED",
   "result" : {
@@ -3398,7 +3393,7 @@ Content-Length: 215
 </div>
 </div>
 <div class="sect3">
-<h4 id="광고과금-생성-3_response_fields"><a class="link" href="#광고과금-생성-3_response_fields">Response fields</a></h4>
+<h4 id="광고과금-생성-3_response_fields"><a class="link" href="https://drmaemi.github.io/Ad-Platform/src/main/resources/templates/docs/api#%EA%B4%91%EA%B3%A0%EA%B3%BC%EA%B8%88-%EC%83%9D%EC%84%B1-3_response_fields">Response fields</a></h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 33.3333%;">
@@ -3458,9 +3453,9 @@ Content-Length: 215
 </div>
 </div>
 <div class="sect2">
-<h3 id="광고과금-생성-4"><a class="link" href="#광고과금-생성-4">광고과금 생성 4</a></h3>
+<h3 id="광고과금-생성-4"><a class="link" href="https://drmaemi.github.io/Ad-Platform/src/main/resources/templates/docs/api#%EA%B4%91%EA%B3%A0%EA%B3%BC%EA%B8%88-%EC%83%9D%EC%84%B1-4">광고과금 생성 4</a></h3>
 <div class="sect3">
-<h4 id="광고과금-생성-4_http_request"><a class="link" href="#광고과금-생성-4_http_request">HTTP request</a></h4>
+<h4 id="광고과금-생성-4_http_request"><a class="link" href="https://drmaemi.github.io/Ad-Platform/src/main/resources/templates/docs/api#%EA%B4%91%EA%B3%A0%EA%B3%BC%EA%B8%88-%EC%83%9D%EC%84%B1-4_http_request">HTTP request</a></h4>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">POST /api/ad/charge HTTP/1.1
@@ -3475,7 +3470,7 @@ Host: localhost:8080
 </div>
 </div>
 <div class="sect3">
-<h4 id="광고과금-생성-4_request_fields"><a class="link" href="#광고과금-생성-4_request_fields">Request fields</a></h4>
+<h4 id="광고과금-생성-4_request_fields"><a class="link" href="https://drmaemi.github.io/Ad-Platform/src/main/resources/templates/docs/api#%EA%B4%91%EA%B3%A0%EA%B3%BC%EA%B8%88-%EC%83%9D%EC%84%B1-4_request_fields">Request fields</a></h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 33.3333%;">
@@ -3499,7 +3494,7 @@ Host: localhost:8080
 </table>
 </div>
 <div class="sect3">
-<h4 id="광고과금-생성-4_http_response"><a class="link" href="#광고과금-생성-4_http_response">HTTP response</a></h4>
+<h4 id="광고과금-생성-4_http_response"><a class="link" href="https://drmaemi.github.io/Ad-Platform/src/main/resources/templates/docs/api#%EA%B4%91%EA%B3%A0%EA%B3%BC%EA%B8%88-%EC%83%9D%EC%84%B1-4_http_response">HTTP response</a></h4>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 201 Created
@@ -3512,7 +3507,7 @@ Expires: 0
 Content-Length: 215
 
 {
-  "timestamp" : "2022-06-12T21:55:31.7831168",
+  "timestamp" : "2022-06-12T16:37:51.6494415",
   "code" : 201,
   "status" : "CREATED",
   "result" : {
@@ -3526,7 +3521,7 @@ Content-Length: 215
 </div>
 </div>
 <div class="sect3">
-<h4 id="광고과금-생성-4_response_fields"><a class="link" href="#광고과금-생성-4_response_fields">Response fields</a></h4>
+<h4 id="광고과금-생성-4_response_fields"><a class="link" href="https://drmaemi.github.io/Ad-Platform/src/main/resources/templates/docs/api#%EA%B4%91%EA%B3%A0%EA%B3%BC%EA%B8%88-%EC%83%9D%EC%84%B1-4_response_fields">Response fields</a></h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 33.3333%;">
@@ -3586,9 +3581,9 @@ Content-Length: 215
 </div>
 </div>
 <div class="sect2">
-<h3 id="광고과금-유효성-검사"><a class="link" href="#광고과금-유효성-검사">광고과금 유효성 검사</a></h3>
+<h3 id="광고과금-유효성-검사"><a class="link" href="https://drmaemi.github.io/Ad-Platform/src/main/resources/templates/docs/api#%EA%B4%91%EA%B3%A0%EA%B3%BC%EA%B8%88-%EC%9C%A0%ED%9A%A8%EC%84%B1-%EA%B2%80%EC%82%AC">광고과금 유효성 검사</a></h3>
 <div class="sect3">
-<h4 id="광고과금-유효성-검사_http_request"><a class="link" href="#광고과금-유효성-검사_http_request">HTTP request</a></h4>
+<h4 id="광고과금-유효성-검사_http_request"><a class="link" href="https://drmaemi.github.io/Ad-Platform/src/main/resources/templates/docs/api#%EA%B4%91%EA%B3%A0%EA%B3%BC%EA%B8%88-%EC%9C%A0%ED%9A%A8%EC%84%B1-%EA%B2%80%EC%82%AC_http_request">HTTP request</a></h4>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">POST /api/ad/charge HTTP/1.1
@@ -3603,7 +3598,7 @@ Host: localhost:8080
 </div>
 </div>
 <div class="sect3">
-<h4 id="광고과금-유효성-검사_request_fields"><a class="link" href="#광고과금-유효성-검사_request_fields">Request fields</a></h4>
+<h4 id="광고과금-유효성-검사_request_fields"><a class="link" href="https://drmaemi.github.io/Ad-Platform/src/main/resources/templates/docs/api#%EA%B4%91%EA%B3%A0%EA%B3%BC%EA%B8%88-%EC%9C%A0%ED%9A%A8%EC%84%B1-%EA%B2%80%EC%82%AC_request_fields">Request fields</a></h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 33.3333%;">
@@ -3627,7 +3622,7 @@ Host: localhost:8080
 </table>
 </div>
 <div class="sect3">
-<h4 id="광고과금-유효성-검사_http_response"><a class="link" href="#광고과금-유효성-검사_http_response">HTTP response</a></h4>
+<h4 id="광고과금-유효성-검사_http_response"><a class="link" href="https://drmaemi.github.io/Ad-Platform/src/main/resources/templates/docs/api#%EA%B4%91%EA%B3%A0%EA%B3%BC%EA%B8%88-%EC%9C%A0%ED%9A%A8%EC%84%B1-%EA%B2%80%EC%82%AC_http_response">HTTP response</a></h4>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 400 Bad Request
@@ -3640,7 +3635,7 @@ Expires: 0
 Content-Length: 283
 
 {
-  "timestamp" : "2022-06-12T21:55:31.8006962",
+  "timestamp" : "2022-06-12T16:37:51.6640833",
   "code" : 400,
   "status" : "BAD_REQUEST",
   "result" : [ {
@@ -3653,7 +3648,7 @@ Content-Length: 283
 </div>
 </div>
 <div class="sect3">
-<h4 id="광고과금-유효성-검사_response_fields"><a class="link" href="#광고과금-유효성-검사_response_fields">Response fields</a></h4>
+<h4 id="광고과금-유효성-검사_response_fields"><a class="link" href="https://drmaemi.github.io/Ad-Platform/src/main/resources/templates/docs/api#%EA%B4%91%EA%B3%A0%EA%B3%BC%EA%B8%88-%EC%9C%A0%ED%9A%A8%EC%84%B1-%EA%B2%80%EC%82%AC_response_fields">Response fields</a></h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 33.3333%;">
@@ -3709,149 +3704,12 @@ Content-Length: 283
 </div>
 </div>
 </div>
-<div class="sect1">
-<h2 id="AdChargeCal-API"><a class="link" href="#AdChargeCal-API">광고과금정산(AD Charge Calculation) 도메인</a></h2>
-<div class="sectionbody">
-<div class="sect2">
-<h3 id="광고과금정산-결과-리스트-조회"><a class="link" href="#광고과금정산-결과-리스트-조회">광고과금정산 결과 리스트 조회</a></h3>
-<div class="sect3">
-<h4 id="광고과금정산-결과-리스트-조회_http_request"><a class="link" href="#광고과금정산-결과-리스트-조회_http_request">HTTP request</a></h4>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight nowrap"><code class="language-http" data-lang="http">GET /api/ad/charge/cals HTTP/1.1
-Content-Type: application/json;charset=UTF-8
-Host: localhost:8080</code></pre>
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="광고과금정산-결과-리스트-조회_http_response"><a class="link" href="#광고과금정산-결과-리스트-조회_http_response">HTTP response</a></h4>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
-Content-Type: application/json
-X-Content-Type-Options: nosniff
-X-XSS-Protection: 1; mode=block
-Cache-Control: no-cache, no-store, max-age=0, must-revalidate
-Pragma: no-cache
-Expires: 0
-Content-Length: 644
-
-{
-  "timestamp" : "2022-06-13T00:07:20.8513303",
-  "code" : 200,
-  "status" : "OK",
-  "result" : [ {
-    "companyId" : 1000000001,
-    "totalCharge" : 200,
-    "productId" : 1000000001,
-    "companyName" : "이마트",
-    "cntClicked" : 2,
-    "clickedDate" : "2022-06-12",
-    "bidId" : 1000000001,
-    "productName" : "허쉬 초코멜로쿠키 45g"
-  }, {
-    "companyId" : 1000000001,
-    "totalCharge" : 500,
-    "productId" : 1000000004,
-    "companyName" : "이마트",
-    "cntClicked" : 2,
-    "clickedDate" : "2022-06-12",
-    "bidId" : 1000000002,
-    "productName" : "말랑카우 핸드워시 250ml"
-  } ]
-}</code></pre>
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="광고과금정산-결과-리스트-조회_response_fields"><a class="link" href="#광고과금정산-결과-리스트-조회_response_fields">Response fields</a></h4>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 33.3333%;">
-<col style="width: 33.3333%;">
-<col style="width: 33.3334%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Path</th>
-<th class="tableblock halign-left valign-top">Type</th>
-<th class="tableblock halign-left valign-top">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>timestamp</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">API requested time</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>code</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">HTTP status code</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>status</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">HTTP status</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>result</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Array</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">An array of calculated charges</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>result.[].clickedDate</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The date when charges are calculated</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>result.[].bidId</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">AD bid ID to charge</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>result.[].companyId</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Company ID who created the AD bid</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>result.[].companyName</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Company name who created the AD bid</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>result.[].productId</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Product ID displayed by AD</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>result.[].productName</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Product name displayed by AD</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>result.[].cntClicked</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Total counts of clicked</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>result.[].totalCharge</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Total charge(total count * AD bid price)</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</div>
-</div>
 </div>
 <div id="footer">
 <div id="footer-text">
 Version 0.0.1-SNAPSHOT<br>
-Last updated 2022-06-13 00:07:53 +0900
+Last updated 2022-06-12 16:36:53 +0900
 </div>
 </div>
-</body>
-</html>
+
+</body></html>

@@ -52,6 +52,7 @@
 ## DB(H2 Database) 테이블 구조(ERD)
 ![](https://drive.google.com/uc?export=view&id=1GWYBDmWgtgG8FAGoiDF_Tqi4K8mTRA6t)
 
+## 테이블 스키마
 ### 업체(COMPANY)
 ```sql
 CREATE TABLE COMPANY(
@@ -147,3 +148,19 @@ CREATE TABLE ADVERTISEMENT_CHARGE_CAL(
     PRIMARY KEY (clicked_date, bid_id)
 );
 ```
+
+## 프로젝트 산출물
+### Spring REST Docs - API Documentation
+전체 내용은 [API Documentation](https://drmaemi.github.io/Ad-Platform/REST_DOCS)에서 확인
+
+TOC 캡처
+![](https://drive.google.com/uc?export=view&id=1166m7-QXivT7LkOHWPWfs5C_Q5qvcq8B)
+
+임의 API request 캡처
+![](https://drive.google.com/uc?export=view&id=15QNFnyAinUYmc4bIHY9LiszkpPdxN2-q)
+
+임의 API response 캡처
+![](https://drive.google.com/uc?export=view&id=1vNkxujjpZLNfo7Cz7wlBozTgJuRWzTxd)
+
+### 광고전시 리스트 페이지
+![](https://drive.google.com/uc?export=view&id=1k1-Dh79K2ZjF9xOF0LnEngyx7r3mHsNH)

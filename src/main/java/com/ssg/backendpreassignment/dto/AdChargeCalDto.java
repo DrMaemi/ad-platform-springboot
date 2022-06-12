@@ -4,6 +4,10 @@ import com.ssg.backendpreassignment.config.embeddable.AdChargeCalId;
 import com.ssg.backendpreassignment.entity.AdChargeCalEntity;
 import lombok.*;
 
+/**
+ * AdChargeCalEntity의 DTO 클래스
+ * AdChargeRestController ↔ AdChargeCalService 레이어 간 전송 데이터 객체
+ */
 @Getter
 @Setter
 @ToString

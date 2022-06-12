@@ -6,6 +6,10 @@ import lombok.*;
 
 import javax.persistence.*;
 
+/**
+ * DB 테이블 'ADVERTISEMENT_CHARGE_CAL'에 매핑되는 엔티티 클래스
+ * 클릭일자, 광고입찰 ID 두 개 컬럼을 복합키로 가짐
+ */
 @Getter
 @Setter
 @NoArgsConstructor(access=AccessLevel.PROTECTED)

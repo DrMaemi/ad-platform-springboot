@@ -1,5 +1,5 @@
-= Spring REST Docs (사전과제 2번 - 광고플랫폼 구축)
-이상현(6045)
+= Spring REST Docs - 광고플랫폼 구축
+이상현(dev.maemi@gmail.com, 6045)
 :doctype: book
 :icons: font
 :source-highlighter: highlightjs // 문서에 표기되는 코드들의 하이라이팅을 highlightjs를 사용
@@ -108,3 +108,10 @@ operation::POST_api-ad-charge-create4[snippets='http-request,request-fields,http
 [[광고과금-유효성-검사]]
 === 광고과금 유효성 검사
 operation::POST_api-ad-charge-validation[snippets='http-request,request-fields,http-response,response-fields']
+
+[[AdChargeCal-API]]
+== 광고과금정산(AD Charge Calculation) 도메인
+
+[[광고과금정산-결과-리스트-조회]]
+=== 광고과금정산 결과 리스트 조회
+operation::GET_api-ad-charge-cals[snippets='http-request,http-response,response-fields']

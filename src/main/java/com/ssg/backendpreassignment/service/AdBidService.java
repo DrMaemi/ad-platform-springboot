@@ -16,6 +16,9 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+/**
+ * 광고입찰 도메인의 비즈니스 로직을 처리하는 서비스 클래스
+ */
 @Service
 @RequiredArgsConstructor
 public class AdBidService {
@@ -30,12 +33,23 @@ public class AdBidService {
         return adBidEntity.toDto();
     }
 
+    /**
+     * 생성된 광고입찰 리스트 조회 요청에 대한 서비스 메서드
+     * @return ArrayList
+     */
     @Transactional(readOnly=true)
     public List<AdBidDto> getAdBids() {
         List<AdBidEntity> advertisementBidEntities = adBidRepository.findAllJpqlFetch();
         return advertisementBidEntities.stream().map(ent -> ent.toDto()).collect(Collectors.toList());
     }
 
+    /**
+     * 광고입찰 생성 요청에 대한 서비스 메서드
+     * 요청 데이터를 받아 엔티티를 생성하여 영속성 컨텍스트에서 관리되도록 처리
+     * 처리한 데이터 반환
+     * @param adBidReqDto
+     * @return AdBidDto
+     */
     @Transactional
     public AdBidDto createAdBid(AdBidReqDto adBidReqDto) {
         ContractEntity contractEntity = contractRepository.findByCompanyIdJpqlFetch(adBidReqDto.getCompanyId()).get();

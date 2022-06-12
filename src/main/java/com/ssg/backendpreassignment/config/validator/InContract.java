@@ -10,6 +10,9 @@ import static java.lang.annotation.ElementType.*;
 import static java.lang.annotation.ElementType.TYPE_USE;
 import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
+/**
+ * 계약된 업체만 광고입찰 생성이 가능하도록 유효성 검사 어노테이션 정의
+ */
 @Target({METHOD, FIELD, ANNOTATION_TYPE, CONSTRUCTOR, PARAMETER, TYPE_USE})
 @Retention(RUNTIME)
 @Constraint(validatedBy=InContractValidator.class)

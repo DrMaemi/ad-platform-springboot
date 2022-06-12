@@ -10,6 +10,9 @@ import static java.lang.annotation.ElementType.*;
 import static java.lang.annotation.ElementType.TYPE_USE;
 import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
+/**
+ * 업체 당 고유한 사업자번호를 가질 수 있도록 유효성 검사를 위한 어노테이션 정의
+ */
 @Target({METHOD, FIELD, ANNOTATION_TYPE, CONSTRUCTOR, PARAMETER, TYPE_USE})
 @Retention(RUNTIME)
 @Constraint(validatedBy= BusinessRegNumNotDuplicatedValidator.class)

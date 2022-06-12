@@ -11,10 +11,20 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 import javax.servlet.http.HttpServletRequest;
 
+/**
+ * CompanyRestController에서 HTTP request를 처리할 때 발생하는 Exception들을 처리하는 ExceptionHandler 메서드들을 모아놓은 클래스
+ */
 @RestControllerAdvice(basePackageClasses=CompanyRestController.class)
 @RequiredArgsConstructor
 public class CompanyRestControllerAdvice {
 
+    /**
+     * 올바르지 않은 자료형을 request 필드에 사용한 경우 발생하는 HttpMessageNotReadableException 핸들링
+     *
+     * @param e
+     * @param request
+     * @return ResponseEntity
+     */
     @ExceptionHandler(HttpMessageNotReadableException.class)
     public ResponseEntity<?> httpMessageNotReadableExceptionHandler(HttpMessageNotReadableException e, HttpServletRequest request) {
         return new ResponseEntity(RestResponse.builder()

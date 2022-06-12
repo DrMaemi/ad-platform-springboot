@@ -2,6 +2,10 @@ package com.ssg.backendpreassignment.dto;
 
 import lombok.*;
 
+/**
+ * AdDisplayEntity의 DTO 클래스
+ * AdDisplayRestController ↔ AdDisplayService 레이어 간 전송 데이터 객체
+ */
 @Getter
 @Setter
 @ToString

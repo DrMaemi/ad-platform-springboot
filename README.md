@@ -6,11 +6,15 @@
 ## 개발 환경
 - Java 18(OpenJDK)
 - Spring Boot 2.7.0
+- IntelliJ Community Edition 2021.3.3
 - Gradle
 - H2 Database
 - JPA(Java Persistence API)
 - Spring Security, Validation, REST Docs, Batch
 - Thymeleaf
+
+## 개발 기간
+2022.05.31 ~ 2022.06.12
 
 ## 프로젝트 전체 구조
 
@@ -154,12 +158,15 @@ CREATE TABLE ADVERTISEMENT_CHARGE_CAL(
 전체 내용은 [API Documentation](https://drmaemi.github.io/Ad-Platform/REST_DOCS)에서 확인
 
 TOC 캡처
+
 ![](https://drive.google.com/uc?export=view&id=1166m7-QXivT7LkOHWPWfs5C_Q5qvcq8B)
 
 임의 API request 캡처
+
 ![](https://drive.google.com/uc?export=view&id=15QNFnyAinUYmc4bIHY9LiszkpPdxN2-q)
 
 임의 API response 캡처
+
 ![](https://drive.google.com/uc?export=view&id=1vNkxujjpZLNfo7Cz7wlBozTgJuRWzTxd)
 
 ### 광고전시 리스트 페이지

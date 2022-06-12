@@ -14,8 +14,136 @@
 
 ## 프로젝트 전체 구조
 
-<div class="mxgraph" style="max-width:100%;" data-mxgraph="{&quot;highlight&quot;:&quot;#0000ff&quot;,&quot;lightbox&quot;:false,&quot;nav&quot;:true,&quot;edit&quot;:&quot;_blank&quot;,&quot;xml&quot;:&quot;&lt;mxfile host=\&quot;app.diagrams.net\&quot; modified=\&quot;2022-06-12T08:30:34.803Z\&quot; agent=\&quot;5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.0.0 Safari/537.36\&quot; etag=\&quot;489uC2Jfpa1Oh4tLeK6s\&quot; version=\&quot;19.0.3\&quot; type=\&quot;google\&quot;&gt;&lt;diagram id=\&quot;Y0gnuX1rhN9VMoFgn0zB\&quot; name=\&quot;Package Diagram\&quot;&gt;5VpNc6M4EP01HJMyCPFxjO1M9rBbm5pszWROUzIIoxoZeYQc2/PrVxiBQcIOyWA7yVxSqJEa9N6ju9WOBSaLzR1Hy/QfFmNqOaN4Y4Gp5TiBB+XfwrAtDTD0SsOck7g02XvDA/mFlXGkrCsS47w1UTBGBVm2jRHLMhyJlg1xztbtaQmj7acu0RwbhocIUdP6lcQiVdty/L39L0zmafVk2wvLOwtUTVY7yVMUs3XDBG4tMOGMifJqsZlgWmBX4VKu+3Tgbv1iHGeiz4Ltzfc74kbA//wzu3sc35OpeLxySi9PiK7UhieUFA7LVxbbCgfOVlmMC1cjC4zXKRH4YYmi4u5aEi9tqVhQObLlZUIonTDK+G4tSIIIR5G054KzH7hxZxZAFxYO1WtgLvDm4P7sGjWpNswWWPCtnKIWeApnJTQA1XjdoE2Z0gZj1TKkhDKvHe+xlBcKzhdAC0xoWSYBoBTzYeFNEqcb3tibedAbBt4avCP42s45AXYNgB8wfyIStCHRjSEOYrcL3cCZAW8gdF3/raELDXQ/4yXLiWDK+WAAIxwknfL1ogDPkoGiw5uTr28APB0bwJaYVJnHbgMpM8qymLfYzIvce51Qto5SxMV1jASaoRwfICORgUilWhuajGBbit6X9gJxInPhDSXzTN6bMSHYoouq0PMBGuhb0Kmqv42LURUYVH1BlEiQ2cCRHMU+6k6UrgdH7mkieV1rXQxf2yxDDFxxFt8U9VwhQ8qiHzuUpNZ1YwPdNhW72Z8Ire5Kh41R+TwcG9Wghqp8J7biEX6+ppKPm2PxXIFgstRgAXaQUNk4pkiQp/brdjGjnnDPSFHWVSIAblsE0NHILbepVjXLSs2R62iOXM1RiYPhaCeUetu/oR2vI1H9XOG8eMfpf/+aQpIc/41m8pjSEgtSMS6SfMsCzQx+CxLHhY8xxzn5hWY7f4WwlsXWdpuFYwtOj32k6pSiFlv12aApsyNfyMFPenQNAyds8WAPIpMr1255vQrbHliS5Pg0vJr18zuOCaBnTAguGRNsqNVI4StjghM+4+jUMcEsXvto56BM2rKQ5PPtY3PwrZ4nB9NNa7StRhsiHhvX3yoH8nq/pBhUKwaUX9BTfgeizJlSkl6i+69NSUBzpOe2U8vPLO3fcehy30U5Ex44M7xUO7qjs4cu86zxjrUDe2rHvaR29N6Lq1ewvbWjO4Jn1k74Iu1EFOU5iY4mPpW07LectC4rHluLF8Frk5bevwbnFU+19Y8RePye2oGX1A7UG116vOitHT37nTnwVFJpaOd2E+GlICwzRCTPxOJ0R2+0EixXrU2jkZaxDGtdN2WyDp3Y+7fV9I4KGJltNb9DTHpxOlhXzTFP0KptuaNFqjdfUfOXvrfeHznOgq19Co5evw0Hr/n7U5RiGf9224jJHyV+14Ft2ANT/PborOo3+4Jd3cAPS4gNrtuUAM+kxD0rI+ax+DYTRJg/J35UUjy9WOygpKveOB0l5mnzHvOc5GZa+Kic+FrarptHw3Mih/t/9ylrr/3/TIHb/wE=&lt;/diagram&gt;&lt;/mxfile&gt;&quot;}"></div>
-<script type="text/javascript" src="https://viewer.diagrams.net/js/viewer-static.min.js"></script>
+### 동작 구조
 
-<div class="mxgraph" style="max-width:100%;" data-mxgraph="{&quot;highlight&quot;:&quot;#0000ff&quot;,&quot;lightbox&quot;:false,&quot;nav&quot;:true,&quot;edit&quot;:&quot;_blank&quot;,&quot;xml&quot;:&quot;&lt;mxfile host=\&quot;app.diagrams.net\&quot; modified=\&quot;2022-06-12T09:10:23.192Z\&quot; agent=\&quot;5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.0.0 Safari/537.36\&quot; etag=\&quot;0sh0hKm7ukJ5xlRRaYvv\&quot; version=\&quot;19.0.3\&quot; type=\&quot;google\&quot;&gt;&lt;diagram id=\&quot;RfBiWDm8UkU2Hp2Zdbid\&quot; name=\&quot;Package Diagram\&quot;&gt;7Zvdc5s4EMD/Gj+WQUh8PSZ20s5ce5NcO0nbN2pkrAYjDsuJfX/9SSDZIGwHe8xHZ5yHFC3SInZ/u1qJZgTHi/XHLEjnX2iI45FlhusRnIwsy4EO/y0Em0KAfFgIooyEhQjsBF/Jf1gKTSldkRAvKx0ZpTEjaVU4pUmCp6wiC7KMvlW7zWhcfWoaRLgm+DoN4rr0mYRsXkg9y93JP2ESzdWTgeMXdxaB6izfZDkPQvpWEsG7ERxnlLLiarEe41jYTtmlGHd/4O52YhlOWJMBj5u3v9mjm/hPy411+yWzE+/mg9TyGsQr+cJysmyjLBBldJWO4O2MJkz6B/DJ38qROGN4vc8VwS+lwaxPFWwNwMHBdIFZtuFdlCJXDpHQAKXibecCAKVsXjK/GhdIr0db1TvD8AtpmxPsZO2xkxMzaZaKwZx/V1Td+LDMDXbDOwCUrnOrqfv8KhL/cnPNSKTU8dkVGoubNW9wilJxKUDGmXKLvA94e5kGU5JE32gqBCaXcE8odG3Z3iIL3ELwQJeEEZpwUYxn4slztoilSg5AEmJhHjF8y7GZT35BpvI6Dn7h+DaYvkT5gDGNKZ/gJKEJFsNYRl+2MQTkzO+DBYmFl59wFgZJoHEm1AYxicS8phye/I0PglcG7DDtdep6o8ofZPQ55tCiTy0GbYRfhlPBPhXTvIZg6yHoDywEwZ+xAkLUewy2uARyoxB2jb9OlsChrYEADTIAoT+4RdBuLwCXOHslU3yNwC4iEA0tAp1hRiCsRqDt9h6BbnsRyO3F2YxjDtc1CDsIQmdgQbgvBq9oDRyt00oIC/aewLz2KAsZveLVJV76FrFTvLy/Jthi8Df6Nl+4v98wfHRf9h6Saq7HSXgjTuV5i6Y4yW0aZEyTHfab6HxPxLTyNldXbq0J+y6uDeQ7sv0jb1vIku3JutR5sik1HnBGuB2Ee3JZGCzn+YPB1l84rH0s0LzFX5ausik+FoTSKvxVInx0jfLeXaPsPe5VsgzHASOv1Qnv87l8wgMleQpQp4BAO4EwPQPAqpbiXeVAq/Tpoa7LMD0AELQdy3VUGlLg2hqQhWVqanMmt3ZohOnz7Pk+efz8lPxkYzP69Hn18Z+7Jt886pgeRLIc6qiG5CW5sZtyY4565MY2D6SlU6GxbW0H7nWLyTWbNYHN6pM1CyLDcaq4Icfw0XnECXW+Z5kI8VzlQeghDUDf8Ms/qFMe4Z+ZthqvdnafJG3P15WvnTOzFrLeUdQyJQ1OUy9GyTZDlbNTOTP5ldSU1+n7ctOlaesNIm3F0uuaxuWSY1cZgm4jhrhXg02pWyo6LI+kT6c6X888aVrV7vyieP5FcW5wNHkCzpVFsLMM6DTNgL3W+0iDF4JzM6BGFdIVtZwB9x3SdoIMByPbfC83fpQbeUYUG3LV3uVE0WwxKTbfOfRKoJ4+LfNMAnleM8zSDziutmUe9525DZZHBA37EJHvLvdSmVrvbcdw7faX/OZ091ocIO00GJ67L4Y+NHzHhT43N4LI9dyqXq+dYsHWK2TXPTpNvT/solxo8r95Ll/+GrYJtA26PTp1g95HwdHrlks/YLT8c8tl/TuLrqjt88SzTooukuFPzMjuIfiaLBU9FC5Nzw7e/5jbYdkC2ylbamrPppo3d391UHTf/ekGvPsf&lt;/diagram&gt;&lt;/mxfile&gt;&quot;}"></div>
-<script type="text/javascript" src="https://viewer.diagrams.net/js/viewer-static.min.js"></script>
+<p align="center">
+
+![](https://drive.google.com/uc?export=view&id=1TEGMLaj66tqxG4V9a1YGwPrrQL6E6Fn6)
+
+</p>
+
+### 전체 패키지
+
+<p align="center">
+
+![](https://drive.google.com/uc?export=view&id=1DdS6O4iYenq9CdBkTqH2lA9kxmBj93_z)
+
+</p>
+
+### config 패키지
+
+<p align="center">
+
+![](https://drive.google.com/uc?export=view&id=1niSMjdupGWikuutIzPEXQDDzbaRRuB2i)
+
+</p>
+
+- validator
+    - 유효성 검사 커스텀 어노테이션 및 마커 인터페이스(유효성 그룹)
+- advice
+    - ExceptionHandler 오버라이딩, 유효성 검사 시 데이터 핸들링
+- batch
+    - 광고 과금 정산 배치 처리를 위한 구성 클래스 및 스케쥴러
+- response
+    - RESTful API에 사용되는 Response 객체 구조를 담고 있는 클래스
+- embeddable
+    - JPA 복합키 구현을 위한 클래스
+
+## DB(H2 Database) 테이블 구조(ERD)
+![](https://drive.google.com/uc?export=view&id=1GWYBDmWgtgG8FAGoiDF_Tqi4K8mTRA6t)
+
+### 업체(COMPANY)
+```sql
+CREATE TABLE COMPANY(
+    id BIGINT GENERATED BY DEFAULT AS IDENTITY(START WITH 1e9+1),
+    name VARCHAR(30) UNIQUE NOT NULL,
+    business_registration_number VARCHAR(20) UNIQUE,
+    phone_number VARCHAR(20),
+    address VARCHAR(50),
+    created_date TIMESTAMP NOT NULL,
+    last_modified_date TIMESTAMP,
+    PRIMARY KEY (id)
+);
+```
+
+### 상품(PRODUCT)
+```sql
+CREATE TABLE PRODUCT(
+    id BIGINT GENERATED BY DEFAULT AS IDENTITY(START WITH 1e9+1),
+    company_name VARCHAR(30) NOT NULL,
+    product_name VARCHAR(50) NOT NULL,
+    price BIGINT NOT NULL,
+    stock BIGINT NOT NULL,
+    created_date TIMESTAMP NOT NULL,
+    last_modified_date TIMESTAMP,
+    PRIMARY KEY (id),
+    FOREIGN KEY (company_name) REFERENCES COMPANY(name)
+);
+```
+
+### 업체 계약(CONTRACT)
+```sql
+CREATE TABLE CONTRACT(
+    id BIGINT GENERATED BY DEFAULT AS IDENTITY,
+    company_id BIGINT UNIQUE NOT NULL,
+    start_date DATE NOT NULL,
+    end_date DATE NOT NULL,
+    created_date TIMESTAMP NOT NULL,
+    last_modified_date TIMESTAMP,
+    PRIMARY KEY (id),
+    FOREIGN KEY (company_id) REFERENCES COMPANY
+);
+```
+
+### 광고 입찰(ADVERTISEMENT_BID)
+```sql
+CREATE TABLE ADVERTISEMENT_BID(
+    id BIGINT GENERATED BY DEFAULT AS IDENTITY(START WITH 1e9+1),
+    company_id BIGINT NOT NULL,
+    product_id BIGINT NOT NULL,
+    bid_price BIGINT NOT NULL,
+    created_date TIMESTAMP NOT NULL,
+    last_modified_date TIMESTAMP,
+    PRIMARY KEY (id),
+    FOREIGN KEY (company_id) REFERENCES CONTRACT(company_id),
+    FOREIGN KEY (product_id) REFERENCES PRODUCT,
+    CONSTRAINT check_price CHECK (bid_price <= 1e9)
+);
+```
+
+### 광고 전시(ADVERTISEMENT_DISPLAY)
+```sql
+CREATE OR REPLACE VIEW ADVERTISEMENT_DISPLAY AS
+SELECT AB.ID AS BID_ID, AB.COMPANY_ID, AB.PRODUCT_ID, AB.BID_PRICE
+FROM ADVERTISEMENT_BID AS AB, PRODUCT AS P
+WHERE AB.PRODUCT_ID = P.ID AND P.STOCK != 0
+ORDER BY AB.BID_PRICE DESC
+LIMIT 3;
+```
+
+### 광고 과금(ADVERTISEMENT_CHARGE)
+```sql
+CREATE TABLE ADVERTISEMENT_CHARGE(
+    id BIGINT GENERATED BY DEFAULT AS IDENTITY(START WITH 1e9+1),
+    bid_id BIGINT NOT NULL,
+    clicked_date TIMESTAMP NOT NULL,
+    bid_price BIGINT NOT NULL,
+    PRIMARY KEY (id),
+    FOREIGN KEY (bid_id) REFERENCES ADVERTISEMENT_BID
+);
+```
+
+### 광고 과금 정산(ADVERTISEMENT_CHARGE_CAL)
+```sql
+CREATE TABLE ADVERTISEMENT_CHARGE_CAL(
+    clicked_date DATE,
+    bid_id BIGINT,
+    company_id BIGINT NOT NULL,
+    company_name VARCHAR(30) NOT NULL,
+    product_id BIGINT NOT NULL,
+    product_name VARCHAR(50) NOT NULL,
+    cnt_clicked BIGINT NOT NULL,
+    total_charge BIGINT NOT NULL,
+    PRIMARY KEY (clicked_date, bid_id)
+);
+```

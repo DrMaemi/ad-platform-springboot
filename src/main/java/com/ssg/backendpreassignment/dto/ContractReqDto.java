@@ -1,6 +1,7 @@
 package com.ssg.backendpreassignment.dto;
 
 import com.ssg.backendpreassignment.config.validator.ContractNotOverlapped;
+import com.ssg.backendpreassignment.config.validator.RegisteredCompany;
 import lombok.*;
 
 import javax.validation.constraints.*;
@@ -12,6 +13,7 @@ import javax.validation.constraints.*;
 public class ContractReqDto {
     @NotNull(message="업체 ID를 입력해주세요.")
     @Min(value=(long)1e9+1, message="업체 ID는 최소 10자리로 입력해주세요.")
+    @RegisteredCompany
     @ContractNotOverlapped
     private Long companyId;
 

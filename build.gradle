@@ -86,9 +86,9 @@ asciidoctor { // asciidoctor 작업 구성
 }
 
 // static/docs 폴더 비우기
-//asciidoctor.doFirst {
-//	delete file('src/main/resources/static/docs')
-//}
+asciidoctor.doFirst {
+	delete file('src/main/resources/templates/docs')
+}
 
 // asccidoctor 작업 이후 생성된 HTML 파일을 static/docs 로 copy
 task copyDocument(type: Copy) {

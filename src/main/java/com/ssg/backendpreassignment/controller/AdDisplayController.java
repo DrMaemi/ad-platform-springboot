@@ -17,7 +17,7 @@ import java.util.List;
 public class AdDisplayController {
     private final AdDisplayService adDisplayService;
 
-    @GetMapping("/ads")
+    @GetMapping("/ad/display")
     public String getAds(Model model) {
         List<AdDisplayDto> adDisplayDtos = adDisplayService.getAds();
 
@@ -25,7 +25,7 @@ public class AdDisplayController {
         return "/ads";
     }
 
-    @GetMapping("/api/ads")
+    @GetMapping("/api/ad/display")
     public ResponseEntity<?> getAds() {
         List<AdDisplayDto> resDtos = adDisplayService.getAds();
 

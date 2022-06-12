@@ -466,7 +466,8 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#Contract-API">계약(Contract) 도메인</a>
 <ul class="sectlevel2">
 <li><a href="#계약-생성">계약 생성</a></li>
-<li><a href="#계약-생성-유효성-검사">계약 생성 유효성 검사</a></li>
+<li><a href="#계약-생성-유효성-검사-1">계약 생성 유효성 검사 1</a></li>
+<li><a href="#계약-생성-유효성-검사-2">계약 생성 유효성 검사 2</a></li>
 <li><a href="#계약-리스트-조회">계약 리스트 조회</a></li>
 </ul>
 </li>
@@ -644,10 +645,10 @@ X-XSS-Protection: 1; mode=block
 Cache-Control: no-cache, no-store, max-age=0, must-revalidate
 Pragma: no-cache
 Expires: 0
-Content-Length: 131
+Content-Length: 130
 
 {
-  "timestamp" : "2022-06-11T23:07:48.0287307",
+  "timestamp" : "2022-06-12T16:37:51.036374",
   "code" : 201,
   "status" : "CREATED",
   "result" : "15 record(s) created"
@@ -778,25 +779,25 @@ Expires: 0
 Content-Length: 751
 
 {
-  "timestamp" : "2022-06-11T23:07:48.1039477",
+  "timestamp" : "2022-06-12T16:37:51.1121668",
   "code" : 400,
   "status" : "BAD_REQUEST",
   "result" : [ {
+    "field" : "addProducts.productReqDtos[0].stock",
+    "message" : "상품 수량은 0 이상의 값으로 입력해주세요.",
+    "rejectedValue" : -10
+  }, {
     "field" : "addProducts.productReqDtos[0].companyName",
     "message" : "업체명을 입력해주세요.",
     "rejectedValue" : null
-  }, {
-    "field" : "addProducts.productReqDtos[1].price",
-    "message" : "상품 가격은 0 이상의 값으로 입력해주세요.",
-    "rejectedValue" : -2000
   }, {
     "field" : "addProducts.productReqDtos[1].productName",
     "message" : "상품명을 입력해주세요.",
     "rejectedValue" : null
   }, {
-    "field" : "addProducts.productReqDtos[0].stock",
-    "message" : "상품 수량은 0 이상의 값으로 입력해주세요.",
-    "rejectedValue" : -10
+    "field" : "addProducts.productReqDtos[1].price",
+    "message" : "상품 가격은 0 이상의 값으로 입력해주세요.",
+    "rejectedValue" : -2000
   } ]
 }</code></pre>
 </div>
@@ -880,127 +881,127 @@ X-XSS-Protection: 1; mode=block
 Cache-Control: no-cache, no-store, max-age=0, must-revalidate
 Pragma: no-cache
 Expires: 0
-Content-Length: 4169
+Content-Length: 4171
 
 {
-  "timestamp" : "2022-06-11T23:07:48.1609808",
+  "timestamp" : "2022-06-12T16:37:51.1619643",
   "code" : 200,
   "status" : "OK",
   "result" : [ {
-    "createdDate" : "2022-06-11T23:07:47.961721",
-    "lastModifiedDate" : "2022-06-11T23:07:47.961721",
+    "createdDate" : "2022-06-12T16:37:50.969093",
+    "lastModifiedDate" : "2022-06-12T16:37:50.969093",
     "price" : 600,
     "companyName" : "이마트",
     "id" : 1000000001,
     "stock" : 10,
     "productName" : "허쉬 초코멜로쿠키 45g"
   }, {
-    "createdDate" : "2022-06-11T23:07:47.969476",
-    "lastModifiedDate" : "2022-06-11T23:07:47.969476",
+    "createdDate" : "2022-06-12T16:37:50.977178",
+    "lastModifiedDate" : "2022-06-12T16:37:50.977178",
     "price" : 2000,
     "companyName" : "신세계백화점",
     "id" : 1000000002,
     "stock" : 5,
     "productName" : "크리스피롤 12 곡 180g"
   }, {
-    "createdDate" : "2022-06-11T23:07:47.973911",
-    "lastModifiedDate" : "2022-06-11T23:07:47.973911",
+    "createdDate" : "2022-06-12T16:37:50.981723",
+    "lastModifiedDate" : "2022-06-12T16:37:50.981723",
     "price" : 1200000,
     "companyName" : "삼성전자",
     "id" : 1000000003,
     "stock" : 0,
     "productName" : "갤럭시 22 자급제모델"
   }, {
-    "createdDate" : "2022-06-11T23:07:47.978282",
-    "lastModifiedDate" : "2022-06-11T23:07:47.978282",
+    "createdDate" : "2022-06-12T16:37:50.986257",
+    "lastModifiedDate" : "2022-06-12T16:37:50.986257",
     "price" : 2600,
     "companyName" : "이마트",
     "id" : 1000000004,
     "stock" : 6,
     "productName" : "말랑카우 핸드워시 250ml"
   }, {
-    "createdDate" : "2022-06-11T23:07:47.98197",
-    "lastModifiedDate" : "2022-06-11T23:07:47.98197",
+    "createdDate" : "2022-06-12T16:37:50.990296",
+    "lastModifiedDate" : "2022-06-12T16:37:50.990296",
     "price" : 1200,
     "companyName" : "신세계백화점",
     "id" : 1000000005,
     "stock" : 4,
     "productName" : "삼립 미니꿀호떡 322g"
   }, {
-    "createdDate" : "2022-06-11T23:07:47.986011",
-    "lastModifiedDate" : "2022-06-11T23:07:47.986011",
+    "createdDate" : "2022-06-12T16:37:50.994833",
+    "lastModifiedDate" : "2022-06-12T16:37:50.994833",
     "price" : 6400,
     "companyName" : "이마트",
     "id" : 1000000006,
     "stock" : 2,
     "productName" : "피코크 어랑손만두 어랑만두 700g"
   }, {
-    "createdDate" : "2022-06-11T23:07:47.990384",
-    "lastModifiedDate" : "2022-06-11T23:07:47.990384",
+    "createdDate" : "2022-06-12T16:37:50.998874",
+    "lastModifiedDate" : "2022-06-12T16:37:50.998874",
     "price" : 2800,
     "companyName" : "신세계백화점",
     "id" : 1000000007,
     "stock" : 1,
     "productName" : "빼빼로바 아몬드아이스크림 4입"
   }, {
-    "createdDate" : "2022-06-11T23:07:47.994132",
-    "lastModifiedDate" : "2022-06-11T23:07:47.994132",
+    "createdDate" : "2022-06-12T16:37:51.002918",
+    "lastModifiedDate" : "2022-06-12T16:37:51.002918",
     "price" : 2500,
     "companyName" : "이마트",
     "id" : 1000000008,
     "stock" : 3,
     "productName" : "피코크 에이 클래스 우유 900ml"
   }, {
-    "createdDate" : "2022-06-11T23:07:47.998827",
-    "lastModifiedDate" : "2022-06-11T23:07:47.998827",
+    "createdDate" : "2022-06-12T16:37:51.00695",
+    "lastModifiedDate" : "2022-06-12T16:37:51.00695",
     "price" : 4500,
     "companyName" : "이마트",
     "id" : 1000000009,
     "stock" : 0,
     "productName" : "아삭달콤 방울토마토 500g"
   }, {
-    "createdDate" : "2022-06-11T23:07:48.001893",
-    "lastModifiedDate" : "2022-06-11T23:07:48.001893",
+    "createdDate" : "2022-06-12T16:37:51.010487",
+    "lastModifiedDate" : "2022-06-12T16:37:51.010487",
     "price" : 3000,
     "companyName" : "이마트",
     "id" : 1000000010,
     "stock" : 1,
     "productName" : "[롯데삼강] 돼지바 (70ml*6 입)"
   }, {
-    "createdDate" : "2022-06-11T23:07:48.007683",
-    "lastModifiedDate" : "2022-06-11T23:07:48.007683",
+    "createdDate" : "2022-06-12T16:37:51.015539",
+    "lastModifiedDate" : "2022-06-12T16:37:51.015539",
     "price" : 129000,
     "companyName" : "나이키",
     "id" : 1000000011,
     "stock" : 4,
     "productName" : "나이키 덩크로우 흰검"
   }, {
-    "createdDate" : "2022-06-11T23:07:48.013495",
-    "lastModifiedDate" : "2022-06-11T23:07:48.013495",
+    "createdDate" : "2022-06-12T16:37:51.020584",
+    "lastModifiedDate" : "2022-06-12T16:37:51.020584",
     "price" : 18500,
     "companyName" : "스타벅스",
     "id" : 1000000012,
     "stock" : 4,
     "productName" : "이달의 원두 500g"
   }, {
-    "createdDate" : "2022-06-11T23:07:48.01738",
-    "lastModifiedDate" : "2022-06-11T23:07:48.01738",
+    "createdDate" : "2022-06-12T16:37:51.024628",
+    "lastModifiedDate" : "2022-06-12T16:37:51.024628",
     "price" : 23000,
     "companyName" : "스타벅스",
     "id" : 1000000013,
     "stock" : 7,
     "productName" : "아쿠아머그"
   }, {
-    "createdDate" : "2022-06-11T23:07:48.022156",
-    "lastModifiedDate" : "2022-06-11T23:07:48.022156",
+    "createdDate" : "2022-06-12T16:37:51.029174",
+    "lastModifiedDate" : "2022-06-12T16:37:51.029174",
     "price" : 480000,
     "companyName" : "삼성전자",
     "id" : 1000000014,
     "stock" : 2,
     "productName" : "삼성전자 43 인치 스마트모니터"
   }, {
-    "createdDate" : "2022-06-11T23:07:48.026198",
-    "lastModifiedDate" : "2022-06-11T23:07:48.026198",
+    "createdDate" : "2022-06-12T16:37:51.032705",
+    "lastModifiedDate" : "2022-06-12T16:37:51.032705",
     "price" : 25000,
     "companyName" : "나이키",
     "id" : 1000000015,
@@ -1164,7 +1165,7 @@ Expires: 0
 Content-Length: 283
 
 {
-  "timestamp" : "2022-06-11T23:07:48.2333928",
+  "timestamp" : "2022-06-12T16:37:51.2296287",
   "code" : 200,
   "status" : "OK",
   "result" : {
@@ -1316,14 +1317,10 @@ Expires: 0
 Content-Length: 838
 
 {
-  "timestamp" : "2022-06-11T23:07:48.2575818",
+  "timestamp" : "2022-06-12T16:37:51.2520406",
   "code" : 400,
   "status" : "BAD_REQUEST",
   "result" : [ {
-    "field" : "companyName",
-    "message" : "상품 리스트에 존재하는 업체명이 아닙니다. 다시 한 번 확인해주세요.",
-    "rejectedValue" : "등록되지 않은 업체 이름"
-  }, {
     "field" : "businessRegistrationNumber",
     "message" : "사업자번호는 XXX-XX-XXXXX 형태로 총 10개의 숫자를 입력해주세요.",
     "rejectedValue" : "123456-78901"
@@ -1335,6 +1332,10 @@ Content-Length: 838
     "field" : "phoneNumber",
     "message" : "업체전화번호는 XXX-XXX-XXXX와 같이 '-'를 이용해 구분하여 숫자를 입력해주세요.",
     "rejectedValue" : "010-1234567"
+  }, {
+    "field" : "companyName",
+    "message" : "상품 리스트에 존재하는 업체명이 아닙니다. 다시 한 번 확인해주세요.",
+    "rejectedValue" : "등록되지 않은 업체 이름"
   } ]
 }</code></pre>
 </div>
@@ -1418,10 +1419,10 @@ X-XSS-Protection: 1; mode=block
 Cache-Control: no-cache, no-store, max-age=0, must-revalidate
 Pragma: no-cache
 Expires: 0
-Content-Length: 5699
+Content-Length: 5700
 
 {
-  "timestamp" : "2022-06-11T23:07:48.2888744",
+  "timestamp" : "2022-06-12T16:37:51.279799",
   "code" : 200,
   "status" : "OK",
   "result" : [ {
@@ -1436,51 +1437,51 @@ Content-Length: 5699
       "productName" : "허쉬 초코멜로쿠키 45g",
       "price" : 600,
       "stock" : 10,
-      "createdDate" : "2022-06-11T23:07:47.961721",
-      "lastModifiedDate" : "2022-06-11T23:07:47.961721"
+      "createdDate" : "2022-06-12T16:37:50.969093",
+      "lastModifiedDate" : "2022-06-12T16:37:50.969093"
     }, {
       "id" : 1000000004,
       "companyDto" : null,
       "productName" : "말랑카우 핸드워시 250ml",
       "price" : 2600,
       "stock" : 6,
-      "createdDate" : "2022-06-11T23:07:47.978282",
-      "lastModifiedDate" : "2022-06-11T23:07:47.978282"
+      "createdDate" : "2022-06-12T16:37:50.986257",
+      "lastModifiedDate" : "2022-06-12T16:37:50.986257"
     }, {
       "id" : 1000000006,
       "companyDto" : null,
       "productName" : "피코크 어랑손만두 어랑만두 700g",
       "price" : 6400,
       "stock" : 2,
-      "createdDate" : "2022-06-11T23:07:47.986011",
-      "lastModifiedDate" : "2022-06-11T23:07:47.986011"
+      "createdDate" : "2022-06-12T16:37:50.994833",
+      "lastModifiedDate" : "2022-06-12T16:37:50.994833"
     }, {
       "id" : 1000000008,
       "companyDto" : null,
       "productName" : "피코크 에이 클래스 우유 900ml",
       "price" : 2500,
       "stock" : 3,
-      "createdDate" : "2022-06-11T23:07:47.994132",
-      "lastModifiedDate" : "2022-06-11T23:07:47.994132"
+      "createdDate" : "2022-06-12T16:37:51.002918",
+      "lastModifiedDate" : "2022-06-12T16:37:51.002918"
     }, {
       "id" : 1000000009,
       "companyDto" : null,
       "productName" : "아삭달콤 방울토마토 500g",
       "price" : 4500,
       "stock" : 0,
-      "createdDate" : "2022-06-11T23:07:47.998827",
-      "lastModifiedDate" : "2022-06-11T23:07:47.998827"
+      "createdDate" : "2022-06-12T16:37:51.00695",
+      "lastModifiedDate" : "2022-06-12T16:37:51.00695"
     }, {
       "id" : 1000000010,
       "companyDto" : null,
       "productName" : "[롯데삼강] 돼지바 (70ml*6 입)",
       "price" : 3000,
       "stock" : 1,
-      "createdDate" : "2022-06-11T23:07:48.001893",
-      "lastModifiedDate" : "2022-06-11T23:07:48.001893"
+      "createdDate" : "2022-06-12T16:37:51.010487",
+      "lastModifiedDate" : "2022-06-12T16:37:51.010487"
     } ],
-    "createdDate" : "2022-06-11T23:07:47.919697",
-    "lastModifiedDate" : "2022-06-11T23:07:48.226233"
+    "createdDate" : "2022-06-12T16:37:50.926985",
+    "lastModifiedDate" : "2022-06-12T16:37:51.221566"
   }, {
     "id" : 1000000002,
     "name" : "신세계백화점",
@@ -1493,27 +1494,27 @@ Content-Length: 5699
       "productName" : "크리스피롤 12 곡 180g",
       "price" : 2000,
       "stock" : 5,
-      "createdDate" : "2022-06-11T23:07:47.969476",
-      "lastModifiedDate" : "2022-06-11T23:07:47.969476"
+      "createdDate" : "2022-06-12T16:37:50.977178",
+      "lastModifiedDate" : "2022-06-12T16:37:50.977178"
     }, {
       "id" : 1000000005,
       "companyDto" : null,
       "productName" : "삼립 미니꿀호떡 322g",
       "price" : 1200,
       "stock" : 4,
-      "createdDate" : "2022-06-11T23:07:47.98197",
-      "lastModifiedDate" : "2022-06-11T23:07:47.98197"
+      "createdDate" : "2022-06-12T16:37:50.990296",
+      "lastModifiedDate" : "2022-06-12T16:37:50.990296"
     }, {
       "id" : 1000000007,
       "companyDto" : null,
       "productName" : "빼빼로바 아몬드아이스크림 4입",
       "price" : 2800,
       "stock" : 1,
-      "createdDate" : "2022-06-11T23:07:47.990384",
-      "lastModifiedDate" : "2022-06-11T23:07:47.990384"
+      "createdDate" : "2022-06-12T16:37:50.998874",
+      "lastModifiedDate" : "2022-06-12T16:37:50.998874"
     } ],
-    "createdDate" : "2022-06-11T23:07:47.966908",
-    "lastModifiedDate" : "2022-06-11T23:07:47.966908"
+    "createdDate" : "2022-06-12T16:37:50.974651",
+    "lastModifiedDate" : "2022-06-12T16:37:50.974651"
   }, {
     "id" : 1000000003,
     "name" : "삼성전자",
@@ -1526,19 +1527,19 @@ Content-Length: 5699
       "productName" : "갤럭시 22 자급제모델",
       "price" : 1200000,
       "stock" : 0,
-      "createdDate" : "2022-06-11T23:07:47.973911",
-      "lastModifiedDate" : "2022-06-11T23:07:47.973911"
+      "createdDate" : "2022-06-12T16:37:50.981723",
+      "lastModifiedDate" : "2022-06-12T16:37:50.981723"
     }, {
       "id" : 1000000014,
       "companyDto" : null,
       "productName" : "삼성전자 43 인치 스마트모니터",
       "price" : 480000,
       "stock" : 2,
-      "createdDate" : "2022-06-11T23:07:48.022156",
-      "lastModifiedDate" : "2022-06-11T23:07:48.022156"
+      "createdDate" : "2022-06-12T16:37:51.029174",
+      "lastModifiedDate" : "2022-06-12T16:37:51.029174"
     } ],
-    "createdDate" : "2022-06-11T23:07:47.971903",
-    "lastModifiedDate" : "2022-06-11T23:07:47.971903"
+    "createdDate" : "2022-06-12T16:37:50.979705",
+    "lastModifiedDate" : "2022-06-12T16:37:50.979705"
   }, {
     "id" : 1000000004,
     "name" : "나이키",
@@ -1551,19 +1552,19 @@ Content-Length: 5699
       "productName" : "나이키 덩크로우 흰검",
       "price" : 129000,
       "stock" : 4,
-      "createdDate" : "2022-06-11T23:07:48.007683",
-      "lastModifiedDate" : "2022-06-11T23:07:48.007683"
+      "createdDate" : "2022-06-12T16:37:51.015539",
+      "lastModifiedDate" : "2022-06-12T16:37:51.015539"
     }, {
       "id" : 1000000015,
       "companyDto" : null,
       "productName" : "나이키 헤리티지 스우시 캡",
       "price" : 25000,
       "stock" : 5,
-      "createdDate" : "2022-06-11T23:07:48.026198",
-      "lastModifiedDate" : "2022-06-11T23:07:48.026198"
+      "createdDate" : "2022-06-12T16:37:51.032705",
+      "lastModifiedDate" : "2022-06-12T16:37:51.032705"
     } ],
-    "createdDate" : "2022-06-11T23:07:48.005682",
-    "lastModifiedDate" : "2022-06-11T23:07:48.005682"
+    "createdDate" : "2022-06-12T16:37:51.013517",
+    "lastModifiedDate" : "2022-06-12T16:37:51.013517"
   }, {
     "id" : 1000000005,
     "name" : "스타벅스",
@@ -1576,19 +1577,19 @@ Content-Length: 5699
       "productName" : "이달의 원두 500g",
       "price" : 18500,
       "stock" : 4,
-      "createdDate" : "2022-06-11T23:07:48.013495",
-      "lastModifiedDate" : "2022-06-11T23:07:48.013495"
+      "createdDate" : "2022-06-12T16:37:51.020584",
+      "lastModifiedDate" : "2022-06-12T16:37:51.020584"
     }, {
       "id" : 1000000013,
       "companyDto" : null,
       "productName" : "아쿠아머그",
       "price" : 23000,
       "stock" : 7,
-      "createdDate" : "2022-06-11T23:07:48.01738",
-      "lastModifiedDate" : "2022-06-11T23:07:48.01738"
+      "createdDate" : "2022-06-12T16:37:51.024628",
+      "lastModifiedDate" : "2022-06-12T16:37:51.024628"
     } ],
-    "createdDate" : "2022-06-11T23:07:48.011484",
-    "lastModifiedDate" : "2022-06-11T23:07:48.011484"
+    "createdDate" : "2022-06-12T16:37:51.018567",
+    "lastModifiedDate" : "2022-06-12T16:37:51.018567"
   } ]
 }</code></pre>
 </div>
@@ -1787,7 +1788,7 @@ Expires: 0
 Content-Length: 294
 
 {
-  "timestamp" : "2022-06-11T23:07:48.3231287",
+  "timestamp" : "2022-06-12T16:37:51.3105893",
   "code" : 200,
   "status" : "OK",
   "result" : {
@@ -1923,17 +1924,17 @@ X-XSS-Protection: 1; mode=block
 Cache-Control: no-cache, no-store, max-age=0, must-revalidate
 Pragma: no-cache
 Expires: 0
-Content-Length: 224
+Content-Length: 223
 
 {
-  "timestamp" : "2022-06-11T23:07:48.3772021",
+  "timestamp" : "2022-06-12T16:37:51.360191",
   "code" : 201,
   "status" : "CREATED",
   "result" : {
     "companyId" : 1000000001,
-    "endDate" : "2023-06-11",
+    "endDate" : "2023-06-12",
     "id" : 1,
-    "startDate" : "2022-06-11"
+    "startDate" : "2022-06-12"
   }
 }</code></pre>
 </div>
@@ -2000,9 +2001,9 @@ Content-Length: 224
 </div>
 </div>
 <div class="sect2">
-<h3 id="계약-생성-유효성-검사"><a class="link" href="#계약-생성-유효성-검사">계약 생성 유효성 검사</a></h3>
+<h3 id="계약-생성-유효성-검사-1"><a class="link" href="#계약-생성-유효성-검사-1">계약 생성 유효성 검사 1</a></h3>
 <div class="sect3">
-<h4 id="계약-생성-유효성-검사_http_request"><a class="link" href="#계약-생성-유효성-검사_http_request">HTTP request</a></h4>
+<h4 id="계약-생성-유효성-검사-1_http_request"><a class="link" href="#계약-생성-유효성-검사-1_http_request">HTTP request</a></h4>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">POST /api/contract HTTP/1.1
@@ -2017,7 +2018,7 @@ Host: localhost:8080
 </div>
 </div>
 <div class="sect3">
-<h4 id="계약-생성-유효성-검사_request_fields"><a class="link" href="#계약-생성-유효성-검사_request_fields">Request fields</a></h4>
+<h4 id="계약-생성-유효성-검사-1_request_fields"><a class="link" href="#계약-생성-유효성-검사-1_request_fields">Request fields</a></h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 33.3333%;">
@@ -2041,7 +2042,7 @@ Host: localhost:8080
 </table>
 </div>
 <div class="sect3">
-<h4 id="계약-생성-유효성-검사_http_response"><a class="link" href="#계약-생성-유효성-검사_http_response">HTTP response</a></h4>
+<h4 id="계약-생성-유효성-검사-1_http_response"><a class="link" href="#계약-생성-유효성-검사-1_http_response">HTTP response</a></h4>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 400 Bad Request
@@ -2054,7 +2055,7 @@ Expires: 0
 Content-Length: 252
 
 {
-  "timestamp" : "2022-06-11T23:07:48.4050728",
+  "timestamp" : "2022-06-12T16:37:51.3819084",
   "code" : 400,
   "status" : "BAD_REQUEST",
   "result" : [ {
@@ -2067,7 +2068,129 @@ Content-Length: 252
 </div>
 </div>
 <div class="sect3">
-<h4 id="계약-생성-유효성-검사_response_fields"><a class="link" href="#계약-생성-유효성-검사_response_fields">Response fields</a></h4>
+<h4 id="계약-생성-유효성-검사-1_response_fields"><a class="link" href="#계약-생성-유효성-검사-1_response_fields">Response fields</a></h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Path</th>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>timestamp</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">API requested time</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>code</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">HTTP status code</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>status</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">HTTP status</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>result</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Array</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">An array of validation result</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>result.[].field</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The field which is invalid</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>result.[].message</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description message</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>result.[].rejectedValue</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The value rejected</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="계약-생성-유효성-검사-2"><a class="link" href="#계약-생성-유효성-검사-2">계약 생성 유효성 검사 2</a></h3>
+<div class="sect3">
+<h4 id="계약-생성-유효성-검사-2_http_request"><a class="link" href="#계약-생성-유효성-검사-2_http_request">HTTP request</a></h4>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code class="language-http" data-lang="http">POST /api/contract HTTP/1.1
+Content-Type: application/json;charset=UTF-8
+Content-Length: 32
+Host: localhost:8080
+
+{
+  "companyId" : 1000000002
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="계약-생성-유효성-검사-2_request_fields"><a class="link" href="#계약-생성-유효성-검사-2_request_fields">Request fields</a></h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Path</th>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>companyId</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Company&#8217;s ID to create contract</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="계약-생성-유효성-검사-2_http_response"><a class="link" href="#계약-생성-유효성-검사-2_http_response">HTTP response</a></h4>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 400 Bad Request
+Content-Type: application/json
+X-Content-Type-Options: nosniff
+X-XSS-Protection: 1; mode=block
+Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+Pragma: no-cache
+Expires: 0
+Content-Length: 296
+
+{
+  "timestamp" : "2022-06-12T16:37:51.4018039",
+  "code" : 400,
+  "status" : "BAD_REQUEST",
+  "result" : [ {
+    "field" : "companyId",
+    "message" : "등록되지 않은 업체 ID입니다. 계약하기 전에 등록을 먼저 해주세요.",
+    "rejectedValue" : 1000000002
+  } ]
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="계약-생성-유효성-검사-2_response_fields"><a class="link" href="#계약-생성-유효성-검사-2_response_fields">Response fields</a></h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 33.3333%;">
@@ -2144,19 +2267,19 @@ X-XSS-Protection: 1; mode=block
 Cache-Control: no-cache, no-store, max-age=0, must-revalidate
 Pragma: no-cache
 Expires: 0
-Content-Length: 330
+Content-Length: 328
 
 {
-  "timestamp" : "2022-06-11T23:07:48.4284996",
+  "timestamp" : "2022-06-12T16:37:51.4194755",
   "code" : 200,
   "status" : "OK",
   "result" : [ {
     "companyId" : 1000000001,
-    "createdDate" : "2022-06-11T23:07:48.371131",
-    "endDate" : "2023-06-11",
-    "lastModifiedDate" : "2022-06-11T23:07:48.371131",
+    "createdDate" : "2022-06-12T16:37:51.35463",
+    "endDate" : "2023-06-12",
+    "lastModifiedDate" : "2022-06-12T16:37:51.35463",
     "id" : 1,
-    "startDate" : "2022-06-11"
+    "startDate" : "2022-06-12"
   } ]
 }</code></pre>
 </div>
@@ -2243,7 +2366,7 @@ Content-Length: 330
 <h4 id="광고입찰-생성-1_http_request"><a class="link" href="#광고입찰-생성-1_http_request">HTTP request</a></h4>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight nowrap"><code class="language-http" data-lang="http">POST /api/adbid HTTP/1.1
+<pre class="highlight nowrap"><code class="language-http" data-lang="http">POST /api/ad/bid HTTP/1.1
 Content-Type: application/json;charset=UTF-8
 Content-Length: 82
 Host: localhost:8080
@@ -2304,14 +2427,14 @@ Expires: 0
 Content-Length: 332
 
 {
-  "timestamp" : "2022-06-11T23:07:48.4750056",
+  "timestamp" : "2022-06-12T16:37:51.4662006",
   "code" : 201,
   "status" : "CREATED",
   "result" : {
     "companyId" : 1000000001,
-    "createdDate" : "2022-06-11T23:07:48.4699516",
+    "createdDate" : "2022-06-12T16:37:51.4621609",
     "productId" : 1000000001,
-    "lastModifiedDate" : "2022-06-11T23:07:48.4699516",
+    "lastModifiedDate" : "2022-06-12T16:37:51.4621609",
     "id" : 1000000001,
     "bidPrice" : 100
   }
@@ -2395,7 +2518,7 @@ Content-Length: 332
 <h4 id="광고입찰-생성-2_http_request"><a class="link" href="#광고입찰-생성-2_http_request">HTTP request</a></h4>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight nowrap"><code class="language-http" data-lang="http">POST /api/adbid HTTP/1.1
+<pre class="highlight nowrap"><code class="language-http" data-lang="http">POST /api/ad/bid HTTP/1.1
 Content-Type: application/json;charset=UTF-8
 Content-Length: 82
 Host: localhost:8080
@@ -2453,17 +2576,17 @@ X-XSS-Protection: 1; mode=block
 Cache-Control: no-cache, no-store, max-age=0, must-revalidate
 Pragma: no-cache
 Expires: 0
-Content-Length: 332
+Content-Length: 330
 
 {
-  "timestamp" : "2022-06-11T23:07:48.5002796",
+  "timestamp" : "2022-06-12T16:37:51.4894484",
   "code" : 201,
   "status" : "CREATED",
   "result" : {
     "companyId" : 1000000001,
-    "createdDate" : "2022-06-11T23:07:48.4987606",
+    "createdDate" : "2022-06-12T16:37:51.487936",
     "productId" : 1000000004,
-    "lastModifiedDate" : "2022-06-11T23:07:48.4987606",
+    "lastModifiedDate" : "2022-06-12T16:37:51.487936",
     "id" : 1000000002,
     "bidPrice" : 250
   }
@@ -2547,7 +2670,7 @@ Content-Length: 332
 <h4 id="광고입찰-생성-3_http_request"><a class="link" href="#광고입찰-생성-3_http_request">HTTP request</a></h4>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight nowrap"><code class="language-http" data-lang="http">POST /api/adbid HTTP/1.1
+<pre class="highlight nowrap"><code class="language-http" data-lang="http">POST /api/ad/bid HTTP/1.1
 Content-Type: application/json;charset=UTF-8
 Content-Length: 82
 Host: localhost:8080
@@ -2608,14 +2731,14 @@ Expires: 0
 Content-Length: 332
 
 {
-  "timestamp" : "2022-06-11T23:07:48.5241719",
+  "timestamp" : "2022-06-12T16:37:51.5126918",
   "code" : 201,
   "status" : "CREATED",
   "result" : {
     "companyId" : 1000000001,
-    "createdDate" : "2022-06-11T23:07:48.5231583",
+    "createdDate" : "2022-06-12T16:37:51.5111793",
     "productId" : 1000000009,
-    "lastModifiedDate" : "2022-06-11T23:07:48.5231583",
+    "lastModifiedDate" : "2022-06-12T16:37:51.5111793",
     "id" : 1000000003,
     "bidPrice" : 350
   }
@@ -2699,7 +2822,7 @@ Content-Length: 332
 <h4 id="광고입찰-생성-시-유효성-검사_http_request"><a class="link" href="#광고입찰-생성-시-유효성-검사_http_request">HTTP request</a></h4>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight nowrap"><code class="language-http" data-lang="http">POST /api/adbid HTTP/1.1
+<pre class="highlight nowrap"><code class="language-http" data-lang="http">POST /api/ad/bid HTTP/1.1
 Content-Type: application/json;charset=UTF-8
 Content-Length: 81
 Host: localhost:8080
@@ -2760,7 +2883,7 @@ Expires: 0
 Content-Length: 494
 
 {
-  "timestamp" : "2022-06-11T23:07:48.5509661",
+  "timestamp" : "2022-06-12T16:37:51.5361367",
   "code" : 400,
   "status" : "BAD_REQUEST",
   "result" : [ {
@@ -2842,7 +2965,7 @@ Content-Length: 494
 <h4 id="광고전시-리스트-조회_http_request"><a class="link" href="#광고전시-리스트-조회_http_request">HTTP request</a></h4>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight nowrap"><code class="language-http" data-lang="http">GET /api/ads HTTP/1.1
+<pre class="highlight nowrap"><code class="language-http" data-lang="http">GET /api/ad/display HTTP/1.1
 Content-Type: application/json;charset=UTF-8
 Host: localhost:8080</code></pre>
 </div>
@@ -2862,7 +2985,7 @@ Expires: 0
 Content-Length: 344
 
 {
-  "timestamp" : "2022-06-11T23:07:48.5752194",
+  "timestamp" : "2022-06-12T16:37:51.5579628",
   "code" : 200,
   "status" : "OK",
   "result" : [ {
@@ -2951,7 +3074,7 @@ Content-Length: 344
 <h4 id="광고과금-생성-1_http_request"><a class="link" href="#광고과금-생성-1_http_request">HTTP request</a></h4>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight nowrap"><code class="language-http" data-lang="http">POST /api/adcharge HTTP/1.1
+<pre class="highlight nowrap"><code class="language-http" data-lang="http">POST /api/ad/charge HTTP/1.1
 Content-Type: application/json;charset=UTF-8
 Content-Length: 28
 Host: localhost:8080
@@ -3000,7 +3123,7 @@ Expires: 0
 Content-Length: 215
 
 {
-  "timestamp" : "2022-06-11T23:07:48.6127632",
+  "timestamp" : "2022-06-12T16:37:51.5958345",
   "code" : 201,
   "status" : "CREATED",
   "result" : {
@@ -3079,7 +3202,7 @@ Content-Length: 215
 <h4 id="광고과금-생성-2_http_request"><a class="link" href="#광고과금-생성-2_http_request">HTTP request</a></h4>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight nowrap"><code class="language-http" data-lang="http">POST /api/adcharge HTTP/1.1
+<pre class="highlight nowrap"><code class="language-http" data-lang="http">POST /api/ad/charge HTTP/1.1
 Content-Type: application/json;charset=UTF-8
 Content-Length: 28
 Host: localhost:8080
@@ -3128,7 +3251,7 @@ Expires: 0
 Content-Length: 215
 
 {
-  "timestamp" : "2022-06-11T23:07:48.6347384",
+  "timestamp" : "2022-06-12T16:37:51.6160261",
   "code" : 201,
   "status" : "CREATED",
   "result" : {
@@ -3207,7 +3330,7 @@ Content-Length: 215
 <h4 id="광고과금-생성-3_http_request"><a class="link" href="#광고과금-생성-3_http_request">HTTP request</a></h4>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight nowrap"><code class="language-http" data-lang="http">POST /api/adcharge HTTP/1.1
+<pre class="highlight nowrap"><code class="language-http" data-lang="http">POST /api/ad/charge HTTP/1.1
 Content-Type: application/json;charset=UTF-8
 Content-Length: 28
 Host: localhost:8080
@@ -3256,7 +3379,7 @@ Expires: 0
 Content-Length: 215
 
 {
-  "timestamp" : "2022-06-11T23:07:48.6539157",
+  "timestamp" : "2022-06-12T16:37:51.6326842",
   "code" : 201,
   "status" : "CREATED",
   "result" : {
@@ -3335,7 +3458,7 @@ Content-Length: 215
 <h4 id="광고과금-생성-4_http_request"><a class="link" href="#광고과금-생성-4_http_request">HTTP request</a></h4>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight nowrap"><code class="language-http" data-lang="http">POST /api/adcharge HTTP/1.1
+<pre class="highlight nowrap"><code class="language-http" data-lang="http">POST /api/ad/charge HTTP/1.1
 Content-Type: application/json;charset=UTF-8
 Content-Length: 28
 Host: localhost:8080
@@ -3384,7 +3507,7 @@ Expires: 0
 Content-Length: 215
 
 {
-  "timestamp" : "2022-06-11T23:07:48.6736154",
+  "timestamp" : "2022-06-12T16:37:51.6494415",
   "code" : 201,
   "status" : "CREATED",
   "result" : {
@@ -3463,7 +3586,7 @@ Content-Length: 215
 <h4 id="광고과금-유효성-검사_http_request"><a class="link" href="#광고과금-유효성-검사_http_request">HTTP request</a></h4>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight nowrap"><code class="language-http" data-lang="http">POST /api/adcharge HTTP/1.1
+<pre class="highlight nowrap"><code class="language-http" data-lang="http">POST /api/ad/charge HTTP/1.1
 Content-Type: application/json;charset=UTF-8
 Content-Length: 29
 Host: localhost:8080
@@ -3509,10 +3632,10 @@ X-XSS-Protection: 1; mode=block
 Cache-Control: no-cache, no-store, max-age=0, must-revalidate
 Pragma: no-cache
 Expires: 0
-Content-Length: 282
+Content-Length: 283
 
 {
-  "timestamp" : "2022-06-11T23:07:48.690796",
+  "timestamp" : "2022-06-12T16:37:51.6640833",
   "code" : 400,
   "status" : "BAD_REQUEST",
   "result" : [ {
@@ -3585,7 +3708,7 @@ Content-Length: 282
 <div id="footer">
 <div id="footer-text">
 Version 0.0.1-SNAPSHOT<br>
-Last updated 2022-06-11 23:07:14 +0900
+Last updated 2022-06-12 16:36:53 +0900
 </div>
 </div>
 </body>

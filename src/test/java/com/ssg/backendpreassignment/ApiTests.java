@@ -13,7 +13,6 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.annotation.Import;
 import org.springframework.http.MediaType;
-import org.springframework.restdocs.payload.JsonFieldType;
 import org.springframework.test.web.servlet.MockMvc;
 
 import java.util.ArrayList;
@@ -410,8 +409,8 @@ public class ApiTests {
     }
 
     @Test
-    @DisplayName("09. 계약 생성 시 유효성 검사")
-    void createContractValidation() throws Exception {
+    @DisplayName("09. 계약 생성 시 유효성 검사 1")
+    void createContractValidation1() throws Exception {
         ContractReqDto contractReqDto = ContractReqDto.builder()
                 .companyId(1000000001L)
                 .build();
@@ -423,7 +422,38 @@ public class ApiTests {
                 )
                 .andExpect(status().isBadRequest())
                 .andDo(
-                        document("POST_api-contract-validation",
+                        document("POST_api-contract-validation1",
+                                requestFields(
+                                        fieldWithPath("companyId").description("Company's ID to create contract")
+                                ),
+                                responseFields(
+                                        fieldWithPath("timestamp").description("API requested time"),
+                                        fieldWithPath("code").description("HTTP status code"),
+                                        fieldWithPath("status").description("HTTP status"),
+                                        fieldWithPath("result").description("An array of validation result"),
+                                        fieldWithPath("result.[].field").description("The field which is invalid"),
+                                        fieldWithPath("result.[].message").description("Description message"),
+                                        fieldWithPath("result.[].rejectedValue").description("The value rejected")
+                                )
+                        )
+                );
+    }
+
+    @Test
+    @DisplayName("09. 계약 생성 시 유효성 검사 2")
+    void createContractValidation2() throws Exception {
+        ContractReqDto contractReqDto = ContractReqDto.builder()
+                .companyId(1000000002L)
+                .build();
+
+        this.mockMvc.perform(
+                        post("/api/contract")
+                                .contentType(MediaType.APPLICATION_JSON)
+                                .content(objectMapper.writeValueAsString(contractReqDto))
+                )
+                .andExpect(status().isBadRequest())
+                .andDo(
+                        document("POST_api-contract-validation2",
                                 requestFields(
                                         fieldWithPath("companyId").description("Company's ID to create contract")
                                 ),
@@ -476,13 +506,13 @@ public class ApiTests {
                 .build();
 
         this.mockMvc.perform(
-                        post("/api/adbid")
+                        post("/api/ad/bid")
                                 .contentType(MediaType.APPLICATION_JSON)
                                 .content(objectMapper.writeValueAsString(adBidReqDto))
                 )
                 .andExpect(status().isCreated())
                 .andDo(
-                        document("POST_api-adbid-create1",
+                        document("POST_api-ad-bid-create1",
                                 requestFields(
                                         fieldWithPath("companyId").description("Company ID to create AD bid"),
                                         fieldWithPath("productId").description("Product ID to create AD bid"),
@@ -514,13 +544,13 @@ public class ApiTests {
                 .build();
 
         this.mockMvc.perform(
-                        post("/api/adbid")
+                        post("/api/ad/bid")
                                 .contentType(MediaType.APPLICATION_JSON)
                                 .content(objectMapper.writeValueAsString(adBidReqDto))
                 )
                 .andExpect(status().isCreated())
                 .andDo(
-                        document("POST_api-adbid-create2",
+                        document("POST_api-ad-bid-create2",
                                 requestFields(
                                         fieldWithPath("companyId").description("Company ID to create AD bid"),
                                         fieldWithPath("productId").description("Product ID to create AD bid"),
@@ -552,13 +582,13 @@ public class ApiTests {
                 .build();
 
         this.mockMvc.perform(
-                        post("/api/adbid")
+                        post("/api/ad/bid")
                                 .contentType(MediaType.APPLICATION_JSON)
                                 .content(objectMapper.writeValueAsString(adBidReqDto))
                 )
                 .andExpect(status().isCreated())
                 .andDo(
-                        document("POST_api-adbid-create3",
+                        document("POST_api-ad-bid-create3",
                                 requestFields(
                                         fieldWithPath("companyId").description("Company ID to create AD bid"),
                                         fieldWithPath("productId").description("Product ID to create AD bid"),
@@ -590,13 +620,13 @@ public class ApiTests {
                 .build();
 
         this.mockMvc.perform(
-                        post("/api/adbid")
+                        post("/api/ad/bid")
                                 .contentType(MediaType.APPLICATION_JSON)
                                 .content(objectMapper.writeValueAsString(adBidReqDto))
                 )
                 .andExpect(status().isBadRequest())
                 .andDo(
-                        document("POST_api-adbid-validation",
+                        document("POST_api-ad-bid-validation",
                                 requestFields(
                                         fieldWithPath("companyId").description("Company ID to create AD bid"),
                                         fieldWithPath("productId").description("Product ID to create AD bid"),
@@ -619,12 +649,12 @@ public class ApiTests {
     @DisplayName("15. 광고전시 리스트 조회")
     void getAds() throws Exception {
         this.mockMvc.perform(
-                        get("/api/ads")
+                        get("/api/ad/display")
                                 .contentType(MediaType.APPLICATION_JSON)
                 )
                 .andExpect(status().isOk())
                 .andDo(
-                        document("GET_api-ads",
+                        document("GET_api-ad-display",
                                 responseFields(
                                         fieldWithPath("timestamp").description("API requested time"),
                                         fieldWithPath("code").description("HTTP status code"),
@@ -647,13 +677,13 @@ public class ApiTests {
                 .build();
 
         this.mockMvc.perform(
-                        post("/api/adcharge")
+                        post("/api/ad/charge")
                                 .contentType(MediaType.APPLICATION_JSON)
                                 .content(objectMapper.writeValueAsString(adChargeReqDto))
                 )
                 .andExpect(status().isCreated())
                 .andDo(
-                        document("POST_api-adcharge-create1",
+                        document("POST_api-ad-charge-create1",
                                 requestFields(
                                         fieldWithPath("bidId").description("AD Bid ID to create charge")
                                 ),
@@ -679,13 +709,13 @@ public class ApiTests {
                 .build();
 
         this.mockMvc.perform(
-                        post("/api/adcharge")
+                        post("/api/ad/charge")
                                 .contentType(MediaType.APPLICATION_JSON)
                                 .content(objectMapper.writeValueAsString(adChargeReqDto))
                 )
                 .andExpect(status().isCreated())
                 .andDo(
-                        document("POST_api-adcharge-create2",
+                        document("POST_api-ad-charge-create2",
                                 requestFields(
                                         fieldWithPath("bidId").description("AD Bid ID to create charge")
                                 ),
@@ -711,13 +741,13 @@ public class ApiTests {
                 .build();
 
         this.mockMvc.perform(
-                        post("/api/adcharge")
+                        post("/api/ad/charge")
                                 .contentType(MediaType.APPLICATION_JSON)
                                 .content(objectMapper.writeValueAsString(adChargeReqDto))
                 )
                 .andExpect(status().isCreated())
                 .andDo(
-                        document("POST_api-adcharge-create3",
+                        document("POST_api-ad-charge-create3",
                                 requestFields(
                                         fieldWithPath("bidId").description("AD Bid ID to create charge")
                                 ),
@@ -743,13 +773,13 @@ public class ApiTests {
                 .build();
 
         this.mockMvc.perform(
-                        post("/api/adcharge")
+                        post("/api/ad/charge")
                                 .contentType(MediaType.APPLICATION_JSON)
                                 .content(objectMapper.writeValueAsString(adChargeReqDto))
                 )
                 .andExpect(status().isCreated())
                 .andDo(
-                        document("POST_api-adcharge-create4",
+                        document("POST_api-ad-charge-create4",
                                 requestFields(
                                         fieldWithPath("bidId").description("AD Bid ID to create charge")
                                 ),
@@ -775,13 +805,13 @@ public class ApiTests {
                 .build();
 
         this.mockMvc.perform(
-                        post("/api/adcharge")
+                        post("/api/ad/charge")
                                 .contentType(MediaType.APPLICATION_JSON)
                                 .content(objectMapper.writeValueAsString(adChargeReqDto))
                 )
                 .andExpect(status().isBadRequest())
                 .andDo(
-                        document("POST_api-adcharge-validation",
+                        document("POST_api-ad-charge-validation",
                                 requestFields(
                                         fieldWithPath("bidId").description("AD Bid ID to create charge")
                                 ),
@@ -793,6 +823,34 @@ public class ApiTests {
                                         fieldWithPath("result.[].field").description("The field which is invalid"),
                                         fieldWithPath("result.[].message").description("Description message"),
                                         fieldWithPath("result.[].rejectedValue").description("The value rejected")
+                                )
+                        )
+                );
+    }
+
+    @Test
+    @DisplayName("21. 광고과금 정산 리스트 조회")
+    void getAdChargeCals() throws Exception {
+        this.mockMvc.perform(
+                        get("/api/ad/charge/cals")
+                                .contentType(MediaType.APPLICATION_JSON)
+                )
+                .andExpect(status().isBadRequest())
+                .andDo(
+                        document("GET_api-ad-charge-cals",
+                                responseFields(
+                                        fieldWithPath("timestamp").description("API requested time"),
+                                        fieldWithPath("code").description("HTTP status code"),
+                                        fieldWithPath("status").description("HTTP status"),
+                                        fieldWithPath("result").description("An array of calculated charges"),
+                                        fieldWithPath("result.[].clickedDate").description("The date when charges are calculated"),
+                                        fieldWithPath("result.[].bidId").description("AD bid ID to charge"),
+                                        fieldWithPath("result.[].companyId").description("Company ID who created the AD bid"),
+                                        fieldWithPath("result.[].companyName").description("Company name who created the AD bid"),
+                                        fieldWithPath("result.[].productId").description("Product ID displayed by AD"),
+                                        fieldWithPath("result.[].productName").description("Product name displayed by AD"),
+                                        fieldWithPath("result.[].cntClicked").description("Total counts of clicked"),
+                                        fieldWithPath("result.[].totalCharge").description("Total charge(total count * AD bid price)")
                                 )
                         )
                 );

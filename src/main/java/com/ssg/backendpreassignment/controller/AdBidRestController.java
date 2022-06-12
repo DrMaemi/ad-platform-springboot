@@ -22,7 +22,7 @@ import java.util.Map;
 public class AdBidRestController {
     private final AdBidService adBidService;
 
-    @GetMapping("/api/adbids")
+    @GetMapping("/api/ad/bids")
     public ResponseEntity<?> getBids() {
         List<AdBidDto> adBidDtos = adBidService.getAdBids();
 
@@ -33,7 +33,7 @@ public class AdBidRestController {
                 .build(), HttpStatus.OK);
     }
 
-    @PostMapping("/api/adbid")
+    @PostMapping("/api/ad/bid")
     public ResponseEntity<?> createAdBid(@RequestBody @Valid AdBidReqDto adBidReqDto) {
         AdBidDto resDto = adBidService.createAdBid(adBidReqDto);
         Map<String, Object> resMap = new HashMap<>();

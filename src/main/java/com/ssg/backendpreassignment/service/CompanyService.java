@@ -24,13 +24,24 @@ public class CompanyService {
 
     @Transactional(readOnly=true)
     public CompanyDto findByNameExceptProducts(String companyName) {
-        Optional<CompanyEntity> companyEntity = companyRepository.findByName(companyName);
+        Optional<CompanyEntity> companyEntityWrapper = companyRepository.findByName(companyName);
 
-        if (companyEntity.isPresent()) {
-            return companyEntity.get().toDtoExceptProducts();
+        if (companyEntityWrapper.isPresent()) {
+            return companyEntityWrapper.get().toDtoExceptProducts();
         }
 
         return null;
+    }
+
+    @Transactional(readOnly=true)
+    public boolean isRegistered(Long id) {
+        Optional<CompanyEntity> companyEntityWrapper = companyRepository.findById(id);
+
+        if (companyEntityWrapper.isPresent()) {
+            return companyEntityWrapper.get().getBusinessRegistrationNumber() != null;
+        }
+
+        return false;
     }
 
     @Transactional

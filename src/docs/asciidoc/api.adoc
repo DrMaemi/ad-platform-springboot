@@ -48,9 +48,13 @@ operation::POST_api-company-update[snippets='http-request,request-fields,http-re
 === 계약 생성
 operation::POST_api-contract-create[snippets='http-request,request-fields,http-response,response-fields']
 
-[[계약-생성-유효성-검사]]
-=== 계약 생성 유효성 검사
-operation::POST_api-contract-validation[snippets='http-request,request-fields,http-response,response-fields']
+[[계약-생성-유효성-검사-1]]
+=== 계약 생성 유효성 검사 1
+operation::POST_api-contract-validation1[snippets='http-request,request-fields,http-response,response-fields']
+
+[[계약-생성-유효성-검사-2]]
+=== 계약 생성 유효성 검사 2
+operation::POST_api-contract-validation2[snippets='http-request,request-fields,http-response,response-fields']
 
 [[계약-리스트-조회]]
 === 계약 리스트 조회
@@ -61,46 +65,46 @@ operation::GET_api-contracts[snippets='http-request,http-response,response-field
 
 [[광고입찰-생성-1]]
 === 광고입찰 생성 1
-operation::POST_api-adbid-create1[snippets='http-request,request-fields,http-response,response-fields']
+operation::POST_api-ad-bid-create1[snippets='http-request,request-fields,http-response,response-fields']
 
 [[광고입찰-생성-2]]
 === 광고입찰 생성 2
-operation::POST_api-adbid-create2[snippets='http-request,request-fields,http-response,response-fields']
+operation::POST_api-ad-bid-create2[snippets='http-request,request-fields,http-response,response-fields']
 
 [[광고입찰-생성-3]]
 === 광고입찰 생성 3
-operation::POST_api-adbid-create3[snippets='http-request,request-fields,http-response,response-fields']
+operation::POST_api-ad-bid-create3[snippets='http-request,request-fields,http-response,response-fields']
 
 [[광고입찰-생성-시-유효성-검사]]
 === 광고입찰 생성 시 유효성 검사
-operation::POST_api-adbid-validation[snippets='http-request,request-fields,http-response,response-fields']
+operation::POST_api-ad-bid-validation[snippets='http-request,request-fields,http-response,response-fields']
 
 [[AdDisplay-API]]
 == 광고전시(AD Display) 도메인
 
 [[광고전시-리스트-조회]]
 === 광고전시 리스트 조회
-operation::GET_api-ads[snippets='http-request,http-response,response-fields']
+operation::GET_api-ad-display[snippets='http-request,http-response,response-fields']
 
 [[AdCharge-API]]
 == 광고과금(AD Charge) 도메인
 
 [[광고과금-생성-1]]
 === 광고과금 생성 1
-operation::POST_api-adcharge-create1[snippets='http-request,request-fields,http-response,response-fields']
+operation::POST_api-ad-charge-create1[snippets='http-request,request-fields,http-response,response-fields']
 
 [[광고과금-생성-2]]
 === 광고과금 생성 2
-operation::POST_api-adcharge-create2[snippets='http-request,request-fields,http-response,response-fields']
+operation::POST_api-ad-charge-create2[snippets='http-request,request-fields,http-response,response-fields']
 
 [[광고과금-생성-3]]
 === 광고과금 생성 3
-operation::POST_api-adcharge-create3[snippets='http-request,request-fields,http-response,response-fields']
+operation::POST_api-ad-charge-create3[snippets='http-request,request-fields,http-response,response-fields']
 
 [[광고과금-생성-4]]
 === 광고과금 생성 4
-operation::POST_api-adcharge-create4[snippets='http-request,request-fields,http-response,response-fields']
+operation::POST_api-ad-charge-create4[snippets='http-request,request-fields,http-response,response-fields']
 
 [[광고과금-유효성-검사]]
 === 광고과금 유효성 검사
-operation::POST_api-adcharge-validation[snippets='http-request,request-fields,http-response,response-fields']
+operation::POST_api-ad-charge-validation[snippets='http-request,request-fields,http-response,response-fields']

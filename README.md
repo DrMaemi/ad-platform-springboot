@@ -20,27 +20,27 @@
 
 ### 동작 구조
 
-<p align="center">
+<div align="center">
 
-![](https://drive.google.com/uc?export=view&id=1TEGMLaj66tqxG4V9a1YGwPrrQL6E6Fn6)
+![그림 - 동작 구조](/github-resources/Communication%20Topology.png)
 
-</p>
+</div>
 
-### 전체 패키지
+### 전체 패키지 구조
 
-<p align="center">
+<div align="center">
 
-![](https://drive.google.com/uc?export=view&id=1DdS6O4iYenq9CdBkTqH2lA9kxmBj93_z)
+![그림 - 전체 패키지 구조](/github-resources/Package%20Diagram.png)
 
-</p>
+</div>
 
-### config 패키지
+### config 패키지 구조
 
-<p align="center">
+<div align="center">
 
-![](https://drive.google.com/uc?export=view&id=1niSMjdupGWikuutIzPEXQDDzbaRRuB2i)
+![그림 - config 패키지 구조](/github-resources/Package%20DIagram(config).png)
 
-</p>
+</div>
 
 - validator
     - 유효성 검사 커스텀 어노테이션 및 마커 인터페이스(유효성 그룹)
@@ -54,7 +54,7 @@
     - JPA 복합키 구현을 위한 클래스
 
 ## DB(H2 Database) 테이블 구조(ERD)
-![](https://drive.google.com/uc?export=view&id=1GWYBDmWgtgG8FAGoiDF_Tqi4K8mTRA6t)
+![그림 - DB(H2 Database) 테이블 구조(ERD)](/github-resources/DB%20Table%20ERD.jpg)
 
 ## 테이블 스키마
 ### 업체(COMPANY)
@@ -157,17 +157,34 @@ CREATE TABLE ADVERTISEMENT_CHARGE_CAL(
 ### Spring REST Docs - API Documentation
 전체 내용은 [API Documentation](https://drmaemi.github.io/Ad-Platform/REST_DOCS)에서 확인
 
+<div align="center">
+
 TOC 캡처
 
-![](https://drive.google.com/uc?export=view&id=1166m7-QXivT7LkOHWPWfs5C_Q5qvcq8B)
+![그림 - TOC 캡처](/github-resources/Spring%20REST%20Docs%20-%20TOC.png)
+
+</div>
+
+<div align="center">
 
 임의 API request 캡처
 
-![](https://drive.google.com/uc?export=view&id=15QNFnyAinUYmc4bIHY9LiszkpPdxN2-q)
+![그림 - 임의 API request 캡처](/github-resources/Spring%20REST%20Docs%20-%201.png)
+
+</div>
+
+<div align="center">
 
 임의 API response 캡처
 
-![](https://drive.google.com/uc?export=view&id=1vNkxujjpZLNfo7Cz7wlBozTgJuRWzTxd)
+![그림 - 임의 API response 캡처](/github-resources/Spring%20REST%20Docs%20-%202.png)
+
+</div>
 
 ### 광고전시 리스트 페이지
-![](https://drive.google.com/uc?export=view&id=1k1-Dh79K2ZjF9xOF0LnEngyx7r3mHsNH)
+
+<div align="center">
+
+![그림 - 광고전시 리스트 페이지](/github-resources/AD%20Display%20Page.png)
+
+</div>

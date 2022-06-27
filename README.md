@@ -17,6 +17,24 @@
 2022.05.31 ~ 2022.06.12
 
 ## 프로젝트 전체 구조
+### 아키텍처
+- PADI Layered Architecture (DDD)
+    - Presentation
+        - CompanyRestController
+        - ProductRestController
+        - ...
+    - Application
+        - CompanyService
+        - ProductService
+        - ...
+    - Domain
+        - CompanyEntity
+        - CompanyDto
+        - ...
+    - Infrastructure
+        - CompanyRepository
+        - ProductRepository
+        - ...
 
 ### 동작 구조
 

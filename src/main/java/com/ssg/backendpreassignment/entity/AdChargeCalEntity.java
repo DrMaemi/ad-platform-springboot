@@ -11,7 +11,6 @@ import javax.persistence.*;
  * 클릭일자, 광고입찰 ID 두 개 컬럼을 복합키로 가짐
  */
 @Getter
-@Setter
 @NoArgsConstructor(access=AccessLevel.PROTECTED)
 @Entity
 @Table(name="ADVERTISEMENT_CHARGE_CAL")

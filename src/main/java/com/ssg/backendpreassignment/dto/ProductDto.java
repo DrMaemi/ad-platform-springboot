@@ -10,7 +10,6 @@ import java.time.LocalDateTime;
  * ProductRestController ↔ ProductService 레이어 간 전송 데이터 객체
  */
 @Getter
-@Setter
 @ToString
 @NoArgsConstructor
 public class ProductDto {

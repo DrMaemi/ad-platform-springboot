@@ -10,7 +10,6 @@ import javax.persistence.*;
  * ContractEntity와 다대일 단방향 연관 관계
  */
 @Getter
-@Setter
 @NoArgsConstructor(access=AccessLevel.PROTECTED)
 @Entity
 @Table(name="ADVERTISEMENT_BID")

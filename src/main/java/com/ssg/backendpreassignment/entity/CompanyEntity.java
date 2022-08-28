@@ -14,7 +14,6 @@ import java.util.stream.Collectors;
  * ProductEntity와 일대다 양방향 연관 관계
  */
 @Getter
-@Setter
 @NoArgsConstructor(access= AccessLevel.PROTECTED)
 @Entity
 @Table(name="COMPANY")
@@ -26,12 +25,15 @@ public class CompanyEntity extends TimeEntity implements Serializable {
     @Column(length=30, unique=true, nullable=false, updatable=false)
     private String name;
 
+    @Setter
     @Column(length=10)
     private String businessRegistrationNumber;
 
+    @Setter
     @Column(length=20)
     private String phoneNumber;
 
+    @Setter
     @Column(length=50)
     private String address;
 
@@ -75,7 +77,7 @@ public class CompanyEntity extends TimeEntity implements Serializable {
 
     public void addProduct(final ProductEntity productEntity) {
         if (this.getProductEntities() == null) {
-            this.setProductEntities(new ArrayList<>());
+            this.productEntities = new ArrayList<>();
         }
         this.productEntities.add(productEntity);
     }

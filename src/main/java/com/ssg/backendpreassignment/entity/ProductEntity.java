@@ -10,7 +10,6 @@ import javax.persistence.*;
  * CompanyEntity와 다대일 양방향 연관 관계
  */
 @Getter
-@Setter
 @NoArgsConstructor(access= AccessLevel.PROTECTED)
 @Entity
 @Table(name="PRODUCT")
@@ -19,6 +18,7 @@ public class ProductEntity extends TimeEntity {
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Long id;
 
+    @Setter
     @ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name="company_name", referencedColumnName="name")
     private CompanyEntity companyEntity;
@@ -31,6 +31,10 @@ public class ProductEntity extends TimeEntity {
 
     @Column(nullable=false)
     private Long stock;
+
+    public void setCompanyEntity(CompanyEntity companyEntity) {
+        this.companyEntity = companyEntity;
+    }
 
     @Builder
     public ProductEntity(Long id, CompanyEntity companyEntity, String productName, Long price, Long stock) {

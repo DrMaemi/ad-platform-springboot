@@ -13,7 +13,6 @@ import java.time.LocalDateTime;
  * AdBidEntity와 다대일 단방향 연관 관계
  */
 @Getter
-@Setter
 @NoArgsConstructor(access=AccessLevel.PRIVATE)
 @EntityListeners(AuditingEntityListener.class)
 @Entity
